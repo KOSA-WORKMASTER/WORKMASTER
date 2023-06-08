@@ -3,21 +3,22 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
+    <properties resource="mapper/db.properties"/>
+
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
-                <property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
-                <!--<property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"/>-->
-                <property name="url" value="jdbc:oracle:thin:@192.168.0.29:1521:XE?useUnicode=true&amp;characterEncoding=utf8"/>
-                <property name="username" value="workmaster"/>
-                <property name="password" value="workmaster"/>
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
             </dataSource>
         </environment>
     </environments>
 
     <mappers>
         <!-- 매퍼 파일 위치 지정 -->
-        <mapper resource="kr/or/sw/mapper/AuthMapper.xml"/>
+        <!--<mapper resource="kr/or/sw/mapper/AuthMapper.xml"/>-->
     </mappers>
 </configuration>
