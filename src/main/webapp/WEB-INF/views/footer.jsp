@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 
 </body>
+
 <style>
     @media (max-width: 768px) {
         .col-sm-8 {
@@ -8,6 +9,7 @@
         }
     }
 </style>
+
 <footer class="footer">
     <div class="container">
         <div class="row">

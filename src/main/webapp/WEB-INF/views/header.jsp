@@ -23,13 +23,13 @@
 
 <body>
     <%
-    request.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("UTF-8");
 
-    Map<String, String[]> map = request.getParameterMap();
-    for (Map.Entry<String, String[]> entry : map.entrySet()) {
-        System.out.printf("%s : %s%n", entry.getKey(), String.join(", ", entry.getValue()));
-    }
-%>
+        Map<String, String[]> map = request.getParameterMap();
+        for (Map.Entry<String, String[]> entry : map.entrySet()) {
+            System.out.printf("%s : %s%n", entry.getKey(), String.join(", ", entry.getValue()));
+        }
+    %>
 
 <header>header</header>
 

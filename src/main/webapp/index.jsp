@@ -1,11 +1,11 @@
-<%@ page import="kr.or.sw.util.DBUtil" %>
+<%@ page import="kr.or.sw.util.SqlSessionFactoryUtil" %>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="/WEB-INF/views/header.jsp" %>
 
 <main>
     main<br>
     <%
-        DBUtil.getInstance().getConnection();
+        SqlSessionFactoryUtil.getSession();
         out.print("JDBC Test 성공입니다!");
     %>
     <br>
