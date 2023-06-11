@@ -16,6 +16,7 @@
     <title>WorkMaster</title>
     <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/jquery.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/bootstrap.min.js" defer></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/main.js" defer></script>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/main.css">
     <link rel="icon" href="images/favicon_16.png">
@@ -33,6 +34,3 @@
 
 <header>header</header>
 
-<side>side</side>
-
-<nav>nav</nav>
