@@ -19,7 +19,7 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/main.js" defer></script>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/main.css">
-    <link rel="icon" href="images/favicon_16.png">
+    <link rel="icon" href="favicon.ico">
 </head>
 
 <body>
