@@ -18,7 +18,7 @@ public class SqlSessionFactoryUtil {
     private static SqlSessionFactory factory;
 
     static {
-        try (Reader reader = Resources.getResourceAsReader("mapper/mybatis-config.xml")) {
+        try (Reader reader = Resources.getResourceAsReader("mybatis/mybatis-config.xml")) {
             SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
             factory = builder.build(reader);
         } catch (IOException e) {
