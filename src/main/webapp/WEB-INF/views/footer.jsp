@@ -50,7 +50,7 @@
         <div class="row">
             <div class="col-md-8 col-sm-8 col-xs-12">
                 <p class="copyright-text">&copy; 2023 All Rights Reserved by
-                    <a href="${pageContext.request.contextPath}/index.jsp">WorkMaster</a>.
+                    <a href="${pageContext.request.contextPath}/index.html">WorkMaster</a>.
                 </p>
             </div>
         </div>

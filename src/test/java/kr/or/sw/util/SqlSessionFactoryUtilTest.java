@@ -8,7 +8,7 @@ public class SqlSessionFactoryUtilTest {
 
     @Test
     public void testGetSession() {
-        log.info("SqlSessionFactoryUtilTest.getSession()");
+        log.info("getSession()");
         SqlSessionFactoryUtil.getSession();
     }
 }
