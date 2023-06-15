@@ -4,11 +4,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 @Slf4j
-public class SqlSessionFactoryUtilTest {
+public class MyBatisUtilTest {
 
     @Test
     public void testGetSession() {
-        log.info("getSession()");
-        SqlSessionFactoryUtil.getSession();
+        log.info("testGetSession()");
+        MyBatisUtil.getSession();
     }
 }
