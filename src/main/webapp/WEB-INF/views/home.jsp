@@ -1,4 +1,4 @@
-<%@ page import="kr.or.sw.util.SqlSessionFactoryUtil" %>
+<%@ page import="kr.or.sw.util.MyBatisUtil" %>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="/WEB-INF/views/header.jsp" %>
 
@@ -35,7 +35,7 @@
 <main>
     main<br>
     <%
-        SqlSessionFactoryUtil.getSession();
+        MyBatisUtil.getSession();
         out.print("로그인 성공시 보여질 Home 페이지입니다.");
     %>
     <br>

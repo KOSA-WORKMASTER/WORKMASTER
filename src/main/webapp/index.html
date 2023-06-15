@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <title>WorkMaster</title>
-    <script type="text/javascript" src="./static/js/jquery.min.js"></script>
-    <script type="text/javascript" src="./static/js/bootstrap.min.js" defer></script>
-    <link rel="stylesheet" type="text/css" href="./static/css/loginMain.css">
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.min.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
     <link rel="icon" href="./favicon.ico">
 </head>
 
@@ -14,37 +15,39 @@
 <div class="container">
     <div class="daeboLeft">
         <p class="workmasterFont">WorkMaster</p>
-        <img class="fit-picture" src="./static/images/daebo.png" alt="daebo">
+        <img class="fit-picture" src="./images/daebo.png" alt="daebo">
     </div>
 
     <div class="fixed">
-        <h1 class="idFont">ID</h1>
-        <label>
-            <input style="width:490px; height:30px; font-size:25px;" type="text" placeholder="ID 입력">
-        </label>
-        <br>
-        <br>
-        <h1 class="passwordFont">Password</h1>
-        <label>
-            <input style="width:490px;height:30px;font-size:25px;" type="password" placeholder="PW 입력">
-        </label>
-        <br>
-        <br>
-        <button class="NewAccount">회원가입</button>
-        <br>
-        <br>
-        <div class="checkCancelButton">
-            <table>
-                <tr>
-                    <th>
-                        <button type="button" class="CheckButton">확인</button>
-                    </th>
-                    <th>
-                        <button type="button" class="CancelButton">취소</button>
-                    </th>
-                </tr>
-            </table>
-        </div>
+        <form action="/auth/login" method="post">
+            <h1 class="idFont">ID</h1>
+            <label>
+                <input style="width:490px; height:30px; font-size:25px;" type="text" placeholder="ID 입력" id="account" name="account">
+            </label>
+            <br>
+            <br>
+            <h1 class="passwordFont">Password</h1>
+            <label>
+                <input style="width:490px;height:30px;font-size:25px;" type="password" placeholder="PW 입력" id="password" name="password">
+            </label>
+            <br>
+            <br>
+            <button class="NewAccount">회원가입</button>
+            <br>
+            <br>
+            <div class="checkCancelButton">
+                <table>
+                    <tr>
+                        <th>
+                            <button type="submit" class="CheckButton">확인</button>
+                        </th>
+                        <th>
+                            <button type="reset" class="CancelButton">취소</button>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </form>
     </div>
 </div>
 </body>

@@ -3,6 +3,7 @@ package kr.or.sw.util;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import oracle.jdbc.driver.ClassRef;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -10,23 +11,25 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.util.Locale;
 
 @Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class SqlSessionFactoryUtil {
+public class MyBatisUtil {
 
-    private static SqlSessionFactory factory;
+    private static SqlSessionFactory sqlSessionFactory;
 
     static {
         try (Reader reader = Resources.getResourceAsReader("mybatis/mybatis-config.xml")) {
+            log.info(String.valueOf(Locale.getDefault()));
             SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
-            factory = builder.build(reader);
+            sqlSessionFactory = builder.build(reader);
         } catch (IOException e) {
             log.error("SqlSessionFactory 초기화 실패", e);
         }
     }
 
     public static SqlSession getSession() {
-        return factory.openSession();
+        return sqlSessionFactory.openSession();
     }
 }

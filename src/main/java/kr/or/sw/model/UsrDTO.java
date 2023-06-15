@@ -9,12 +9,12 @@ public class UsrDTO {
 
     private String account; // 계정, PK
     private String password;    // 비밀번호
-    private String salt;    // salt
+//    private String salt;    // salt
     private boolean admin;    // 관리자 여부
-    private int empNo;   // 사번, FK
+//    private int empNo;   // 사번, FK
 
-    public UsrDTO(String account, String password) {
+    /*public UsrDTO(String account, String password) {
         this.account = account;
         this.password = password;
-    }
+    }*/
 }
