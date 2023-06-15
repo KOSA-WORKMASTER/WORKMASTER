@@ -39,8 +39,6 @@ public class AuthController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         log.info("doPost()");
 
-//        System.setProperty("user.language", "ko");
-//        System.setProperty("user.country", "KR");
         String pathInfo = request.getPathInfo();
         switch (pathInfo) {
             case "/login":
