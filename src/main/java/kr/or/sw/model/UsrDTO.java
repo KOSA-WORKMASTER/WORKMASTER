@@ -1,10 +1,11 @@
 package kr.or.sw.model;
 
+import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
 public class UsrDTO {
 
     private String account; // 계정, PK
