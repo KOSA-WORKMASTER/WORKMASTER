@@ -14,12 +14,12 @@
     <meta name="description" content="JSP Project for Attendance Management System">
     <meta name="author" content="WorkMaster">
     <title>WorkMaster</title>
+    <link rel="icon" href="./favicon.ico">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js" defer></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/main.js" defer></script>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
-    <link rel="icon" href="./favicon.ico">
 </head>
 
 <body>
