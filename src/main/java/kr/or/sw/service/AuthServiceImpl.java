@@ -27,12 +27,12 @@ public class AuthServiceImpl implements AuthService {
     public boolean login(HttpServletRequest request, HttpServletResponse response) {
         log.info("login()");
 
-        // 로그인 기능 구현: 비밀번호 틀리면 return false
+        // 로그인 기능 구현
         SqlSession sqlSession = MyBatisUtil.getSession();
         UsrDTO usrDTO = new UsrDTO();
         usrDTO.setAccount(request.getParameter("account"));
         usrDTO.setPassword(request.getParameter("password"));
-        boolean match = authDAO.login(sqlSession, usrDTO);
+        boolean match = authDAO.checkCredentials(sqlSession, usrDTO) == 1;
         sqlSession.close();
         return match;
     }

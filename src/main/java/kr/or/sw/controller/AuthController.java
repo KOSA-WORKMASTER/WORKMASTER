@@ -27,7 +27,12 @@ public class AuthController extends HttpServlet {
         String pathInfo = request.getPathInfo();
         switch (pathInfo) {
             case "/index":
+                log.info("/index");
                 redirectToIndex(request, response);
+                break;
+            case "/logout":
+                log.info("/logout");
+                handleLogout(request, response);
                 break;
             default:
                 handleInvalidAccess(response, pathInfo);
@@ -53,6 +58,7 @@ public class AuthController extends HttpServlet {
 
     private void redirectToIndex(HttpServletRequest request, HttpServletResponse response) throws IOException {
         log.info("redirectToIndex()");
+
         response.sendRedirect(request.getContextPath() + REDIRECT_PATH);
     }
 
@@ -69,12 +75,19 @@ public class AuthController extends HttpServlet {
             response.getWriter().write("{ \"message\": \"Login Failed\" }");
 //            request.getRequestDispatcher("/index.html").forward(request, response);   // 인덱스로 이동
         } else {
-            log.info("로그인 성공{}</u> : {}", account, password);
+            log.info("로그인 성공\naccount: {}\npassword: {}", account, password);
             request.getSession().setAttribute("account", account);  // 로그인 세션 저장
 //            response.setStatus(HttpServletResponse.SC_OK);
 //            response.setHeader("Location", "/WEB-INF/views/home.jsp");
             request.getRequestDispatcher(VIEW_PATH).forward(request, response); // 홈 화면으로 이동
         }
+    }
+
+    private void handleLogout(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        log.info("handleLogout()");
+
+        request.getSession().invalidate();  // 로그인 세션 무효화
+        redirectToIndex(request, response);
     }
 
     private void handleInvalidAccess(HttpServletResponse response, String pathInfo) throws ServletException, IOException {
