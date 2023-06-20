@@ -27,11 +27,11 @@ public class AuthController extends HttpServlet {
         String pathInfo = request.getPathInfo();
         switch (pathInfo) {
             case "/index":
-                log.info("/index");
+                log.info("/index"); // 로그인 화면으로 이동
                 redirectToIndex(request, response);
                 break;
             case "/logout":
-                log.info("/logout");
+                log.info("/logout");    // 로그아웃
                 handleLogout(request, response);
                 break;
             default:
@@ -47,7 +47,7 @@ public class AuthController extends HttpServlet {
         String pathInfo = request.getPathInfo();
         switch (pathInfo) {
             case "/login":
-                log.info("/login");
+                log.info("/login"); // 로그인
                 handleLogin(request, response);
                 break;
             default:
@@ -57,13 +57,13 @@ public class AuthController extends HttpServlet {
     }
 
     private void redirectToIndex(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        log.info("redirectToIndex()");
+        log.info("redirectToIndex()");  // 로그인 화면으로 이동
 
         response.sendRedirect(request.getContextPath() + REDIRECT_PATH);
     }
 
     private void handleLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        log.info("handleLogin()");
+        log.info("handleLogin()");  // 로그인
 
         String account = request.getParameter("account");
         String password = request.getParameter("password");
@@ -84,14 +84,14 @@ public class AuthController extends HttpServlet {
     }
 
     private void handleLogout(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        log.info("handleLogout()");
+        log.info("handleLogout()"); // 로그아웃
 
         request.getSession().invalidate();  // 로그인 세션 무효화
         redirectToIndex(request, response);
     }
 
     private void handleInvalidAccess(HttpServletResponse response, String pathInfo) throws ServletException, IOException {
-        log.info("handleInvalidAccess()");
+        log.info("handleInvalidAccess()");  // 잘못된 접근 처리
 
         log.error("잘못된 접근 : {}", pathInfo);
         response.setStatus(HttpServletResponse.SC_FORBIDDEN);
