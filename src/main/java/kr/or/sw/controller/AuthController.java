@@ -16,9 +16,10 @@ import java.io.IOException;
 public class AuthController extends HttpServlet {
 
     private static final long serialVersionUID = -2930158301476609066L;
-    private AuthService authService;
-    private static final String REDIRECT_PATH = "/index.html?redirect=true";
-    private static final String VIEW_PATH = "/WEB-INF/views/home.jsp";
+    private final AuthService authService = AuthServiceImpl.getInstance();
+
+    private static final String REDIRECT_PATH = "index.html?redirect=true";
+    private static final String VIEW_PATH = "WEB-INF/views/home.jsp";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -67,7 +68,6 @@ public class AuthController extends HttpServlet {
 
         String account = request.getParameter("account");
         String password = request.getParameter("password");
-        authService = AuthServiceImpl.getINSTANCE();
         if (!authService.login(request, response)) {
             log.error("로그인 실패\nAC: {}, PW: {}", account, password);
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);

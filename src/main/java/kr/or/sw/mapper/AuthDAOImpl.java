@@ -12,7 +12,7 @@ public class AuthDAOImpl implements AuthDAO {
 
     private static final AuthDAO INSTANCE = new AuthDAOImpl();
 
-    public static AuthDAO getINSTANCE() {
+    public static AuthDAO getInstance() {
         return INSTANCE;
     }
 

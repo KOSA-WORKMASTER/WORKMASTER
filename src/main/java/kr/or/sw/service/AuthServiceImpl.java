@@ -18,11 +18,11 @@ public class AuthServiceImpl implements AuthService {
 
     private static final AuthService INSTANCE = new AuthServiceImpl();
 
-    public static AuthService getINSTANCE() {
+    public static AuthService getInstance() {
         return INSTANCE;
     }
 
-    private final AuthDAO authDAO = AuthDAOImpl.getINSTANCE();
+    private final AuthDAO authDAO = AuthDAOImpl.getInstance();
 
     @Override
     public boolean login(HttpServletRequest request, HttpServletResponse response) {
