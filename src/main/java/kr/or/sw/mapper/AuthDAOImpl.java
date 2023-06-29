@@ -26,4 +26,20 @@ public class AuthDAOImpl implements AuthDAO {
 
         return sqlSession.selectOne("checkCredentials", memberDTO);
     }
+
+    @Override
+    public int checkEmail(SqlSession sqlSession, String email) {
+        log.info("checkEmail()");
+        log.info(email);
+        return sqlSession.selectOne("checkEmail", email);
+    }
+
+    @Override
+    public int insertMember(SqlSession sqlSession, MemberDTO memberDTO) {
+        log.info("insertMember()");
+        log.info(memberDTO.toString());
+        return sqlSession.insert("insertMember", memberDTO);
+    }
 }
+
+    
