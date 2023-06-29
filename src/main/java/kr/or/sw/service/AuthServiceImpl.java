@@ -30,12 +30,23 @@ public class AuthServiceImpl implements AuthService {
 
         // 로그인 기능 구현
         MemberDTO memberDTO = new MemberDTO();
-        memberDTO.setAccount(request.getParameter("account"));
+        memberDTO.setEmail(request.getParameter("email"));
         memberDTO.setPassword(request.getParameter("password"));
 
         SqlSession sqlSession = MyBatisUtil.getSession();
         int match = authDAO.checkCredentials(sqlSession, memberDTO);
         sqlSession.close();
         return match == 1;
+    }
+
+    @Override
+    public boolean checkEmail(HttpServletRequest request, HttpServletResponse response) {
+        log.info("checkEmail()");
+        String email = request.getParameter("email");
+
+        SqlSession sqlSession = MyBatisUtil.getSession();
+        int ret = authDAO.checkEmail(sqlSession, email);
+        sqlSession.close();
+        return ret == 1;
     }
 }

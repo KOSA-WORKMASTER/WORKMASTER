@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 public interface AuthService {
 
     boolean login(HttpServletRequest request, HttpServletResponse response);
+    boolean checkEmail(HttpServletRequest request, HttpServletResponse response);
 //    boolean logout();
 
 //    boolean register(HttpServletRequest request, HttpServletResponse response);

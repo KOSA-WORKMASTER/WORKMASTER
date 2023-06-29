@@ -1,5 +1,6 @@
 package kr.or.sw.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import kr.or.sw.service.AuthService;
 import kr.or.sw.service.AuthServiceImpl;
 import lombok.extern.slf4j.Slf4j;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @Slf4j
 @WebServlet(name = "auth", value = "/auth/*")
@@ -51,6 +53,14 @@ public class AuthController extends HttpServlet {
                 log.info("/login"); // 로그인
                 handleLogin(request, response);
                 break;
+            case "/register":
+                log.info("/register");
+                handleRegister(request, response);
+                break;
+            case "/checkEmail":
+                log.info("/checkEmail");
+                handleCheckEmail(request, response);
+                break;
             default:
                 handleInvalidAccess(response, pathInfo);
                 break;
@@ -66,17 +76,17 @@ public class AuthController extends HttpServlet {
     private void handleLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         log.info("handleLogin()");  // 로그인
 
-        String account = request.getParameter("account");
+        String email = request.getParameter("email");
         String password = request.getParameter("password");
         if (!authService.login(request, response)) {
-            log.error("로그인 실패\nAC: {}, PW: {}", account, password);
+            log.error("로그인 실패\nAC: {}, PW: {}", email, password);
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             response.setContentType("application/json");
             response.getWriter().write("{ \"message\": \"Login Failed\" }");
 //            request.getRequestDispatcher("/index.html").forward(request, response);   // 인덱스로 이동
         } else {
-            log.info("로그인 성공\naccount: {}\npassword: {}", account, password);
-            request.getSession().setAttribute("account", account);  // 로그인 세션 저장
+            log.info("로그인 성공\nemail: {}\npassword: {}", email, password);
+            request.getSession().setAttribute("email", email);  // 로그인 세션 저장
 //            response.setStatus(HttpServletResponse.SC_OK);
 //            response.setHeader("Location", "/WEB-INF/views/home.jsp");
             request.getRequestDispatcher(VIEW_PATH).forward(request, response); // 홈 화면으로 이동
@@ -88,6 +98,27 @@ public class AuthController extends HttpServlet {
 
         request.getSession().invalidate();  // 로그인 세션 무효화
         redirectToIndex(request, response);
+    }
+
+    private void handleRegister(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        log.info("handleRegister");
+        // 회원가입 authMapper.xml에 쿼리식 작성하고
+        // DTO에 데이터 넣어서 진행하기
+    }
+
+    private void handleCheckEmail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        log.info("handleCheckEmail");
+
+        PrintWriter out = response.getWriter();
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        boolean ret = authService.checkEmail(request, response);
+        log.info("ret: " + ret);
+        out.write(objectMapper.writeValueAsString(ret));
+        out.flush();
+        log.info("check email done");
     }
 
     private void handleInvalidAccess(HttpServletResponse response, String pathInfo) throws ServletException, IOException {

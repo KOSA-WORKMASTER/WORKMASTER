@@ -8,4 +8,9 @@
         WHERE EMAIL = #{email}
           AND PASSWORD = #{password}
     </select>
+    <select id="checkEmail" parameterType="java.lang.String" resultType="_int">
+        SELECT COUNT(*)
+        FROM MEMBER
+        WHERE EMAIL = #{email}
+    </select>
 </mapper>
