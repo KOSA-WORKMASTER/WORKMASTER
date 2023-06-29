@@ -2,7 +2,7 @@ package kr.or.sw.service;
 
 import kr.or.sw.mapper.AuthDAO;
 import kr.or.sw.mapper.AuthDAOImpl;
-import kr.or.sw.model.UsrDTO;
+import kr.or.sw.model.MemberDTO;
 import kr.or.sw.util.MyBatisUtil;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -29,12 +29,12 @@ public class AuthServiceImpl implements AuthService {
         log.info("login()");
 
         // 로그인 기능 구현
-        UsrDTO usrDTO = new UsrDTO();
-        usrDTO.setAccount(request.getParameter("account"));
-        usrDTO.setPassword(request.getParameter("password"));
+        MemberDTO memberDTO = new MemberDTO();
+        memberDTO.setAccount(request.getParameter("account"));
+        memberDTO.setPassword(request.getParameter("password"));
 
         SqlSession sqlSession = MyBatisUtil.getSession();
-        int match = authDAO.checkCredentials(sqlSession, usrDTO);
+        int match = authDAO.checkCredentials(sqlSession, memberDTO);
         sqlSession.close();
         return match == 1;
     }
