@@ -1,6 +1,6 @@
 package kr.or.sw.mapper;
 
-import kr.or.sw.model.UsrDTO;
+import kr.or.sw.model.MemberDTO;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,13 +17,13 @@ public class AuthDAOImpl implements AuthDAO {
     }
 
     @Override
-    public int checkCredentials(SqlSession sqlSession, UsrDTO usrDTO) {
+    public int checkCredentials(SqlSession sqlSession, MemberDTO memberDTO) {
         log.info("checkCredentials()"); // 계정 및 비밀번호 일치 여부 검사
 
         // 여기에 데이터베이스 작업을 수행하는 쿼리 작성
         // 예시: 사용자명과 비밀번호의 일치여부를 반환하는 쿼리
         // Encode Password by Using kr.or.sw.util.CipherUtil
 
-        return sqlSession.selectOne("checkCredentials", usrDTO);
+        return sqlSession.selectOne("checkCredentials", memberDTO);
     }
 }
