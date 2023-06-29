@@ -1,8 +1,11 @@
 package kr.or.sw.model;
 
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
 public class EmpDTO {
 
     private int empNo;   // 사번, PK

@@ -39,7 +39,11 @@ build/
 
 ### Custom ###
 .idea/
+<<<<<<< HEAD
 
 
 .metadata/
 bin/
+=======
+*.map
+>>>>>>> 521aebd565f37794af74a69e8fe04b7672392ea7

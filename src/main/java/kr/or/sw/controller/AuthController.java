@@ -16,7 +16,8 @@ import java.io.IOException;
 public class AuthController extends HttpServlet {
 
     private static final long serialVersionUID = -2930158301476609066L;
-    private AuthService authService;
+    private final AuthService authService = AuthServiceImpl.getInstance();
+
     private static final String REDIRECT_PATH = "/index.html?redirect=true";
     private static final String VIEW_PATH = "/WEB-INF/views/home.jsp";
 
@@ -27,7 +28,12 @@ public class AuthController extends HttpServlet {
         String pathInfo = request.getPathInfo();
         switch (pathInfo) {
             case "/index":
+                log.info("/index"); // 로그인 화면으로 이동
                 redirectToIndex(request, response);
+                break;
+            case "/logout":
+                log.info("/logout");    // 로그아웃
+                handleLogout(request, response);
                 break;
             default:
                 handleInvalidAccess(response, pathInfo);
@@ -42,7 +48,7 @@ public class AuthController extends HttpServlet {
         String pathInfo = request.getPathInfo();
         switch (pathInfo) {
             case "/login":
-                log.info("/login");
+                log.info("/login"); // 로그인
                 handleLogin(request, response);
                 break;
             default:
@@ -52,16 +58,16 @@ public class AuthController extends HttpServlet {
     }
 
     private void redirectToIndex(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        log.info("redirectToIndex()");
+        log.info("redirectToIndex()");  // 로그인 화면으로 이동
+
         response.sendRedirect(request.getContextPath() + REDIRECT_PATH);
     }
 
     private void handleLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        log.info("handleLogin()");
+        log.info("handleLogin()");  // 로그인
 
         String account = request.getParameter("account");
         String password = request.getParameter("password");
-        authService = AuthServiceImpl.getINSTANCE();
         if (!authService.login(request, response)) {
             log.error("로그인 실패\nAC: {}, PW: {}", account, password);
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
@@ -69,7 +75,7 @@ public class AuthController extends HttpServlet {
             response.getWriter().write("{ \"message\": \"Login Failed\" }");
 //            request.getRequestDispatcher("/index.html").forward(request, response);   // 인덱스로 이동
         } else {
-            log.info("로그인 성공{}</u> : {}", account, password);
+            log.info("로그인 성공\naccount: {}\npassword: {}", account, password);
             request.getSession().setAttribute("account", account);  // 로그인 세션 저장
 //            response.setStatus(HttpServletResponse.SC_OK);
 //            response.setHeader("Location", "/WEB-INF/views/home.jsp");
@@ -77,8 +83,15 @@ public class AuthController extends HttpServlet {
         }
     }
 
+    private void handleLogout(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        log.info("handleLogout()"); // 로그아웃
+
+        request.getSession().invalidate();  // 로그인 세션 무효화
+        redirectToIndex(request, response);
+    }
+
     private void handleInvalidAccess(HttpServletResponse response, String pathInfo) throws ServletException, IOException {
-        log.info("handleInvalidAccess()");
+        log.info("handleInvalidAccess()");  // 잘못된 접근 처리
 
         log.error("잘못된 접근 : {}", pathInfo);
         response.setStatus(HttpServletResponse.SC_FORBIDDEN);

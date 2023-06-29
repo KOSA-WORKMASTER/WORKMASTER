@@ -2,13 +2,17 @@
 <html lang="ko">
 
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="JSP Project for Attendance Management System">
+    <meta name="author" content="WorkMaster">
     <title>WorkMaster</title>
-    <script type="text/javascript" src="./js/jquery.min.js"></script>
-    <script type="text/javascript" src="./js/bootstrap.min.js" defer></script>
+    <link rel="icon" href="./favicon.ico">
     <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./css/index.css">
-    <link rel="icon" href="./favicon.ico">
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.min.js" defer></script>
 </head>
 
 <body>
@@ -22,23 +26,38 @@
         <form action="/auth/login" method="post">
             <h1 class="idFont">ID</h1>
             <label>
-                <input style="width:490px; height:30px; font-size:25px;" type="text" placeholder="ID 입력" id="account" name="account">
+                <input style="width:490px; height:30px; font-size:25px;" type="text" placeholder="ID 입력" id="account"
+                       name="account">
             </label>
             <br>
             <br>
             <h1 class="passwordFont">Password</h1>
             <label>
-                <input style="width:490px;height:30px;font-size:25px;" type="password" placeholder="PW 입력" id="password" name="password">
+                <input style="width:490px;height:30px;font-size:25px;" type="password" placeholder="PW 입력" id="password"
+                       name="password">
             </label>
             <br>
             <br>
-            <button class="NewAccount">회원가입</button>
+            <input type="button" class="button NewAccount" value="회원가입">
             <br>
             <br>
             <div class="checkCancelButton">
+<<<<<<< HEAD
              
                        <input type="submit" class="btn btn-outline-primary btn-lg">확인</input>
                        <button type="button" class="btn btn-outline-danger btn-lg">취소</button>
+=======
+                <table>
+                    <tr>
+                        <th>
+                            <input type="submit" class="button CheckButton" value="확인">
+                        </th>
+                        <th>
+                            <input type="reset" class="button CancelButton" value="취소">
+                        </th>
+                    </tr>
+                </table>
+>>>>>>> 521aebd565f37794af74a69e8fe04b7672392ea7
             </div>
         </form>
     </div>
