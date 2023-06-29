@@ -39,3 +39,7 @@ build/
 
 ### Custom ###
 .idea/
+
+
+.metadata/
+bin/

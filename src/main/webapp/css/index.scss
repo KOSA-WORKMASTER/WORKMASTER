@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+
+
 div.daeboLeft {
   width: 52vw;
   height: 102vh;
@@ -41,6 +43,15 @@ div.fixed {
   font-size: 25px;
 }
 
+.btn-primary{
+	  height: 50px;
+	  width: 248px;
+	  font-size: 25px;
+	
+	
+}
+
+
 .CancelButton {
   height: 50px;
   width: 248px;
@@ -48,9 +59,15 @@ div.fixed {
 }
 
 .checkCancelButton {
+	
+
   text-align: center;
-  display: block;
-  width: 3vw;
+  display: flex;	
+  justify-content: center;
+  text-align: center;
+  width: 30vw;
+  align-items: center;
+  position: relative;
 }
 
 p.workmasterFont {

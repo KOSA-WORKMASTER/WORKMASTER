@@ -18,9 +18,9 @@ div.daeboLeft {
 }
 
 div.fixed {
-  position: fixed;
+  /* position: fixed;
   bottom: 30%;
-  right: 15%;
+  right: 15%; */
   width: 25vw;
   height: 50vh;
   margin: 0 auto;
@@ -39,6 +39,12 @@ div.fixed {
   font-size: 25px;
 }
 
+.btn-primary {
+  height: 50px;
+  width: 248px;
+  font-size: 25px;
+}
+
 .CancelButton {
   height: 50px;
   width: 248px;
@@ -47,8 +53,12 @@ div.fixed {
 
 .checkCancelButton {
   text-align: center;
-  display: block;
-  width: 3vw;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 30vw;
+  align-items: center;
+  position: relative;
 }
 
 p.workmasterFont {
