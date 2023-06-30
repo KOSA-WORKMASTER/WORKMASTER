@@ -1,13 +1,16 @@
+'use strict'
+
 let stage = 0;
 let stageLength = $(".register-stage").length;
 let emailChk = false;
 
 const validateEmail = (input) => {
-    let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    /*let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     if (input.value.match(validRegex))
         return true;
     else
-        return false;
+        return false;*/
+    return true
 }
 $("#email-chk").click(() => {
     if ($("#email").val().length == 0) {
@@ -35,8 +38,7 @@ $("#email-chk").click(() => {
                     $("#email-chk").toggleClass("btn-success");
                     emailChk = true;
                     alert("사용 가능한 이메일입니다")
-                }
-                else {
+                } else {
                     alert("이메일이 중복됩니다");
                     return;
                 }
@@ -44,8 +46,7 @@ $("#email-chk").click(() => {
         });
 
 
-    }
-    else {
+    } else {
         if ($("#email").attr("disabled")) $("#email").removeAttr("disabled");
 
         $("#email-chk").toggleClass("btn-outline-secondary");
@@ -70,13 +71,13 @@ $("#nextstage").click(() => {
 
     stage++;
     $(".register-stage-wrapper").css({
-        transform : `translateX(${-49 * (stage % stageLength)}%)`
+        transform: `translateX(${-49 * (stage % stageLength)}%)`
     });
 });
 $("#prevstage").click(() => {
     stage--;
     $(".register-stage-wrapper").css({
-        transform : `translateX(${-49 * (stage % stageLength)}%)`
+        transform: `translateX(${-49 * (stage % stageLength)}%)`
     });
 });
 
