@@ -2,17 +2,18 @@
 <html lang="ko">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="JSP Project for Attendance Management System">
-    <meta name="author" content="WorkMaster">
-    <title>WorkMaster</title>
-    <link rel="icon" href="./favicon.ico">
-    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="./css/index.css">
-    <script type="text/javascript" src="./js/jquery.min.js"></script>
-    <script type="text/javascript" src="./js/bootstrap.min.js" defer></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="JSP Project for Attendance Management System">
+  <meta name="author" content="WorkMaster">
+  <title>WorkMaster</title>
+  <link rel="icon" href="./favicon.ico">
+  <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./css/index.css">
+  <script type="text/javascript" src="./js/jquery.min.js"></script>
+  <script type="text/javascript" src="./js/bootstrap.min.js" defer></script>
+  <script type="text/javascript" src="./js/register.js" defer></script>
 </head>
 
 <body>
@@ -54,8 +55,50 @@
                     </tr>
                 </table>
             </div>
-        </form>
+            <div class="input-container">
+              <h5>Password</h5>
+              <div class="input-group">
+                <input type="password" class="form-control" placeholder="비밀번호" name="password" id="password">
+              </div>
+            </div>
+
+
+            <div class="btn-container">
+
+                <button class="btn btn-outline-primary" type="button" id="nextstage">확인</button>&nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn btn-outline-danger">취소</button>
+
+            </div>
+            <br />
+
+            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+              <button type="button" class="btn btn-outline-danger">회원가입</button>
+              <button type="button" class="btn btn-outline-success" onclick="location.href='./html/passwordSearch1.html'">비밀번호 찾기</button>
+            </div>
+
+            <br />
+
+          </div>
+          <div class="index-stage 2">
+            <h5>이름</h5>
+            <div class="input-container">
+              <input type="text" placeholder="Email 입력" id="name"
+                     name="name">
+            </div>
+            <h5>연락처</h5>
+            <div class="input-container">
+              <input type="tel" placeholder="Password 입력" id="phone"
+                     name="phone">
+            </div>
+            <h5>생년월일</h5>
+            <div class="input-container">
+              <input type="date">
+            </div>
+          </div>
+        </div>
+      </form>
     </div>
+  </div>
 </div>
 </body>
 

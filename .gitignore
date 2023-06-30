@@ -39,7 +39,18 @@ build/
 
 ### Custom ###
 .idea/
+<<<<<<< HEAD
 *.map
 src/main/resources/mybatis/db.properties
 bin/
 .metadata/
+=======
+<<<<<<< HEAD
+
+
+.metadata/
+bin/
+=======
+*.map
+>>>>>>> 521aebd565f37794af74a69e8fe04b7672392ea7
+>>>>>>> 16caf2677ed60ce6af4dbea4565aaba76295b9dc
