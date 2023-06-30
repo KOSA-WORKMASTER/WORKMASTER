@@ -7,6 +7,7 @@ public interface AuthService {
 
     boolean login(HttpServletRequest request, HttpServletResponse response);
     boolean checkEmail(HttpServletRequest request, HttpServletResponse response);
+    boolean insertMember(HttpServletRequest request, HttpServletResponse response);
 //    boolean logout();
 
 //    boolean register(HttpServletRequest request, HttpServletResponse response);
