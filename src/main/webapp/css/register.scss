@@ -4,6 +4,10 @@
   flex-direction: row;
   width: 100vw;
   height: 100vh;
+
+  .hide {
+    display: none;
+  }
 }
 
 .logo {
@@ -72,6 +76,13 @@
             .input-container {
               width: 80%;
               padding: 2vh;
+              .help {
+                font-size: 0.5rem;
+              }
+              .form-control:focus.err {
+                border-color: red;
+                box-shadow: 0 0 0 0.2rem rgba(255, 0, 0,.25);
+              }
             }
             .btn-container {
               width: 40%;
