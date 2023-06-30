@@ -32,15 +32,14 @@ public class AuthServiceImpl implements AuthService {
     public boolean login(HttpServletRequest request, HttpServletResponse response) {
         log.info("login()");
 
-        // 로그인 기능 구현
-        MemberDTO memberDTO = new MemberDTO();
-        memberDTO.setEmail(request.getParameter("email"));
-        memberDTO.setPassword(request.getParameter("password"));
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
 
         SqlSession sqlSession = MyBatisUtil.getSession();
-        int match = authDAO.checkCredentials(sqlSession, memberDTO);
+        MemberDTO memberDTO = authDAO.selectCredentials(sqlSession, email);
         sqlSession.close();
-        return match == 1;
+
+        return CipherUtil.getInstance().hashPassword(password, memberDTO.getSalt()).equals(memberDTO.getPassword());
     }
 
     @Override
@@ -79,6 +78,7 @@ public class AuthServiceImpl implements AuthService {
                 birthday = request.getParameter("birthday");
 
         MemberDTO memberDTO = new MemberDTO(mName, email, password, salt, contact, question, answer, birthday);
+
         SqlSession sqlSession = MyBatisUtil.getSession();
         int ret = authDAO.insertMember(sqlSession, memberDTO);
         sqlSession.commit();

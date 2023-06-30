@@ -5,7 +5,7 @@ import org.apache.ibatis.session.SqlSession;
 
 public interface AuthDAO {
 
-    int checkCredentials(SqlSession sqlSession, MemberDTO memberDTO);
+    MemberDTO selectCredentials(SqlSession sqlSession, String email);
 
     int checkEmail(SqlSession sqlsession, String email);
 
