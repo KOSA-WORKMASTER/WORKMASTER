@@ -102,8 +102,14 @@ public class AuthController extends HttpServlet {
 
     private void handleRegister(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         log.info("handleRegister");
-        // 회원가입 authMapper.xml에 쿼리식 작성하고
-        // DTO에 데이터 넣어서 진행하기
+
+        if (!authService.insertMember(request, response)) {
+            log.error("register fail");
+            redirectToIndex(request, response);
+        } else {
+            log.info("register success");
+            redirectToIndex(request, response);
+        }
     }
 
     private void handleCheckEmail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

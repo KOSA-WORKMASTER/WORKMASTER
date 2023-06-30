@@ -1,10 +1,22 @@
 let stage = 0;
 let stageLength = $(".register-stage").length;
 let emailChk = false;
+
+const validateEmail = (input) => {
+    let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    if (input.value.match(validRegex))
+        return true;
+    else
+        return false;
+}
 $("#email-chk").click(() => {
     if ($("#email").val().length == 0) {
         alert("이메일을 입력해주세요");
         return;
+    }
+    if (!validateEmail($("#email").val())) {
+        alert("이메일 형식이 아닙니다");
+        $("#email").focus();
     }
 
     if (!emailChk) {
@@ -69,11 +81,12 @@ $("#prevstage").click(() => {
 });
 
 $("#register-form").submit((e) => {
-    if ($("#name").val().length == 0) {
+    console.log($("#email").val());
+    if ($("#mName").val().length == 0) {
         alert("이름을 입력해주세요");
         return false;
     }
-    if ($("#phone").val().length == 0) {
+    if ($("#contact").val().length == 0) {
         alert("연락처를 입력해주세요");
         return false;
     }
@@ -81,6 +94,14 @@ $("#register-form").submit((e) => {
         alert("생년월일을 입력해주세요");
         return false;
     }
-
+    if ($("#question").val().length == 0) {
+        alert("비밀번호 찾기 질문을 입력해주세요");
+        return false;
+    }
+    if ($("#answer").val().length == 0) {
+        alert("비밀번호 찾기 답을 입력해주세요");
+        return false;
+    }
+    $("#email").removeAttr("disabled");
     return true;
 })
