@@ -85,7 +85,7 @@ $("#nextstage").click(() => {
 $("#prevstage").click(() => {
     stage--;
     $(".register-stage-wrapper").css({
-        transform: `translateX(${-49 * (stage % stageLength)}%)`
+        transform: `translateX(${-50 * (stage % stageLength)}%)`
     });
 });
 
