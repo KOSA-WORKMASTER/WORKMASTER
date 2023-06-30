@@ -30,14 +30,16 @@ public class AuthDAOImpl implements AuthDAO {
     @Override
     public int checkEmail(SqlSession sqlSession, String email) {
         log.info("checkEmail()");
-        log.info(email);
+        log.info("email: {}", email);
+
         return sqlSession.selectOne("checkEmail", email);
     }
 
     @Override
     public int insertMember(SqlSession sqlSession, MemberDTO memberDTO) {
         log.info("insertMember()");
-        log.info(memberDTO.toString());
+        log.info("memberDTO: {}", memberDTO);
+
         return sqlSession.insert("insertMember", memberDTO);
     }
 }

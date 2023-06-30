@@ -8,13 +8,16 @@
         WHERE EMAIL = #{email}
           AND PASSWORD = #{password}
     </select>
+
     <select id="checkEmail" parameterType="java.lang.String" resultType="_int">
         SELECT COUNT(*)
         FROM MEMBER
         WHERE EMAIL = #{email}
     </select>
+
     <insert id="insertMember" parameterType="kr.or.sw.model.MemberDTO">
         INSERT INTO MEMBER
-        VALUES (PCMASTER.MEMBERID_SEQ.NEXTVAL, #{mName}, #{email}, #{password}, #{salt}, #{contact}, #{question}, #{answer}, SYSDATE, 0)
+        VALUES (PCMASTER.MEMBERID_SEQ.NEXTVAL, #{mName}, #{email}, #{password}, #{salt}, #{contact}, #{question},
+                #{answer}, SYSDATE, 0)
     </insert>
 </mapper>

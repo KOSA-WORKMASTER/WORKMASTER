@@ -38,7 +38,6 @@
         </dependency>
 
         <!-- ORACLE -->
-        <!-- ojdbc & pki(cloud) -->
         <dependency>
             <groupId>com.oracle.database.jdbc</groupId>
             <artifactId>ojdbc8</artifactId>
