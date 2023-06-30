@@ -13,8 +13,7 @@ const checkValidate = (input, reg) => {
 const changeInputOutline = (selector, flag) => {
     if (flag) {
         $(selector).removeClass("err");
-    }
-    else {
+    } else {
         $(selector).addClass("err");
     }
 }
@@ -44,15 +43,13 @@ $("#email-chk").click(() => {
                     $("#email-chk").toggleClass("btn-success");
                     emailChk = true;
                     alert("사용 가능한 이메일입니다")
-                }
-                else {
+                } else {
                     alert("이메일이 중복됩니다");
                     return;
                 }
             },
         });
-    }
-    else {
+    } else {
         $("#email").removeAttr("disabled");
         $("#email-chk").toggleClass("btn-outline-secondary");
         $("#email-chk").toggleClass("btn-success");
@@ -82,13 +79,13 @@ $("#nextstage").click(() => {
 
     stage++;
     $(".register-stage-wrapper").css({
-        transform : `translateX(${-50 * (stage % stageLength)}%)`
+        transform: `translateX(${-50 * (stage % stageLength)}%)`
     });
 });
 $("#prevstage").click(() => {
     stage--;
     $(".register-stage-wrapper").css({
-        transform : `translateX(${-49 * (stage % stageLength)}%)`
+        transform: `translateX(${-49 * (stage % stageLength)}%)`
     });
 });
 
@@ -126,7 +123,7 @@ $("#register-form").on("keydown", (e) => {
         e.preventDefault();
 })
 
-$("#password").on("focus focusout",() => {
+$("#password").on("focus focusout", () => {
     $(".help").toggleClass("hide");
 })
 $("#password").on("keyup", () => {

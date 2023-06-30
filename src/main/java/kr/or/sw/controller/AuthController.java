@@ -16,10 +16,11 @@ import java.io.IOException;
 public class AuthController extends HttpServlet {
 
     private static final long serialVersionUID = -2930158301476609066L;
+
     private final AuthService authService = AuthServiceImpl.getInstance();
 
     private static final String REDIRECT_PATH = "/index.html?redirect=true";
-    private static final String HOME_PATH = "/WEB-INF/views/home.jsp";
+    private static final String HOME_PATH = "/WEB-INF/views/home.jsp?redirect=true";
     private static final String VIEW_PATH = "/WEB-INF/views/";
 
     @Override
@@ -73,7 +74,6 @@ public class AuthController extends HttpServlet {
 
     private void redirectToIndex(HttpServletRequest request, HttpServletResponse response) throws IOException {
         log.info("redirectToIndex()");  // 로그인 화면으로 이동
-
         response.sendRedirect(request.getContextPath() + REDIRECT_PATH);
     }
 
