@@ -45,3 +45,4 @@ build/
 !*.secret
 src/main/resources/mybatis/db.properties
 src/main/resources/mybatis/Wallet_V7LAPSS78F8HACJD/
+bin/

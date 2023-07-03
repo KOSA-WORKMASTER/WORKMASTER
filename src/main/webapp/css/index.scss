@@ -1,76 +1,106 @@
-@charset "UTF-8";
 
-div.daeboLeft {
-  width: 52vw;
-  height: 102vh;
-  border: 1px solid;
-  background: green;
-  text-align: center;
-  line-height: 100px;
-  box-sizing: border-box;
-  text-size-adjust: auto;
+.main {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 100vh;
+
+  .hide {
+    display: none;
+  }
+}
+
+.logo {
+  flex-basis: 50%;
+  background-color: green;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
+
+  .logo-img {
+    width: 40vw;
+    position: relative;
+    bottom: 25%;
+  }
+
+  .logo-title {
+    font-size: 6vw;
+    font-weight: bolder;
+    position: relative;
+    bottom: 25%;
+  }
+}
+
+.register-container {
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  position: relative;
-  bottom: 2vh;
-  left: -2vw;
-  overflow: hidden;
-}
+  justify-content: center;
 
-div.fixed {
-  position: fixed;
-  bottom: 30%;
-  right: 15%;
-  width: 25vw;
-  height: 50vh;
-  margin: 0 auto;
-}
+  height: 100%;
 
-.NewAccount {
-  position: relative;
-  height: 50px;
-  font-size: 30px;
-  align-items: center;
-}
+  .register-wrapper {
+    position: relative;
 
-.CheckButton {
-  height: 50px;
-  width: 248px;
-  font-size: 25px;
-}
+    width: 100%;
+    height: 80%;
 
-.CancelButton {
-  height: 50px;
-  width: 248px;
-  font-size: 25px;
-}
+    form {
+      width: 100%;
+      height: 100%;
 
-.checkCancelButton {
-  text-align: center;
-  display: block;
-  width: 3vw;
-}
+      .register-stage-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 
-p.workmasterFont {
-  font-size: 7vw;
-  font-weight: bold;
-  text-size-adjust: auto;
-  position: relative;
-  bottom: 15vh;
-}
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
 
-img.fit-picture {
-  width: 40vw;
-  position: relative;
-  bottom: 17vh;
-}
+        .register-stage-wrapper {
+          display: flex;
+          flex-direction: row;
+          width: 200%;
+          height: 100%;
 
-.idFont {
-  font-size: 3vw;
-}
+          transition: 0.3s;
+          transform: translateX(0);
 
-.passwordFont {
-  font-size: 3vw;
+          .register-stage {
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .input-container {
+              width: 80%;
+              padding: 2vh;
+
+              .help {
+                font-size: 0.5rem;
+              }
+
+              .form-control:focus.err {
+                border-color: red;
+                box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, .25);
+              }
+            }
+
+            .btn-container {
+              width: 30%;
+              display: flex;
+              flex-direction: row;
+              justify-content: space-around;
+            }
+          }
+        }
+      }
+    }
+  }
 }
