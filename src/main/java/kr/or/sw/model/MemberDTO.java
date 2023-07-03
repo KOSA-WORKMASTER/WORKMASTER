@@ -1,8 +1,6 @@
 package kr.or.sw.model;
 
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
@@ -39,4 +37,6 @@ public class MemberDTO {
             e.printStackTrace();
         }
     }
+
+
 }
