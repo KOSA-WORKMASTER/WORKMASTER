@@ -1,7 +1,5 @@
 package kr.or.sw.service;
 
-import kr.or.sw.mapper.AuthDAO;
-import kr.or.sw.mapper.AuthDAOImpl;
 import kr.or.sw.mapper.SearchDAO;
 import kr.or.sw.mapper.SearchDAOImpl;
 import kr.or.sw.model.MemberDTO;
@@ -14,11 +12,11 @@ import org.apache.ibatis.session.SqlSession;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
-import java.util.List;
 
 @Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class SearchServiceImpl implements SearchService {
+
     private static final SearchService INSTANCE = new SearchServiceImpl();
 
     public static SearchService getInstance() {

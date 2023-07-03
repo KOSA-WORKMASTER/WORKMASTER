@@ -55,7 +55,8 @@
                     </thead>
                     <tbody>
                     <!-- 1페이지에 10개씩 페이징할 것 -->
-                    <c:forEach var="i" begin="${(page - 1) * 10}" end="${Math.min(memberList.size() - 1, (page - 1) * 10 + 9)}">
+                    <c:forEach var="i" begin="${(page - 1) * 10}"
+                               end="${Math.min(memberList.size() - 1, (page - 1) * 10 + 9)}">
                         <tr>
                             <td>${memberList.get(i).getMemberID()}</td>
                             <td>${memberList.get(i).getMName()}</td>
@@ -76,23 +77,30 @@
                 <ul class="pagination">
                     <c:if test="${page > 10}">
                         <li class="page-item">
-                            <a class="page-link" href="/member/search?page=${page - (page % 10) - (page % 10 == 0 ? 19 : 9)}" aria-label="Previous">
+                            <a class="page-link"
+                               href="/member/search?page=${page - (page % 10) - (page % 10 == 0 ? 19 : 9)}"
+                               aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
                     </c:if>
-                    <c:forEach var="i" begin="${Math.floor((page - 1) / 10) * 10}" end="${Math.min(Math.floor(memberList.size() / 10), Math.floor((page - 1) / 10) * 10 + 9)}">
+                    <c:forEach var="i" begin="${Math.floor((page - 1) / 10) * 10}"
+                               end="${Math.min(Math.floor(memberList.size() / 10), Math.floor((page - 1) / 10) * 10 + 9)}">
                         <c:if test="${page == i + 1}">
-                            <li class="page-item"><a class="page-link current-page" href="/member/search?page=${i + 1}">${i + 1}</a></li>
+                            <li class="page-item"><a class="page-link current-page"
+                                                     href="/member/search?page=${i + 1}">${i + 1}</a></li>
                         </c:if>
                         <c:if test="${page != i + 1}">
-                            <li class="page-item"><a class="page-link" href="/member/search?page=${i + 1}">${i + 1}</a></li>
+                            <li class="page-item"><a class="page-link" href="/member/search?page=${i + 1}">${i + 1}</a>
+                            </li>
                         </c:if>
 
                     </c:forEach>
                     <c:if test="${Math.floor((page - 1) / 10) < Math.floor(memberList.size() / 100)}">
                         <li class="page-item">
-                            <a class="page-link" href="/member/search?page=${page - (page % 10) + (page % 10 == 0 ? 1 : 11)}" aria-label="Next">
+                            <a class="page-link"
+                               href="/member/search?page=${page - (page % 10) + (page % 10 == 0 ? 1 : 11)}"
+                               aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>
