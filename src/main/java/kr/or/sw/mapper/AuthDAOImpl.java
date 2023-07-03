@@ -37,5 +37,3 @@ public class AuthDAOImpl implements AuthDAO {
         return sqlSession.insert("insertMember", memberDTO);
     }
 }
-
-    
