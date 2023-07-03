@@ -35,3 +35,9 @@ menuHeads.forEach((e, i) => {
     });
 });
 // -- side menu 펼치기 부분 종료
+const myModal = document.getElementById('myModal')
+const myInput = document.getElementById('myInput')
+
+myModal.addEventListener('shown.bs.modal', () => {
+  myInput.focus()
+})
