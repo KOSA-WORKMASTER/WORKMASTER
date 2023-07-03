@@ -18,8 +18,8 @@
                 <div class="search-input-wrapper input-group">
                     <select class="custom-select" id="searchOption" name="searchOption">
                         <option value="-1" selected>선택</option>
-                        <option value="0">이름</option>
-                        <option value="1">이메일</option>
+                        <option value="1">이름</option>
+                        <option value="2">이메일</option>
                     </select>
                     <input type="text" class="form-control" placeholder="검색어 입력" id="keyword"
                            name="keyword">
@@ -35,7 +35,7 @@
                 </label>
             </div>
             <div class="search-result-into-container">
-                n명 검색되었습니다
+                ${memberList.size()}명 검색되었습니다
             </div>
         </div>
         <div class="search-result-container">
@@ -55,16 +55,18 @@
                     </thead>
                     <tbody>
                     <!-- 1페이지에 10개씩 페이징할 것 -->
-                    <tr>
-                        <td>1</td>
-                        <td>테스트</td>
-                        <td>test@test.test</td>
-                        <td>111-1111-1111</td>
-                        <td>000101</td>
-                        <td>2023-06-06</td>
-                        <td>111111</td>
-                        <td>2023-06-06 22:00:00</td>
-                    </tr>
+                    <c:forEach var="i" begin="${(page - 1) * 10}" end="${Math.min(memberList.size() - 1, (page - 1) * 10 + 9)}">
+                        <tr>
+                            <td>${memberList.get(i).getMemberID()}</td>
+                            <td>${memberList.get(i).getMName()}</td>
+                            <td>${memberList.get(i).getEmail()}</td>
+                            <td>${memberList.get(i).getContact()}</td>
+                            <td>-</td>
+                            <td>${memberList.get(i).getRegDate()}</td>
+                            <td>${memberList.get(i).getRemainTime()}</td>
+                            <td>-</td>
+                        </tr>
+                    </c:forEach>
                     </tbody>
                 </table>
             </div>
@@ -72,19 +74,29 @@
         <div class="search-page-container">
             <div class="search-page-wrapper">
                 <ul class="pagination">
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
+                    <c:if test="${page > 10}">
+                        <li class="page-item">
+                            <a class="page-link" href="/member/search?page=${page - (page % 10) - (page % 10 == 0 ? 19 : 9)}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                    </c:if>
+                    <c:forEach var="i" begin="${Math.floor((page - 1) / 10) * 10}" end="${Math.min(Math.floor(memberList.size() / 10), Math.floor((page - 1) / 10) * 10 + 9)}">
+                        <c:if test="${page == i + 1}">
+                            <li class="page-item"><a class="page-link current-page" href="/member/search?page=${i + 1}">${i + 1}</a></li>
+                        </c:if>
+                        <c:if test="${page != i + 1}">
+                            <li class="page-item"><a class="page-link" href="/member/search?page=${i + 1}">${i + 1}</a></li>
+                        </c:if>
+
+                    </c:forEach>
+                    <c:if test="${Math.floor((page - 1) / 10) < Math.floor(memberList.size() / 100)}">
+                        <li class="page-item">
+                            <a class="page-link" href="/member/search?page=${page - (page % 10) + (page % 10 == 0 ? 1 : 11)}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </c:if>
                 </ul>
             </div>
         </div>

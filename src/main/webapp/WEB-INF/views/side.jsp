@@ -2,29 +2,29 @@
 <side>
   <div class="side-container">
     <div class="side-wrapper">
-      <dlv class="side-menu">근태</dlv>
+      <dlv class="side-menu">회원관리</dlv>
     </div>
     <div class="side-wrapper">
-      <dlv class="side-menu">출근/퇴근</dlv>
-      <dlv class="side-menu">휴가신청</dlv>
-      <dlv class="side-menu">휴가관리</dlv>
+      <dlv class="side-menu">회원정보</dlv>
+      <dlv class="side-menu">2</dlv>
+      <dlv class="side-menu">3</dlv>
     </div>
     <div class="side-wrapper">
-      <dlv class="side-menu">급여</dlv>
+      <dlv class="side-menu">메뉴2</dlv>
     </div>
     <div class="side-wrapper">
-      <dlv class="side-menu">급여조회</dlv>
-      <dlv class="side-menu">급여관리</dlv>
-      <dlv class="side-menu">급여지급</dlv>
+      <dlv class="side-menu">1</dlv>
+      <dlv class="side-menu">2</dlv>
+      <dlv class="side-menu">3</dlv>
     </div>
     <div class="side-wrapper">
-      <dlv class="side-menu">인사</dlv>
+      <dlv class="side-menu">메뉴3</dlv>
     </div>
     <div class="side-wrapper">
-      <dlv class="side-menu">직원검색</dlv>
-      <dlv class="side-menu">직원관리</dlv>
-      <dlv class="side-menu">부서확인</dlv>
-      <dlv class="side-menu">부서관리</dlv>
+      <dlv class="side-menu">1</dlv>
+      <dlv class="side-menu">2</dlv>
+      <dlv class="side-menu">3</dlv>
+      <dlv class="side-menu">4</dlv>
     </div>
   </div>
 </side>
