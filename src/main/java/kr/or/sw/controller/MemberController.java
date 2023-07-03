@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Slf4j
-@WebServlet(name = "member", value = "/member/*")
+@WebServlet(name = "MemberController", value = "/member/*")
 public class MemberController extends HttpServlet {
 
     private final SearchService searchService = SearchServiceImpl.getInstance();

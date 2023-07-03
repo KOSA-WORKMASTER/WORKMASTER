@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Slf4j
-@WebServlet(name = "auth", value = "/auth/*")
+@WebServlet(name = "AuthController", value = "/auth/*")
 public class AuthController extends HttpServlet {
 
     private static final long serialVersionUID = -2930158301476609066L;

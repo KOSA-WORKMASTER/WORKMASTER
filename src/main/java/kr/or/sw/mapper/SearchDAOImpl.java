@@ -6,13 +6,12 @@ import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.session.SqlSession;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class SearchDAOImpl implements SearchDAO {
+
     private static final SearchDAO INSTANCE = new SearchDAOImpl();
 
     public static SearchDAO getInstance() {
