@@ -20,6 +20,7 @@ public class HomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         log.info("doGet()");
+        log.info("/home");
         request.getRequestDispatcher(request.getContextPath() + HOME_PATH).forward(request, response);
     }
 }
