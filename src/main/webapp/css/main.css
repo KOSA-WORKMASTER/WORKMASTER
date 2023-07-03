@@ -73,8 +73,7 @@ side .side-container .side-wrapper:nth-child(even) .side-menu:first-child:nth-la
   flex-basis: 25%;
 }
 side .side-container .side-wrapper:nth-child(even) .side-menu:hover {
-  background-color: #aaaaaa;
-  color: white;
+  background-color: #eee;
 }
 side .side-container .side-wrapper:nth-last-child(1) .side-menu:first-child {
   border-top: none;
@@ -85,13 +84,35 @@ side .side-container .side-wrapper:nth-last-child(1) .side-menu:last-child {
 
 nav {
   grid-area: nav;
-  background-color: gray;
-  padding: 1vw;
+}
+nav .nav-wrapper {
+  width: 100%;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 33%;
+}
+nav .nav-wrapper .nav-menu {
+  border: 1px solid black;
+  border-bottom: none;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  flex-basis: 100%;
+  font-size: 2rem;
+  text-align: center;
+}
+nav .nav-wrapper .nav-menu:hover {
+  background-color: #eee;
+}
+nav .nav-wrapper:nth-last-child(1) .nav-menu:last-child {
+  border-bottom: 1px solid black;
 }
 
 main {
   grid-area: main;
-  background-color: gray;
+  border: 1px solid lightgray;
   padding: 1vw;
   overflow-y: auto;
 }
@@ -118,7 +139,6 @@ main {
 
 footer {
   grid-area: footer;
-  background-color: gray;
   padding: 1vw;
 }
 
