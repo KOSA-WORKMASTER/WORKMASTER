@@ -12,9 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Slf4j
-@WebServlet(name = "member", value = "/member/*")
+@WebServlet(name = "MemberController", value = "/member/*")
 public class MemberController extends HttpServlet {
 
+    private static final long serialVersionUID = 5060263104786618675L;
     private final SearchService searchService = SearchServiceImpl.getInstance();
     private static final String HOME_PATH = "/WEB-INF/views/home.jsp";
 
@@ -56,6 +57,8 @@ public class MemberController extends HttpServlet {
                 break;
             case 2:
                 searchService.searchByEmail(request, response, page);
+                break;
+            default:
                 break;
         }
     }
