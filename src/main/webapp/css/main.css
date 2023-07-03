@@ -115,6 +115,7 @@ main {
   border: 1px solid lightgray;
   padding: 1vw;
   overflow-y: auto;
+  height: 100%;
 }
 
 .main-container {
@@ -135,6 +136,42 @@ main {
 
 .box-font {
   text-align: right;
+}
+
+.modal-dialog {
+  max-width: 100%;
+  position: absolute;
+}
+
+.modal-body {
+  height: 100%;
+  width: 100%;
+}
+
+.modal-box {
+  height: 330px;
+  width: 300px;
+  background-color: white;
+  border: 1px solid black;
+  margin: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
+}
+
+.modal-img {
+  height: 200px;
+  width: 200px;
+  margin: auto;
+  display: block;
+}
+
+.modal-line {
+  background-color: black;
+}
+
+.modal-text {
+  text-align: center;
 }
 
 footer {
