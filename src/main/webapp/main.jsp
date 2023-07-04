@@ -57,9 +57,9 @@
 			<div class="modal-content">
 				<!-- header -->
 				<div class="modal-header">
-					<div class="modal-title">
-						
-					</div>
+					<c:forEach begin="1" end="6">
+					<div class="modal-title"></div>
+					</c:forEach>
 					<!-- 닫기(x) 버튼 -->
 					<button type="button" class="close" data-dismiss="modal">×</button>
 					
