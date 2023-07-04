@@ -10,11 +10,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.Serial;
 
 @Slf4j
 @WebServlet(name = "AuthController", value = "/auth/*")
 public class AuthController extends HttpServlet {
 
+    @Serial
     private static final long serialVersionUID = -2930158301476609066L;
 
     private AuthService authService;
@@ -29,22 +31,20 @@ public class AuthController extends HttpServlet {
 
         String pathInfo = request.getPathInfo();
         switch (pathInfo) {
-            case "/index":
+            case "/index" -> {
                 log.info("/index"); // 로그인 화면으로 이동
                 redirectToIndex(request, response);
-                break;
-            case "/logout":
+            }
+            case "/logout" -> {
                 log.info("/logout");    // 로그아웃
                 request.getSession().invalidate();  // 로그인 세션 무효화
                 redirectToIndex(request, response);
-                break;
-            case "/register":
+            }
+            case "/register" -> {
                 log.info("/register");
                 request.getRequestDispatcher(VIEW_PATH + "register.html").forward(request, response);
-                break;
-            default:
-                handleInvalidAccess(request, response);
-                break;
+            }
+            default -> handleInvalidAccess(request, response);
         }
     }
 
@@ -54,21 +54,19 @@ public class AuthController extends HttpServlet {
 
         String pathInfo = request.getPathInfo();
         switch (pathInfo) {
-            case "/login":
+            case "/login" -> {
                 log.info("/login"); // 로그인
                 handleLogin(request, response);
-                break;
-            case "/register":
+            }
+            case "/register" -> {
                 log.info("/register");
                 handleRegister(request, response);
-                break;
-            case "/checkEmail":
+            }
+            case "/checkEmail" -> {
                 log.info("/checkEmail");
                 authService.checkEmail(request, response);
-                break;
-            default:
-                handleInvalidAccess(request, response);
-                break;
+            }
+            default -> handleInvalidAccess(request, response);
         }
     }
 
@@ -76,6 +74,11 @@ public class AuthController extends HttpServlet {
     public void init() throws ServletException {
         log.info("/auth/*");
         authService = AuthServiceImpl.getInstance();
+    }
+
+    @Override
+    public void destroy() {
+        log.info("destroy()");
     }
 
     private void redirectToIndex(HttpServletRequest request, HttpServletResponse response) throws IOException {
