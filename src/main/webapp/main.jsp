@@ -52,87 +52,34 @@
     </button>
     <br/>
 </main>
-
 <div class="modal fade" id="layerpop">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <!-- header -->
-            <div class="modal-header">
-                <!-- header title -->
-                <h4 class="modal-title">Header</h4>
-                <!-- 닫기(x) 버튼 -->
-                <button type="button" class="close" data-dismiss="modal">×</button>
-            </div>
-            <!-- body -->
-            <div class="modal-body">
-
-                <div class="modal-box">
-                    <img class="modal-img" alt="상품" src="https://s-koreanschool.com/wp-content/uploads/c20220703_1.jpg">
-                    <hr class="modal-line">
-                    <h5><p class="modal-text">신라면<br><br>5000원</p></h5>
-                </div>
-                <div class="modal-box">
-                    <img class="modal-img" alt="상품" src="https://s-koreanschool.com/wp-content/uploads/c20220703_1.jpg">
-                    <hr class="modal-line">
-                    <h5><p class="modal-text">신라면<br><br>5000원</p></h5>
-                </div>
-                <div class="modal-box">
-                    <img class="modal-img" alt="상품" src="https://s-koreanschool.com/wp-content/uploads/c20220703_1.jpg">
-                    <hr class="modal-line">
-                    <h5><p class="modal-text">신라면<br><br>5000원</p></h5>
-                </div>
-                <div class="modal-box">
-                    <img class="modal-img" alt="상품" src="https://s-koreanschool.com/wp-content/uploads/c20220703_1.jpg">
-                    <hr class="modal-line">
-                    <h5><p class="modal-text">신라면<br><br>5000원</p></h5>
-                </div>
-                <div class="modal-box">
-                    <img class="modal-img" alt="상품" src="https://s-koreanschool.com/wp-content/uploads/c20220703_1.jpg">
-                    <hr class="modal-line">
-                    <h5><p class="modal-text">신라면<br><br>5000원</p></h5>
-                </div>
-                <div class="modal-box">
-                    <img class="modal-img" alt="상품" src="https://s-koreanschool.com/wp-content/uploads/c20220703_1.jpg">
-                    <hr class="modal-line">
-                    <h5><p class="modal-text">신라면<br><br>5000원</p></h5>
-                </div>
-                <div class="modal-box">
-                    <img class="modal-img" alt="상품" src="https://s-koreanschool.com/wp-content/uploads/c20220703_1.jpg">
-                    <hr class="modal-line">
-                    <h5><p class="modal-text">신라면<br><br>5000원</p></h5>
-                </div>
-                <div class="modal-box">
-                    <img class="modal-img" alt="상품" src="https://s-koreanschool.com/wp-content/uploads/c20220703_1.jpg">
-                    <hr class="modal-line">
-                    <h5><p class="modal-text">신라면<br><br>5000원</p></h5>
-                </div>
-                <div class="modal-box">
-                    <img class="modal-img" alt="상품" src="https://s-koreanschool.com/wp-content/uploads/c20220703_1.jpg">
-                    <hr class="modal-line">
-                    <h5><p class="modal-text">신라면<br><br>5000원</p></h5>
-                </div>
-                <div class="modal-box">
-                    <img class="modal-img" alt="상품" src="https://s-koreanschool.com/wp-content/uploads/c20220703_1.jpg">
-                    <hr class="modal-line">
-                    <h5><p class="modal-text">신라면<br><br>5000원</p></h5>
-                </div>
-                <div class="modal-box">
-                    <img class="modal-img" alt="상품" src="https://s-koreanschool.com/wp-content/uploads/c20220703_1.jpg">
-                    <hr class="modal-line">
-                    <h5><p class="modal-text">신라면<br><br>5000원</p></h5>
-                </div>
-                <div class="modal-box">
-                    <img class="modal-img" alt="상품" src="https://s-koreanschool.com/wp-content/uploads/c20220703_1.jpg">
-                    <hr class="modal-line">
-                    <h5><p class="modal-text">신라면<br><br>5000원</p></h5>
-                </div>
-            </div>
-            <!-- Footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-            </div>
-        </div>
-    </div>
-</div>
-
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<!-- header -->
+				<div class="modal-header">
+					<div class="modal-title">
+						
+					</div>
+					<!-- 닫기(x) 버튼 -->
+					<button type="button" class="close" data-dismiss="modal">×</button>
+					
+				</div>
+				<!-- body -->
+				<div class="modal-body">
+				
+					<c:forEach var="number" begin="1" end="12">
+					<div class="modal-box">
+						<img class="modal-img" alt="상품" src="./images/${number}.jpg">
+						<hr class="modal-line">
+						<h5><p class="modal-text">신라면<br><br>5000원</p></h5>
+					</div>
+					</c:forEach>						
+				</div>
+				<!-- Footer -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
 <%@include file="/WEB-INF/views/footer.jsp" %>

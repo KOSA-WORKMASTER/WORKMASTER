@@ -143,6 +143,13 @@ main {
   position: absolute;
 }
 
+.modal-title {
+	height: 500px;
+	width: 500px;
+	background: white;
+	border: 1px solid black;
+}
+
 .modal-body {
   height: 100%;
   width: 100%;
