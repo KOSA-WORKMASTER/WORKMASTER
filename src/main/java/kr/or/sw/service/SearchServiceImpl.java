@@ -12,6 +12,7 @@ import org.apache.ibatis.session.SqlSession;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
+import java.util.List;
 
 @Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -35,16 +36,33 @@ public class SearchServiceImpl implements SearchService {
         request.setAttribute("memberList", list);
         request.setAttribute("page", page);
     }
-
     @Override
-    public boolean searchById(HttpServletRequest request, HttpServletResponse response, int page) {
-        log.info("searchById()");
-        return false;
-    }
+    public void searchBy(HttpServletRequest request, HttpServletResponse response, int type, String keyword, int page) {
+        log.info("searchBy()");
 
-    @Override
-    public boolean searchByEmail(HttpServletRequest request, HttpServletResponse response, int page) {
-        log.info("searchByEmail()");
-        return false;
+        SqlSession sqlSession = MyBatisUtil.getSession();
+        List<MemberDTO> result = null;
+        if (type >= 2) keyword = "%" + keyword + "%";
+        switch (type) {
+            case 1:
+                result = searchDAO.selectById(sqlSession, Integer.parseInt(keyword));
+                break;
+            case 2:
+                result = searchDAO.selectByMName(sqlSession, keyword);
+                break;
+            case 3:
+                result = searchDAO.selectByEmail(sqlSession, keyword);
+                break;
+            case 4:
+                result = searchDAO.selectByContact(sqlSession, keyword);
+                break;
+        }
+        ArrayList<MemberDTO> list = new ArrayList<>(result);
+        log.info("size: {}", list.size());
+        sqlSession.close();
+        request.setAttribute("memberList", list);
+        request.setAttribute("page", page);
+        request.setAttribute("searchOption", type);
+        request.setAttribute("keyword", keyword);
     }
 }

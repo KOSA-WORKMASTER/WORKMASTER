@@ -9,7 +9,8 @@ public interface SearchDAO {
 
     List<MemberDTO> selectAll(SqlSession sqlSession);
 
-    MemberDTO selectByid(SqlSession sqlSession, int id);
-
-    MemberDTO selectByEmail(SqlSession sqlSession, String email);
+    List<MemberDTO> selectById(SqlSession sqlSession, int id);
+    List<MemberDTO> selectByMName(SqlSession sqlSession, String mName);
+    List<MemberDTO> selectByEmail(SqlSession sqlSession, String email);
+    List<MemberDTO> selectByContact(SqlSession sqlSession, String contact);
 }

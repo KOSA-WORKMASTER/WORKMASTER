@@ -25,14 +25,25 @@ public class SearchDAOImpl implements SearchDAO {
     }
 
     @Override
-    public MemberDTO selectByid(SqlSession sqlSession, int id) {
+    public List<MemberDTO> selectById(SqlSession sqlSession, int id) {
         log.info("searchById()");
-        return null;
+        return sqlSession.selectList("selectById", id);
+    }
+    @Override
+    public List<MemberDTO> selectByMName(SqlSession sqlSession, String mName) {
+        log.info("searchByMName()");
+        return sqlSession.selectList("selectByMName", mName);
     }
 
     @Override
-    public MemberDTO selectByEmail(SqlSession sqlSession, String email) {
+    public List<MemberDTO> selectByEmail(SqlSession sqlSession, String email) {
         log.info("searchByEmail()");
-        return null;
+        return sqlSession.selectList("selectByEmail", email);
+    }
+
+    @Override
+    public List<MemberDTO> selectByContact(SqlSession sqlSession, String contact) {
+        log.info("searchByContact()");
+        return sqlSession.selectList("selectByContact", contact);
     }
 }

@@ -10,13 +10,30 @@
     </select>
     <select id="selectById" parameterType="_int" resultType="kr.or.sw.model.MemberDTO">
         SELECT
-            emberId, mName, email, contact, regDate, remainTime
+            memberId, mName, email, contact, regDate, remainTime
         FROM MEMBER
         WHERE MEMBERID = #{id}
+        ORDER BY MEMBERID ASC
+    </select>
+    <select id="selectByMName" parameterType="java.lang.String" resultType="kr.or.sw.model.MemberDTO">
+        SELECT
+            memberId, mName, email, contact, regDate, remainTime
+        FROM MEMBER
+        WHERE mName like #{mName}
+        ORDER BY MEMBERID ASC
     </select>
     <select id="selectByEmail" parameterType="java.lang.String" resultType="kr.or.sw.model.MemberDTO">
-        SELECT emberId, mName, email, contact, regDate, remainTime
+        SELECT
+            memberId, mName, email, contact, regDate, remainTime
         FROM MEMBER
-        WHERE EMAIL = #{email}
+        WHERE EMAIL like #{email}
+        ORDER BY MEMBERID ASC
+    </select>
+    <select id="selectByContact" parameterType="java.lang.String" resultType="kr.or.sw.model.MemberDTO">
+        SELECT
+            memberId, mName, email, contact, regDate, remainTime
+        FROM MEMBER
+        WHERE CONTACT like #{contact}
+        ORDER BY MEMBERID ASC
     </select>
 </mapper>

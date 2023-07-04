@@ -37,6 +37,8 @@ public class MemberController extends HttpServlet {
         request.getRequestDispatcher(request.getContextPath() + HOME_PATH).forward(request, response);
     }
     private void handleSearch(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+
         int type = 0;
         String keyword = null;
         int page = 1;
@@ -52,10 +54,10 @@ public class MemberController extends HttpServlet {
                 searchService.searchAll(request, response, page);
                 break;
             case 1:
-                searchService.searchById(request, response, page);
-                break;
             case 2:
-                searchService.searchByEmail(request, response, page);
+            case 3:
+            case 4:
+                searchService.searchBy(request, response, type, keyword, page);
                 break;
         }
     }
