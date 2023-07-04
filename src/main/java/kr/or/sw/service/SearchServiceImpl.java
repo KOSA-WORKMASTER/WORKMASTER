@@ -48,8 +48,6 @@ public class SearchServiceImpl implements SearchService {
         String keyword = request.getParameter("keyword");
         int searchOption = Integer.parseInt(request.getParameter("searchOption"));
         if (searchOption >= 2) keyword = "%" + keyword + "%";
-        // searchOption이 1이면 id(숫자) 검색이므로 불필요
-        // 나머지는 문자열 포함 여부 검색이므로 like 연산을 위해 앞뒤에 % 추가
 
         result = switch (searchOption) {
             case 1 -> searchDAO.selectById(sqlSession, Integer.parseInt(keyword));

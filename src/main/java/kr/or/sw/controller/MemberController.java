@@ -57,7 +57,6 @@ public class MemberController extends HttpServlet {
             searchOption = Integer.parseInt(request.getParameter("searchOption"));
         }
 
-        // searchOption이 0이면 전체 검색, 0이 아닌 다른 무언가면 그에 해당하는 검색을 진행
         switch (searchOption) {
             case 0 -> searchService.searchAll(request, response);
             case 1, 2, 3, 4 -> searchService.searchBy(request, response);
