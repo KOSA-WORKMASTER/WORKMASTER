@@ -94,6 +94,7 @@ public class AuthController extends HttpServlet {
 
     private void handleRegister(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         log.info("handleRegister");
+        request.setCharacterEncoding("UTF-8");
 
         if (!authService.insertMember(request, response)) {
             log.error("register fail");
