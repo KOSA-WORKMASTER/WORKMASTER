@@ -182,11 +182,23 @@ main {
 .box-font {
   text-align: right;
 }
+
 .modal-dialog {
 	max-width: 100%;
 	position: absolute;
+}
 
- 
+.modal-header {
+	height: 100%;
+	width: 100%;
+}
+
+.modal-title {
+    height: 100px;
+    width: 300px;
+    background: white;
+    border: 1px solid black;
+    margin: 20px;
 }
 
 .modal-body {
