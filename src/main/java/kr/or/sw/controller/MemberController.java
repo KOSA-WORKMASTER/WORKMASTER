@@ -10,11 +10,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.Serial;
 
 @Slf4j
 @WebServlet(name = "MemberController", value = "/member/*")
 public class MemberController extends HttpServlet {
 
+    @Serial
     private static final long serialVersionUID = 5060263104786618675L;
     private SearchService searchService;
     private static final String HOME_PATH = "/WEB-INF/views/home.jsp";
@@ -25,12 +27,11 @@ public class MemberController extends HttpServlet {
 
         String pathInfo = request.getPathInfo();
         switch (pathInfo) {
-            case "/search":
+            case "/search" -> {
                 log.info("/search");
                 handleSearch(request, response);
-                break;
-            default:
-                throw new IllegalStateException("Unexpected value: " + pathInfo);
+            }
+            default -> throw new IllegalStateException("Unexpected value: " + pathInfo);
         }
 
         request.setAttribute("path", request.getRequestURI().substring(request.getContextPath().length()));
@@ -43,31 +44,23 @@ public class MemberController extends HttpServlet {
         searchService = SearchServiceImpl.getInstance();
     }
 
+    @Override
+    public void destroy() {
+        log.info("destroy()");
+    }
+
     private void handleSearch(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
 
-        int type = 0;
-        String keyword = null;
-        int page = 1;
+        int searchOption = 0;
         if (request.getParameter("searchOption") != null) {
-            type = Integer.parseInt(request.getParameter("searchOption"));
-            keyword = request.getParameter("keyword");
+            searchOption = Integer.parseInt(request.getParameter("searchOption"));
         }
-        if (request.getParameter("page") != null)
-            page = Integer.parseInt(request.getParameter("page"));
 
-        switch (type) {
-            case 0:
-                searchService.searchAll(request, response, page);
-                break;
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-                searchService.searchBy(request, response, type, keyword, page);
-                break;
-            default:
-                throw new IllegalStateException("Unexpected value: " + type);
+        switch (searchOption) {
+            case 0 -> searchService.searchAll(request, response);
+            case 1, 2, 3, 4 -> searchService.searchBy(request, response);
+            default -> throw new IllegalStateException("Unexpected value: " + searchOption);
         }
     }
 }
