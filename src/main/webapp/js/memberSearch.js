@@ -3,6 +3,10 @@ $("#search-form").submit((e) => {
         alert("검색조건을 선택해주세요");
         return false
     }
+    if (document.forms["searchForm"]["searchOption"].value == 1 && !document.forms["searchForm"]["keyword"].value.match(/^[0-9]+$/)) {
+        alert("번호는 숫자만 입력이 가능합니다");
+        return false
+    }
     return true;
 })
 
