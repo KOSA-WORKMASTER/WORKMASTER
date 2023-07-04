@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -27,42 +28,42 @@ public class SearchServiceImpl implements SearchService {
     private final SearchDAO searchDAO = SearchDAOImpl.getInstance();
 
     @Override
-    public void searchAll(HttpServletRequest request, HttpServletResponse response, int page) {
+    public void searchAll(HttpServletRequest request, HttpServletResponse response) {
         log.info("searchAll()");
 
         SqlSession sqlSession = MyBatisUtil.getSession();
-        ArrayList<MemberDTO> list = new ArrayList<>(searchDAO.selectAll(sqlSession));
+        List<MemberDTO> list = new ArrayList<>(searchDAO.selectAll(sqlSession));
         sqlSession.close();
+
         request.setAttribute("memberList", list);
-        request.setAttribute("page", page);
+        request.setAttribute("page", Objects.requireNonNullElse(request.getParameter("page"), 1));
     }
+
     @Override
-    public void searchBy(HttpServletRequest request, HttpServletResponse response, int type, String keyword, int page) {
+    public void searchBy(HttpServletRequest request, HttpServletResponse response) {
         log.info("searchBy()");
 
         SqlSession sqlSession = MyBatisUtil.getSession();
-        List<MemberDTO> result = null;
-        if (type >= 2) keyword = "%" + keyword + "%";
-        switch (type) {
-            case 1:
-                result = searchDAO.selectById(sqlSession, Integer.parseInt(keyword));
-                break;
-            case 2:
-                result = searchDAO.selectByMName(sqlSession, keyword);
-                break;
-            case 3:
-                result = searchDAO.selectByEmail(sqlSession, keyword);
-                break;
-            case 4:
-                result = searchDAO.selectByContact(sqlSession, keyword);
-                break;
-        }
-        ArrayList<MemberDTO> list = new ArrayList<>(result);
+        List<MemberDTO> result;
+        String keyword = request.getParameter("keyword");
+        int searchOption = Integer.parseInt(request.getParameter("searchOption"));
+        if (searchOption >= 2) keyword = "%" + keyword + "%";
+
+        result = switch (searchOption) {
+            case 1 -> searchDAO.selectById(sqlSession, Integer.parseInt(keyword));
+            case 2 -> searchDAO.selectByMName(sqlSession, keyword);
+            case 3 -> searchDAO.selectByEmail(sqlSession, keyword);
+            case 4 -> searchDAO.selectByContact(sqlSession, keyword);
+            default -> throw new IllegalStateException("Unexpected value: " + searchOption);
+        };
+        assert result != null;
+        List<MemberDTO> list = new ArrayList<>(result);
         log.info("size: {}", list.size());
         sqlSession.close();
+
         request.setAttribute("memberList", list);
-        request.setAttribute("page", page);
-        request.setAttribute("searchOption", type);
+        request.setAttribute("page", Objects.requireNonNullElse(request.getParameter("page"), 1));
+        request.setAttribute("searchOption", searchOption);
         request.setAttribute("keyword", keyword);
     }
 }

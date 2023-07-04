@@ -3,37 +3,61 @@
 
 <mapper namespace="kr.or.sw.mapper.SearchDAOImpl">
     <select id="selectAll" resultType="kr.or.sw.model.MemberDTO">
-        SELECT
-            memberId, mName, email, contact, regDate, remainTime
+        SELECT MEMBERID,
+               MNAME,
+               EMAIL,
+               CONTACT,
+               REGDATE,
+               REMAINTIME
         FROM MEMBER
         ORDER BY MEMBERID ASC
     </select>
+    
     <select id="selectById" parameterType="_int" resultType="kr.or.sw.model.MemberDTO">
-        SELECT
-            memberId, mName, email, contact, regDate, remainTime
+        SELECT MEMBERID,
+               MNAME,
+               EMAIL,
+               CONTACT,
+               REGDATE,
+               REMAINTIME
         FROM MEMBER
         WHERE MEMBERID = #{id}
         ORDER BY MEMBERID ASC
     </select>
+    
     <select id="selectByMName" parameterType="java.lang.String" resultType="kr.or.sw.model.MemberDTO">
-        SELECT
-            memberId, mName, email, contact, regDate, remainTime
+        SELECT MEMBERID,
+               MNAME,
+               EMAIL,
+               CONTACT,
+               REGDATE,
+               REMAINTIME
         FROM MEMBER
-        WHERE mName like #{mName}
+        WHERE MNAME LIKE #{mName}
         ORDER BY MEMBERID ASC
     </select>
+    
     <select id="selectByEmail" parameterType="java.lang.String" resultType="kr.or.sw.model.MemberDTO">
-        SELECT
-            memberId, mName, email, contact, regDate, remainTime
+        SELECT MEMBERID,
+               MNAME,
+               EMAIL,
+               CONTACT,
+               REGDATE,
+               REMAINTIME
         FROM MEMBER
-        WHERE EMAIL like #{email}
+        WHERE EMAIL LIKE #{email}
         ORDER BY MEMBERID ASC
     </select>
+    
     <select id="selectByContact" parameterType="java.lang.String" resultType="kr.or.sw.model.MemberDTO">
-        SELECT
-            memberId, mName, email, contact, regDate, remainTime
+        SELECT MEMBERID,
+               MNAME,
+               EMAIL,
+               CONTACT,
+               REGDATE,
+               REMAINTIME
         FROM MEMBER
-        WHERE CONTACT like #{contact}
+        WHERE CONTACT LIKE #{contact}
         ORDER BY MEMBERID ASC
     </select>
 </mapper>
