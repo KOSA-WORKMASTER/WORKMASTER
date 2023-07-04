@@ -17,7 +17,7 @@ public class AuthController extends HttpServlet {
 
     private static final long serialVersionUID = -2930158301476609066L;
 
-    private final AuthService authService = AuthServiceImpl.getInstance();
+    private AuthService authService;
 
     private static final String REDIRECT_PATH = "/index.html?redirect=true";
     private static final String HOME_PATH = "/WEB-INF/views/home.jsp?redirect=true";
@@ -70,6 +70,12 @@ public class AuthController extends HttpServlet {
                 handleInvalidAccess(request, response);
                 break;
         }
+    }
+
+    @Override
+    public void init() throws ServletException {
+        log.info("/auth/*");
+        authService = AuthServiceImpl.getInstance();
     }
 
     private void redirectToIndex(HttpServletRequest request, HttpServletResponse response) throws IOException {

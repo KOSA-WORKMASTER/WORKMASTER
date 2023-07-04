@@ -15,13 +15,13 @@ import java.io.IOException;
 @WebServlet(name = "MemberController", value = "/member/*")
 public class MemberController extends HttpServlet {
 
-    private final SearchService searchService = SearchServiceImpl.getInstance();
+    private static final long serialVersionUID = 5060263104786618675L;
+    private SearchService searchService;
     private static final String HOME_PATH = "/WEB-INF/views/home.jsp";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         log.info("doGet()");
-        log.info("/member");
 
         String pathInfo = request.getPathInfo();
         switch (pathInfo) {
@@ -30,12 +30,19 @@ public class MemberController extends HttpServlet {
                 handleSearch(request, response);
                 break;
             default:
-                break;
+                throw new IllegalStateException("Unexpected value: " + pathInfo);
         }
 
         request.setAttribute("path", request.getRequestURI().substring(request.getContextPath().length()));
         request.getRequestDispatcher(request.getContextPath() + HOME_PATH).forward(request, response);
     }
+
+    @Override
+    public void init() throws ServletException {
+        log.info("/member/*");
+        searchService = SearchServiceImpl.getInstance();
+    }
+
     private void handleSearch(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
 
@@ -59,6 +66,8 @@ public class MemberController extends HttpServlet {
             case 4:
                 searchService.searchBy(request, response, type, keyword, page);
                 break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + type);
         }
     }
 }
