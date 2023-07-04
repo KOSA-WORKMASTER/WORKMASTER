@@ -106,7 +106,7 @@
                         <%-- 일단, 이전 버튼은 11페이지 이상부터 나와야 하므로 지금 페이지가 10을 초과하는 경우에만 달아줌 --%>
                         <c:if test="${page > 10}">
                             <li class="page-item">
-                                <%-- 페이지가 1, 11, 21, 31 등에서부터 시작할 수 있게 조절하는 부분 --%>
+                                    <%-- 페이지가 1, 11, 21, 31 등에서부터 시작할 수 있게 조절하는 부분 --%>
                                 <c:if test="${keyword != null}">
                                     <a class="page-link"
                                        href="/member/search?searchOption=${searchOption}&keyword=${keyword}&page=${page - (page % 10) - (page % 10 == 0 ? 19 : 9)}"
@@ -151,7 +151,7 @@
                         <%-- 아까 이전 페이지때처럼, 다음 페이지 버튼은 마지막인 경우에는 추가하지 않는다 --%>
                         <c:if test="${Math.floor((page - 1) / 10) < Math.floor(memberList.size() / 100)}">
                             <li class="page-item">
-                                <%-- 페이지가 1, 11, 21, 31 등에서부터 시작할 수 있게 조절하는 부분 --%>
+                                    <%-- 페이지가 1, 11, 21, 31 등에서부터 시작할 수 있게 조절하는 부분 --%>
                                 <c:if test="${keyword != null}">
                                     <a class="page-link"
                                        href="/member/search?searchOption=${searchOption}&keyword=${keyword}&page=${page - (page % 10) + (page % 10 == 0 ? 1 : 11)}"
