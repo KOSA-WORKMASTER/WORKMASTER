@@ -5,7 +5,7 @@
             <dlv class="side-menu">회원관리</dlv>
         </div>
         <div class="side-wrapper">
-            <dlv class="side-menu">회원정보</dlv>
+            <dlv class="side-menu"><a href="/member/search">회원정보</a></dlv>
             <dlv class="side-menu">2</dlv>
             <dlv class="side-menu">3</dlv>
         </div>
