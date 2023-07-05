@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
-<%@include file="/WEB-INF/views/header.jsp" %>
-<%@include file="/WEB-INF/views/side.jsp" %>
+<%@ include file="/WEB-INF/views/header.jsp" %>
+<%@ include file="/WEB-INF/views/side.jsp" %>
 <link href="./css/main.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="./js/main.js" defer></script>
 
@@ -53,33 +53,33 @@
     <br/>
 </main>
 <div class="modal fade" id="layerpop">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<!-- header -->
-				<div class="modal-header">
-					<c:forEach begin="1" end="6">
-					<div class="modal-title"></div>
-					</c:forEach>
-					<!-- 닫기(x) 버튼 -->
-					<button type="button" class="close" data-dismiss="modal">×</button>
-					
-				</div>
-				<!-- body -->
-				<div class="modal-body">
-				
-					<c:forEach var="number" begin="1" end="12">
-					<div class="modal-box">
-						<img class="modal-img" alt="상품" src="./images/${number}.jpg">
-						<hr class="modal-line">
-						<h5><p class="modal-text">신라면<br><br>5000원</p></h5>
-					</div>
-					</c:forEach>						
-				</div>
-				<!-- Footer -->
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- header -->
+            <div class="modal-header">
+                <c:forEach begin="1" end="6">
+                    <div class="modal-title"></div>
+                </c:forEach>
+                <!-- 닫기(x) 버튼 -->
+                <button type="button" class="close" data-dismiss="modal">×</button>
+
+            </div>
+            <!-- body -->
+            <div class="modal-body">
+
+                <c:forEach var="number" begin="1" end="12">
+                    <div class="modal-box">
+                        <img class="modal-img" alt="상품" src="./images/${number}.jpg">
+                        <hr class="modal-line">
+                        <h5><p class="modal-text">신라면<br><br>5000원</p></h5>
+                    </div>
+                </c:forEach>
+            </div>
+            <!-- Footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+            </div>
+        </div>
+    </div>
+</div>
 <%@include file="/WEB-INF/views/footer.jsp" %>

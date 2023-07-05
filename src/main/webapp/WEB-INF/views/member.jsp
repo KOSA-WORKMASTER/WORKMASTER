@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/search.css">
-<script src="${pageContext.request.contextPath}/js/memberSearch.js" type="text/javascript" defer></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/member.css">
+<script src="${pageContext.request.contextPath}/js/member.js" type="text/javascript" defer></script>
+
 <%-- 페이지가 범위를 벗어날 경우 (0이하 혹은 전체 데이터 개수를 넘어감) 다시 1페이지로 리다이렉트 --%>
 <%-- page는 1부터 시작하며, 한 페이지에 총 10개의 데이터가 담긴다 => 가능한 최대 페이지 수는 (전체 데이터 개수) / 10 를 올림한 값과 같다--%>
 <c:if test="${page <= 0 || Math.ceil(memberList.size() / 10) < page}">
@@ -27,6 +28,7 @@
         </div>
     </div>
 </nav>
+
 <main>
     <div class="search-container">
         <div class="search-input-container">
@@ -76,7 +78,7 @@
                     <!-- 1페이지에 10개씩 페이징할 것 / 생년월일이랑 최근 방문일은 나중에 추가할 것-->
                     <c:if test="${memberList.size() > 0}">
                         <%-- 1페이지에 10개씩, 1페이지면 0번 인덱스부터, 9번 인덱스까지의 데이터를 담게 된다. --%>
-                        <%-- n페이지일 경우 (10*(n - 1))번 인덱스부터, (10*(n - 1) + 9)번 인덱스까지의 데이터를 담게 된다. --%>
+                        <%-- n페이지일 경우 (10 * (n - 1))번 인덱스부터, (10 * (n - 1) + 9)번 인덱스까지의 데이터를 담게 된다. --%>
                         <%-- 단, 데이터가 10개를 모두 채우지 못하고 이전에 끝난다면, 거기까지만 나오게 조절 --%>
                         <c:forEach var="i" begin="${(page - 1) * 10}"
                                    end="${Math.min(memberList.size() - 1, (page - 1) * 10 + 9)}">
@@ -129,7 +131,8 @@
                             <c:if test="${page == i + 1}">
                                 <c:if test="${keyword != null}">
                                     <li class="page-item"><a class="page-link current-page"
-                                                             href="/member/search?searchOption=${searchOption}&keyword=${keyword}&page=${i + 1}">${i + 1}</a></li>
+                                                             href="/member/search?searchOption=${searchOption}&keyword=${keyword}&page=${i + 1}">${i + 1}</a>
+                                    </li>
                                 </c:if>
                                 <c:if test="${keyword == null}">
                                     <li class="page-item"><a class="page-link current-page"
@@ -138,11 +141,13 @@
                             </c:if>
                             <c:if test="${page != i + 1}">
                                 <c:if test="${keyword != null}">
-                                    <li class="page-item"><a class="page-link" href="/member/search?searchOption=${searchOption}&keyword=${keyword}&page=${i + 1}">${i + 1}</a>
+                                    <li class="page-item"><a class="page-link"
+                                                             href="/member/search?searchOption=${searchOption}&keyword=${keyword}&page=${i + 1}">${i + 1}</a>
                                     </li>
                                 </c:if>
                                 <c:if test="${keyword == null}">
-                                    <li class="page-item"><a class="page-link" href="/member/search?page=${i + 1}">${i + 1}</a>
+                                    <li class="page-item"><a class="page-link"
+                                                             href="/member/search?page=${i + 1}">${i + 1}</a>
                                     </li>
                                 </c:if>
                             </c:if>
@@ -174,3 +179,5 @@
         </div>
     </div>
 </main>
+
+<%@include file="/WEB-INF/views/footer.jsp" %>

@@ -1,7 +1,7 @@
 package kr.or.sw.service;
 
-import kr.or.sw.mapper.SearchDAO;
-import kr.or.sw.mapper.SearchDAOImpl;
+import kr.or.sw.mapper.MemberDAO;
+import kr.or.sw.mapper.MemberDAOImpl;
 import kr.or.sw.model.MemberDTO;
 import kr.or.sw.util.MyBatisUtil;
 import lombok.AccessLevel;
@@ -17,18 +17,18 @@ import java.util.Objects;
 
 @Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class SearchServiceImpl implements SearchService {
+public class MemberServiceImpl implements MemberService {
 
-    private static SearchService instance;
+    private static MemberService instance;
 
-    public static synchronized SearchService getInstance() {
+    public static synchronized MemberService getInstance() {
         if (instance == null) {
-            instance = new SearchServiceImpl();
+            instance = new MemberServiceImpl();
         }
         return instance;
     }
 
-    private final SearchDAO searchDAO = SearchDAOImpl.getInstance();
+    private final MemberDAO memberDAO = MemberDAOImpl.getInstance();
 
     @Override
     public void searchAll(HttpServletRequest request, HttpServletResponse response) {
@@ -36,7 +36,7 @@ public class SearchServiceImpl implements SearchService {
 
         List<MemberDTO> list;
         try (SqlSession sqlSession = MyBatisUtil.getSession()) {
-            list = new ArrayList<>(searchDAO.selectAll(sqlSession));
+            list = new ArrayList<>(memberDAO.selectAllMembers(sqlSession));
         }
 
         request.setAttribute("memberList", list);
@@ -56,14 +56,13 @@ public class SearchServiceImpl implements SearchService {
 
         try (SqlSession sqlSession = MyBatisUtil.getSession()) {
             result = switch (searchOption) {
-                case 1 -> searchDAO.selectById(sqlSession, Integer.parseInt(keyword));
-                case 2 -> searchDAO.selectByMName(sqlSession, keyword);
-                case 3 -> searchDAO.selectByEmail(sqlSession, keyword);
-                case 4 -> searchDAO.selectByContact(sqlSession, keyword);
+                case 1 -> memberDAO.selectMemberById(sqlSession, Integer.parseInt(keyword));
+                case 2 -> memberDAO.selectMemberByMName(sqlSession, keyword);
+                case 3 -> memberDAO.selectMemberByEmail(sqlSession, keyword);
+                case 4 -> memberDAO.selectMemberByContact(sqlSession, keyword);
                 default -> throw new IllegalStateException("Unexpected value: " + searchOption);
             };
         }
-        assert result != null;
         List<MemberDTO> list = new ArrayList<>(result);
         log.info("size: {}", list.size());
 
@@ -71,5 +70,18 @@ public class SearchServiceImpl implements SearchService {
         request.setAttribute("page", Objects.requireNonNullElse(request.getParameter("page"), 1));
         request.setAttribute("searchOption", searchOption);
         request.setAttribute("keyword", keyword);
+    }
+
+    @Override
+    public boolean delete(HttpServletRequest request, HttpServletResponse response) {
+        log.info("delete()");
+
+        int memberID = Integer.parseInt(request.getParameter("memberID"));
+        int res;
+        try (SqlSession sqlSession = MyBatisUtil.getSession()) {
+            res = memberDAO.deleteMember(sqlSession, memberID);
+            sqlSession.commit();
+        }
+        return res == 1;
     }
 }
