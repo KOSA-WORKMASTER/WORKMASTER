@@ -195,10 +195,37 @@ main {
 
 .modal-title {
     height: 100px;
-    width: 300px;
+    width: 200px;
     background: white;
-    border: 1px solid black;
+    border: 1px solid #bbb;
+    border-radius: 10px;
     margin: 20px;
+}
+
+.title-font {
+	text-align: center;
+	margin: revert;
+}
+
+.search {
+  position: relative;
+  width: 300px;
+}
+
+.search-input {
+  width: 100%;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  margin: 15%;
+}
+
+.search-img {
+  position : absolute;
+  width: 17px;
+  top: 55px;
+  right: -30px;
 }
 
 .modal-body {
