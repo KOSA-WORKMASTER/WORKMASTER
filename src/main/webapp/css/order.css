@@ -1,0 +1,37 @@
+@CHARSET "UTF-8";
+main {
+  grid-area: main;
+  border: 1px solid lightgray;
+  padding: 1vw;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.order-box {
+  width: 30%;
+  background-color: white;
+  border: 1px solid black;
+  margin: 20px;
+  margin-top: auto;
+  display: inline-block;
+}
+
+.box-front {
+  height: 100%;
+  width: 25%;
+  background-color: #015F23;
+  display: inline-block;
+  text-align: center;
+}
+
+.front-number {
+  font-size: 50px;
+  color: white;
+}
+
+.front-font {
+  font-size: 20px;
+  color: white;
+}
+
+/*# sourceMappingURL=order.css.map */
