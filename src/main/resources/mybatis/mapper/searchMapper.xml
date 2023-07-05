@@ -25,7 +25,7 @@
         ORDER BY MEMBERID ASC
     </select>
     
-    <select id="selectByMName" parameterType="java.lang.String" resultType="kr.or.sw.model.MemberDTO">
+    <select id="selectByMName" parameterType="String" resultType="kr.or.sw.model.MemberDTO">
         SELECT MEMBERID,
                MNAME,
                EMAIL,
@@ -37,7 +37,7 @@
         ORDER BY MEMBERID ASC
     </select>
     
-    <select id="selectByEmail" parameterType="java.lang.String" resultType="kr.or.sw.model.MemberDTO">
+    <select id="selectByEmail" parameterType="String" resultType="kr.or.sw.model.MemberDTO">
         SELECT MEMBERID,
                MNAME,
                EMAIL,
@@ -49,7 +49,7 @@
         ORDER BY MEMBERID ASC
     </select>
     
-    <select id="selectByContact" parameterType="java.lang.String" resultType="kr.or.sw.model.MemberDTO">
+    <select id="selectByContact" parameterType="String" resultType="kr.or.sw.model.MemberDTO">
         SELECT MEMBERID,
                MNAME,
                EMAIL,
