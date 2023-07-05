@@ -12,10 +12,13 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class SearchDAOImpl implements SearchDAO {
 
-    private static final SearchDAO INSTANCE = new SearchDAOImpl();
+    private static SearchDAO instance;
 
-    public static SearchDAO getInstance() {
-        return INSTANCE;
+    public static synchronized SearchDAO getInstance() {
+        if (instance == null) {
+            instance = new SearchDAOImpl();
+        }
+        return instance;
     }
 
     @Override
@@ -29,6 +32,7 @@ public class SearchDAOImpl implements SearchDAO {
         log.info("searchById()");
         return sqlSession.selectList("selectById", id);
     }
+
     @Override
     public List<MemberDTO> selectByMName(SqlSession sqlSession, String mName) {
         log.info("searchByMName()");
