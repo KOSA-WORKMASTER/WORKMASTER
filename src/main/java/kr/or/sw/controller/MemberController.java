@@ -1,7 +1,7 @@
 package kr.or.sw.controller;
 
-import kr.or.sw.service.SearchService;
-import kr.or.sw.service.SearchServiceImpl;
+import kr.or.sw.service.MemberService;
+import kr.or.sw.service.MemberServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.servlet.ServletException;
@@ -18,7 +18,7 @@ public class MemberController extends HttpServlet {
 
     @Serial
     private static final long serialVersionUID = 5060263104786618675L;
-    private SearchService searchService;
+    private MemberService memberService;
     private static final String HOME_PATH = "/WEB-INF/views/home.jsp";
 
     @Override
@@ -39,9 +39,30 @@ public class MemberController extends HttpServlet {
     }
 
     @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        log.info("doPost()");
+
+        String pathInfo = request.getPathInfo();
+        switch (pathInfo) {
+            case "/delete" -> {
+                log.info("/delete");
+                if (memberService.delete(request, response)) log.info("회원정보 삭제 성공");
+            }
+            case "/update" -> {
+                log.info("/update");
+//                memberService.update(request, response);
+            }
+            default -> throw new IllegalStateException("Unexpected value: " + pathInfo);
+        }
+
+//        request.setAttribute("path", request.getRequestURI().substring(request.getContextPath().length()));
+//        request.getRequestDispatcher(request.getContextPath() + HOME_PATH).forward(request, response);
+    }
+
+    @Override
     public void init() throws ServletException {
         log.info("/member/*");
-        searchService = SearchServiceImpl.getInstance();
+        memberService = MemberServiceImpl.getInstance();
     }
 
     @Override
@@ -59,8 +80,8 @@ public class MemberController extends HttpServlet {
 
         // searchOption이 0이면 전체 검색, 0이 아닌 다른 무언가면 그에 해당하는 검색을 진행
         switch (searchOption) {
-            case 0 -> searchService.searchAll(request, response);
-            case 1, 2, 3, 4 -> searchService.searchBy(request, response);
+            case 0 -> memberService.searchAll(request, response);
+            case 1, 2, 3, 4 -> memberService.searchBy(request, response);
             default -> throw new IllegalStateException("Unexpected value: " + searchOption);
         }
     }

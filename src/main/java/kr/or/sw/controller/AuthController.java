@@ -21,8 +21,6 @@ public class AuthController extends HttpServlet {
 
     private AuthService authService;
 
-    private static final String REDIRECT_PATH = "/index.html?redirect=true";
-    private static final String HOME_PATH = "/WEB-INF/views/home.jsp?redirect=true";
     private static final String VIEW_PATH = "/WEB-INF/views/";
 
     @Override
@@ -83,7 +81,7 @@ public class AuthController extends HttpServlet {
 
     private void redirectToIndex(HttpServletRequest request, HttpServletResponse response) throws IOException {
         log.info("redirectToIndex()");  // 로그인 화면으로 이동
-        response.sendRedirect(request.getContextPath() + REDIRECT_PATH);
+        response.sendRedirect(request.getContextPath() + "/index.html");
     }
 
     private void handleLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -97,7 +95,8 @@ public class AuthController extends HttpServlet {
         } else {
             log.info("로그인 성공");
             request.getSession().setAttribute("email", email);  // 로그인 세션 저장
-            request.getRequestDispatcher(HOME_PATH).forward(request, response);
+            request.setAttribute("redirect", "true");
+            request.getRequestDispatcher(VIEW_PATH + "home.jsp").forward(request, response);
         }
     }
 
@@ -120,6 +119,5 @@ public class AuthController extends HttpServlet {
         response.setStatus(HttpServletResponse.SC_FORBIDDEN);
         response.setContentType("application/json");
         response.getWriter().write("{ \"message\": \"FORBIDDEN\" }");
-//        response.sendError(HttpServletResponse.SC_FORBIDDEN);
     }
 }
