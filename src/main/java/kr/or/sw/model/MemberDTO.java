@@ -21,6 +21,13 @@ public class MemberDTO {
     private java.sql.Date regDate;  // 등록일
     private int remainTime; // 잔여시간
 
+    public MemberDTO(int memberID, String email, String contact, int remainTime) {
+        this.memberID = memberID;
+        this.email = email;
+        this.contact = contact;
+        this.remainTime = remainTime;
+    }
+
     public MemberDTO(String mName, String email, String password, String salt, String contact, String question, String answer, String birthday) {
         this.mName = mName;
         this.email = email;
@@ -37,6 +44,4 @@ public class MemberDTO {
             e.printStackTrace();
         }
     }
-
-
 }

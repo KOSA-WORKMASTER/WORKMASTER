@@ -28,9 +28,9 @@ public class MemberDAOImpl implements MemberDAO {
     }
 
     @Override
-    public List<MemberDTO> selectMemberById(SqlSession sqlSession, int id) {
-        log.info("searchById()");
-        return sqlSession.selectList("selectMemberById", id);
+    public List<MemberDTO> selectMemberById(SqlSession sqlSession, int memberID) {
+        log.info("searchById(): {}", memberID);
+        return sqlSession.selectList("selectMemberById", memberID);
     }
 
     @Override
@@ -49,6 +49,18 @@ public class MemberDAOImpl implements MemberDAO {
     public List<MemberDTO> selectMemberByContact(SqlSession sqlSession, String contact) {
         log.info("searchByContact()");
         return sqlSession.selectList("selectMemberByContact", contact);
+    }
+
+    @Override
+    public MemberDTO selectMember(SqlSession sqlSession, int memberID) {
+        log.info("selectMember(): {}", memberID);
+        return sqlSession.selectOne("selectMember", memberID);
+    }
+
+    @Override
+    public int updateMember(SqlSession sqlSession, MemberDTO memberDTO) {
+        log.info("updateMember(): {}", memberDTO);
+        return sqlSession.update("updateMember", memberDTO);
     }
 
     @Override

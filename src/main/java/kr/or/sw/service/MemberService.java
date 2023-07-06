@@ -9,5 +9,9 @@ public interface MemberService {
 
     void searchBy(HttpServletRequest request, HttpServletResponse response);
 
+    void selectOne(HttpServletRequest request, HttpServletResponse response);
+
+    boolean update(HttpServletRequest request, HttpServletResponse response);
+
     boolean delete(HttpServletRequest request, HttpServletResponse response);
 }
