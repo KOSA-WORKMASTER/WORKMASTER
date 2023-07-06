@@ -1,17 +1,17 @@
-let stage = 0;
-let stageLength = $(".register-stage").length;
+//let stage = 0;
+//let stageLength = $(".register-stage").length;
 let emailChk = true;
 const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 const checkValidate = (input, reg) => {
   return input.match(reg);
 };
-const changeInputOutline = (selector, flag) => {
-  if (flag) {
-    $(selector).removeClass("err");
-  } else {
-    $(selector).addClass("err");
-  }
-};
+//const changeInputOutline = (selector, flag) => {
+//  if (flag) {
+//    $(selector).removeClass("err");
+//  } else {
+//    $(selector).addClass("err");
+//  }
+//};
 
 $("#btn-confirm").click((e) => {
   e.preventDefault();
@@ -19,7 +19,6 @@ $("#btn-confirm").click((e) => {
     alert("ID를 입력해주세요");
     return false;
   }
-
   if (!checkValidate($("#email").val(), emailRegex)) {
     alert("이메일 형식이 아닙니다"); // 2
     $("#email").focus();
@@ -36,7 +35,7 @@ $("#btn-confirm").click((e) => {
       dataType: "json",
       success: (res) => {
         if (!res) {
-          //                       emailChk = false;
+          //     emailChk = false;
           alert("존재하지 않는 ID 입니다");
           return false;
         } else {
