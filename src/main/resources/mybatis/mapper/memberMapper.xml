@@ -4,7 +4,7 @@
 <mapper namespace="kr.or.sw.mapper.MemberDAOImpl">
     <select id="selectAllMembers" resultType="kr.or.sw.model.MemberDTO">
         SELECT MEMBERID,
-               MNAME,
+               NAME,
                EMAIL,
                CONTACT,
                REGDATE,
@@ -15,7 +15,7 @@
     
     <select id="selectMemberById" parameterType="_int" resultType="kr.or.sw.model.MemberDTO">
         SELECT MEMBERID,
-               MNAME,
+               NAME,
                EMAIL,
                CONTACT,
                REGDATE,
@@ -25,21 +25,21 @@
         ORDER BY MEMBERID ASC
     </select>
     
-    <select id="selectMemberByMName" parameterType="String" resultType="kr.or.sw.model.MemberDTO">
+    <select id="selectMemberByName" parameterType="String" resultType="kr.or.sw.model.MemberDTO">
         SELECT MEMBERID,
-               MNAME,
+               NAME,
                EMAIL,
                CONTACT,
                REGDATE,
                REMAINTIME
         FROM MEMBER
-        WHERE MNAME LIKE #{mName}
+        WHERE NAME LIKE #{name}
         ORDER BY MEMBERID ASC
     </select>
     
     <select id="selectMemberByEmail" parameterType="String" resultType="kr.or.sw.model.MemberDTO">
         SELECT MEMBERID,
-               MNAME,
+               NAME,
                EMAIL,
                CONTACT,
                REGDATE,
@@ -51,7 +51,7 @@
     
     <select id="selectMemberByContact" parameterType="String" resultType="kr.or.sw.model.MemberDTO">
         SELECT MEMBERID,
-               MNAME,
+               NAME,
                EMAIL,
                CONTACT,
                REGDATE,

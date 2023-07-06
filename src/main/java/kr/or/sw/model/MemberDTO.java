@@ -10,7 +10,7 @@ import java.text.SimpleDateFormat;
 public class MemberDTO {
 
     private int memberID; // 회원ID, PK
-    private String mName;   // 회원명
+    private String name;   // 회원명
     private String email;   // 이메일(계정)
     private String password;    // 비밀번호
     private String salt;    // salt
@@ -28,8 +28,8 @@ public class MemberDTO {
         this.remainTime = remainTime;
     }
 
-    public MemberDTO(String mName, String email, String password, String salt, String contact, String question, String answer, String birthday) {
-        this.mName = mName;
+    public MemberDTO(String name, String email, String password, String salt, String contact, String question, String answer, String birthday) {
+        this.name = name;
         this.email = email;
         this.password = password;
         this.salt = salt;

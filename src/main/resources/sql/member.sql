@@ -1,7 +1,7 @@
 CREATE TABLE MEMBER
 (
     MEMBERID   NUMBER                 NOT NULL,
-    MNAME      VARCHAR2(30)           NOT NULL,
+    NAME      VARCHAR2(30)           NOT NULL,
     EMAIL      VARCHAR2(50)           NOT NULL,
     PASSWORD   VARCHAR2(130)          NOT NULL,
     SALT       VARCHAR2(64)           NOT NULL,

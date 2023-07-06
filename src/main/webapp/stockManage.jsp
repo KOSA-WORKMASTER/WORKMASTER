@@ -106,7 +106,7 @@
                                    end="${Math.min(memberList.size() - 1, (page - 1) * 10 + 9)}">
                             <tr class="member-data" id="memberData${i}">
                                 <td>${memberList.get(i).getMemberID()}</td>
-                                <td>${memberList.get(i).getMName()}</td>
+                                <td>${memberList.get(i).getName()}</td>
                                 <td>${memberList.get(i).getEmail()}</td>
                                 <td>${memberList.get(i).getContact()}</td>
                                 <td>-</td>
