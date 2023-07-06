@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
-<%@include file="/WEB-INF/views/header.jsp" %>
-<%@include file="/WEB-INF/views/side.jsp" %>
+<%@ include file="/WEB-INF/views/header.jsp" %>
+<%@ include file="/WEB-INF/views/side.jsp" %>
 <link href="./css/main.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="./js/main.js" defer></script>
 
@@ -11,8 +11,8 @@
         </div>
         <div class="side-wrapper">
             <dlv class="side-menu"><a href="/member/search?page=1">
-                    회원정보
-                </a></dlv>
+                회원정보
+            </a></dlv>
             <dlv class="side-menu">2</dlv>
             <dlv class="side-menu">3</dlv>
         </div>
@@ -37,7 +37,6 @@
 </side>
 
 
-
 <nav>
     <div class="nav-container">
         <div class="nav-wrapper">
@@ -56,7 +55,7 @@
 
 <main>
 
-<div class="search-container">
+    <div class="search-container">
         <div class="search-input-container">
             <form action="/member/search" method="get" name="searchForm" id="search-form">
                 <div class="search-input-wrapper input-group">
@@ -115,7 +114,7 @@
                                 <td>${memberList.get(i).getRemainTime()}</td>
                                 <td>-</td>
                             </tr>
-                        </c:forEach>	
+                        </c:forEach>
                     </c:if>
                     <c:if test="${memberList.size() == 0}">
                         <td colspan="8">검색결과가 없습니다</td>
@@ -154,7 +153,8 @@
                             <c:if test="${page == i + 1}">
                                 <c:if test="${keyword != null}">
                                     <li class="page-item"><a class="page-link current-page"
-                                                             href="/member/search?searchOption=${searchOption}&keyword=${keyword}&page=${i + 1}">${i + 1}</a></li>
+                                                             href="/member/search?searchOption=${searchOption}&keyword=${keyword}&page=${i + 1}">${i + 1}</a>
+                                    </li>
                                 </c:if>
                                 <c:if test="${keyword == null}">
                                     <li class="page-item"><a class="page-link current-page"
@@ -163,11 +163,13 @@
                             </c:if>
                             <c:if test="${page != i + 1}">
                                 <c:if test="${keyword != null}">
-                                    <li class="page-item"><a class="page-link" href="/member/search?searchOption=${searchOption}&keyword=${keyword}&page=${i + 1}">${i + 1}</a>
+                                    <li class="page-item"><a class="page-link"
+                                                             href="/member/search?searchOption=${searchOption}&keyword=${keyword}&page=${i + 1}">${i + 1}</a>
                                     </li>
                                 </c:if>
                                 <c:if test="${keyword == null}">
-                                    <li class="page-item"><a class="page-link" href="/member/search?page=${i + 1}">${i + 1}</a>
+                                    <li class="page-item"><a class="page-link"
+                                                             href="/member/search?page=${i + 1}">${i + 1}</a>
                                     </li>
                                 </c:if>
                             </c:if>
@@ -198,28 +200,6 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
 </main>
 
-
-
-
-
-
-
-
-
-<%@include file="/WEB-INF/views/footer.jsp" %>
-
-
-
-
-
-
-
+<%@ include file="/WEB-INF/views/footer.jsp" %>

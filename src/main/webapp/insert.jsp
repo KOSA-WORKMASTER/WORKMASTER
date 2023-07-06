@@ -33,7 +33,9 @@
         </div>
     </div>
 </side>
+
 <nav>nav</nav>
+
 <main>
     <!-- 상품등록창 -->
     <div class="insert-container">
@@ -93,10 +95,7 @@
                 <button type="button" class="btn btn-secondary btn-lg btn-block">등록</button>
             </div>
         </div>
-
     </div>
-
 </main>
 
-
-<%@include file="/WEB-INF/views/footer.jsp" %>
+<%@ include file="/WEB-INF/views/footer.jsp" %>
