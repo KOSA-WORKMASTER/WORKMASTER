@@ -40,7 +40,7 @@ public class AuthController extends HttpServlet {
             }
             case "/register" -> {
                 log.info("/register");
-                request.getRequestDispatcher(VIEW_PATH + "register.html").forward(request, response);
+                request.getRequestDispatcher(VIEW_PATH + "auth/register.html").forward(request, response);
             }
             default -> handleInvalidAccess(request, response);
         }

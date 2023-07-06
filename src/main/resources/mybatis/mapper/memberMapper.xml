@@ -61,6 +61,20 @@
         ORDER BY MEMBERID ASC
     </select>
 
+    <select id="selectMember" parameterType="_int" resultType="kr.or.sw.model.MemberDTO">
+        SELECT *
+        FROM MEMBER
+        WHERE MEMBERID = #{memberID}
+    </select>
+
+    <update id="updateMember" parameterType="kr.or.sw.model.MemberDTO">
+        UPDATE MEMBER
+        SET EMAIL      = #{email},
+            CONTACT    = #{contact},
+            REMAINTIME = #{remainTime}
+        WHERE MEMBERID = #{memberID}
+    </update>
+
     <delete id="deleteMember" parameterType="_int">
         DELETE
         FROM MEMBER

@@ -27,7 +27,7 @@ $('.member-data').each((index, element) => {
          */
         switch (type) {
             case '1':
-                console.log('updateMember')
+                location.href = '/member/update?memberID=' + memberID
                 break;
             case '2':
                 deleteMember(memberID)

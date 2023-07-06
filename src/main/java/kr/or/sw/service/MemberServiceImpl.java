@@ -73,15 +73,46 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
+    public void selectOne(HttpServletRequest request, HttpServletResponse response) {
+        log.info("selectOne()");
+
+        int memberID = Integer.parseInt(request.getParameter("memberID"));
+        MemberDTO memberDTO;
+        try (SqlSession sqlSession = MyBatisUtil.getSession()) {
+            memberDTO = memberDAO.selectMember(sqlSession, memberID);
+        }
+        request.setAttribute("memberDTO", memberDTO);
+        log.info("memberDTO: {}", memberDTO);
+    }
+
+    @Override
+    public boolean update(HttpServletRequest request, HttpServletResponse response) {
+        log.info("update()");
+
+        int memberID = Integer.parseInt(request.getParameter("memberID"));
+        String email = request.getParameter("email");
+        String contact = request.getParameter("contact");
+        int remainTime = Integer.parseInt(request.getParameter("remainTime"));
+        MemberDTO memberDTO = new MemberDTO(memberID, email, contact, remainTime);
+
+        int result;
+        try (SqlSession sqlSession = MyBatisUtil.getSession()) {
+            result = memberDAO.updateMember(sqlSession, memberDTO);
+            sqlSession.commit();
+        }
+        return result == 1;
+    }
+
+    @Override
     public boolean delete(HttpServletRequest request, HttpServletResponse response) {
         log.info("delete()");
 
         int memberID = Integer.parseInt(request.getParameter("memberID"));
-        int res;
+        int result;
         try (SqlSession sqlSession = MyBatisUtil.getSession()) {
-            res = memberDAO.deleteMember(sqlSession, memberID);
+            result = memberDAO.deleteMember(sqlSession, memberID);
             sqlSession.commit();
         }
-        return res == 1;
+        return result == 1;
     }
 }

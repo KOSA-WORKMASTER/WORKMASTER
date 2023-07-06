@@ -20,6 +20,7 @@ public class MemberController extends HttpServlet {
     private static final long serialVersionUID = 5060263104786618675L;
     private MemberService memberService;
     private static final String HOME_PATH = "/WEB-INF/views/home.jsp";
+    private static final String VIEW_PATH = "/WEB-INF/views/";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -31,9 +32,13 @@ public class MemberController extends HttpServlet {
                 log.info("/search");
                 handleSearch(request, response);
             }
+            case "/update" -> {
+                log.info("/update");
+                memberService.selectOne(request, response);
+                request.getRequestDispatcher(request.getContextPath() + VIEW_PATH + "member/update.jsp").forward(request, response);
+            }
             default -> throw new IllegalStateException("Unexpected value: " + pathInfo);
         }
-
         request.setAttribute("path", request.getRequestURI().substring(request.getContextPath().length()));
         request.getRequestDispatcher(request.getContextPath() + HOME_PATH).forward(request, response);
     }
@@ -50,13 +55,11 @@ public class MemberController extends HttpServlet {
             }
             case "/update" -> {
                 log.info("/update");
-//                memberService.update(request, response);
+                if (memberService.update(request, response)) log.info("회원정보 수정 성공");
+                response.sendRedirect(request.getContextPath() + "/member/search");
             }
             default -> throw new IllegalStateException("Unexpected value: " + pathInfo);
         }
-
-//        request.setAttribute("path", request.getRequestURI().substring(request.getContextPath().length()));
-//        request.getRequestDispatcher(request.getContextPath() + HOME_PATH).forward(request, response);
     }
 
     @Override

@@ -9,13 +9,17 @@ public interface MemberDAO {
 
     List<MemberDTO> selectAllMembers(SqlSession sqlSession);
 
-    List<MemberDTO> selectMemberById(SqlSession sqlSession, int id);
+    List<MemberDTO> selectMemberById(SqlSession sqlSession, int memberID);
 
     List<MemberDTO> selectMemberByMName(SqlSession sqlSession, String mName);
 
     List<MemberDTO> selectMemberByEmail(SqlSession sqlSession, String email);
 
     List<MemberDTO> selectMemberByContact(SqlSession sqlSession, String contact);
+
+    MemberDTO selectMember(SqlSession sqlSession, int memberID);
+
+    int updateMember(SqlSession sqlSession, MemberDTO memberDTO);
 
     int deleteMember(SqlSession sqlSession, int memberID);
 }
