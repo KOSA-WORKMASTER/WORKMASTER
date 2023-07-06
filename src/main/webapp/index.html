@@ -15,7 +15,6 @@
     <script type="text/javascript" src="./js/bootstrap.min.js" defer></script>
     <!--<script type="text/javascript" src="./js/register.js" defer></script> -->
 </head>
-
 <body>
 <div class="main">
     <div class="logo">
@@ -24,10 +23,18 @@
     </div>
     <div class="register-container">
         <div class="register-wrapper">
-            <form action="/auth/login" method="post"> <!-- id="register-form"  -->
+            <form action="/auth/login" method="post"> 
                 <div class="register-stage-container">
                     <div class="register-stage-wrapper">
                         <div class="register-stage 1">
+							<div class="search-select-type-wrapper btn-group btn-group-toggle" data-toggle="buttons">
+				                <label class="btn btn-outline-primary active">
+				                    <input type="radio" name="select-type" id="client_login" value="1" checked> 회원 로그인
+				                </label>
+				                <label class="btn btn-outline-info">
+				                    <input type="radio" name="select-type" id="manager_login" value="2"> 관리자 로그인
+				                </label>
+		            		</div>
                             <div class="input-container">
                                 <h5>ID</h5>
                                 <div class="input-group">
@@ -51,12 +58,6 @@
                                        onclick="location.href='/auth/register'" style="width:120px;">
                                 <button type="button" class="btn btn-outline-success"
                                         onclick="location.href='./docs/passwordSearch1.html'">비밀번호 찾기
-                                </button>
-                            </div>
-                            <br>
-                            <div class="btn-container">
-                                <button type="button" class="btn btn-outline-warning"
-                                        onclick="location.href='./indexManager.html'">관리자 로그인
                                 </button>
                             </div>
                         </div>
