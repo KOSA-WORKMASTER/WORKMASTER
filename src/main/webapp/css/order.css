@@ -10,9 +10,9 @@ main {
 .order-box {
   width: 30%;
   background-color: white;
-  border: 1px solid black;
+  border: 1px solid;
+  border-radius: 3px;
   margin: 20px;
-  margin-top: auto;
   display: inline-block;
 }
 
@@ -32,6 +32,29 @@ main {
 .front-font {
   font-size: 20px;
   color: white;
+}
+
+.box-main {
+  display: inline-block;
+  transform: translate(10px, -10px);
+}
+
+.main-font {
+  font-weight: bold;
+}
+
+.font-demand {
+  color: rgb(1, 95, 35);
+}
+
+.font-pay {
+  font-weight: bold;
+}
+
+.btn-outline-success {
+  transform: translate(40px, -3px);
+  display: inline-block;
+  margin: -10px;
 }
 
 /*# sourceMappingURL=order.css.map */
