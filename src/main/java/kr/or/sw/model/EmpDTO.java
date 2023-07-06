@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 public class EmpDTO {
 
     private int empID;   // 직원ID, PK
-    private String eName; // 직원명
+    private String name; // 직원명
     private String email;   // 이메일
     private String password;    // 비밀번호
     private String contact;   // 연락처

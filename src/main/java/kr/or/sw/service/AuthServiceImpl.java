@@ -76,7 +76,7 @@ public class AuthServiceImpl implements AuthService {
         log.info("insertMember()");
 
         cipher = CipherUtil.getInstance();
-        String mName = request.getParameter("mName"),
+        String name = request.getParameter("name"),
                 email = request.getParameter("email"),
                 salt = cipher.generateSalt(),
                 password = cipher.hashPassword(request.getParameter("password"), salt),
@@ -85,7 +85,7 @@ public class AuthServiceImpl implements AuthService {
                 answer = request.getParameter("answer"),
                 birthday = request.getParameter("birthday");
 
-        MemberDTO memberDTO = new MemberDTO(mName, email, password, salt, contact, question, answer, birthday);
+        MemberDTO memberDTO = new MemberDTO(name, email, password, salt, contact, question, answer, birthday);
 
         try (SqlSession sqlSession = MyBatisUtil.getSession()) {
             int ret = authDAO.insertMember(sqlSession, memberDTO);

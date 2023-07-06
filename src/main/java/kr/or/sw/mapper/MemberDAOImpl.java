@@ -23,31 +23,31 @@ public class MemberDAOImpl implements MemberDAO {
 
     @Override
     public List<MemberDTO> selectAllMembers(SqlSession sqlSession) {
-        log.info("searchAll()");
+        log.info("selectAllMembers()");
         return sqlSession.selectList("selectAllMembers");
     }
 
     @Override
     public List<MemberDTO> selectMemberById(SqlSession sqlSession, int memberID) {
-        log.info("searchById(): {}", memberID);
+        log.info("selectMemberById(): {}", memberID);
         return sqlSession.selectList("selectMemberById", memberID);
     }
 
     @Override
-    public List<MemberDTO> selectMemberByMName(SqlSession sqlSession, String mName) {
-        log.info("searchByMName()");
-        return sqlSession.selectList("selectMemberByMName", mName);
+    public List<MemberDTO> selectMemberByName(SqlSession sqlSession, String name) {
+        log.info("selectMemberByName()");
+        return sqlSession.selectList("selectMemberByName", name);
     }
 
     @Override
     public List<MemberDTO> selectMemberByEmail(SqlSession sqlSession, String email) {
-        log.info("searchByEmail()");
+        log.info("selectMemberByEmail()");
         return sqlSession.selectList("selectMemberByEmail", email);
     }
 
     @Override
     public List<MemberDTO> selectMemberByContact(SqlSession sqlSession, String contact) {
-        log.info("searchByContact()");
+        log.info("selectMemberByContact()");
         return sqlSession.selectList("selectMemberByContact", contact);
     }
 

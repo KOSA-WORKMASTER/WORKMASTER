@@ -2,7 +2,7 @@
 <%@ include file="/WEB-INF/views/layouts/header.jsp" %>
 <%@ include file="/WEB-INF/views/layouts/side.jsp" %>
 
-<div class="container">
+<main>
     <h1 class="mt-4">회원 정보 수정</h1>
     <form action="/member/update" method="post">
         <table class="table mt-4">
@@ -10,14 +10,15 @@
                 <th>
                     <label for="memberID">ID</label></th>
                 <td>
-                    <input type="text" id="memberID" name="memberID" value="${memberDTO.getMemberID()}" readonly>
+                    <input type="text" id="memberID" name="memberID" value="${memberDTO.getMemberID()}"
+                           readonly>
                 </td>
             </tr>
             <tr>
                 <th>
-                    <label for="mName">이름</label></th>
+                    <label for="name">이름</label></th>
                 <td>
-                    <input type="text" id="mName" name="mName" value="${memberDTO.getMName()}" readonly>
+                    <input type="text" id="name" name="name" value="${memberDTO.getName()}" readonly>
                 </td>
             </tr>
             <tr>
@@ -38,7 +39,8 @@
                 <th>
                     <label for="birthday">생일</label></th>
                 <td>
-                    <input type="text" id="birthday" name="birthday" value="${memberDTO.getBirthday()}" readonly>
+                    <input type="text" id="birthday" name="birthday" value="${memberDTO.getBirthday()}"
+                           readonly>
                 </td>
             </tr>
             <tr>
@@ -63,6 +65,6 @@
             </tr>
         </table>
     </form>
-</div>
+</main>
 
 <%@ include file="/WEB-INF/views/layouts/footer.jsp" %>

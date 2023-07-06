@@ -11,7 +11,7 @@ public interface MemberDAO {
 
     List<MemberDTO> selectMemberById(SqlSession sqlSession, int memberID);
 
-    List<MemberDTO> selectMemberByMName(SqlSession sqlSession, String mName);
+    List<MemberDTO> selectMemberByName(SqlSession sqlSession, String name);
 
     List<MemberDTO> selectMemberByEmail(SqlSession sqlSession, String email);
 

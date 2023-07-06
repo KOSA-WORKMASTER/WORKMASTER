@@ -57,7 +57,7 @@ public class MemberServiceImpl implements MemberService {
         try (SqlSession sqlSession = MyBatisUtil.getSession()) {
             result = switch (searchOption) {
                 case 1 -> memberDAO.selectMemberById(sqlSession, Integer.parseInt(keyword));
-                case 2 -> memberDAO.selectMemberByMName(sqlSession, keyword);
+                case 2 -> memberDAO.selectMemberByName(sqlSession, keyword);
                 case 3 -> memberDAO.selectMemberByEmail(sqlSession, keyword);
                 case 4 -> memberDAO.selectMemberByContact(sqlSession, keyword);
                 default -> throw new IllegalStateException("Unexpected value: " + searchOption);
