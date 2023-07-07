@@ -7,9 +7,9 @@ import java.text.SimpleDateFormat;
 
 @Data
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
-public class MemberDTO {
+public class MemberDTO {    // 회원 테이블
 
-    private int memberID; // 회원ID, PK
+    private int memberID; // 회원 ID, PK
     private String name;   // 회원명
     private String email;   // 이메일(계정)
     private String password;    // 비밀번호
