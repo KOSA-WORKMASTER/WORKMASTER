@@ -26,21 +26,29 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void select(HttpServletRequest request, HttpServletResponse response) {
+        log.info("select()");
+    }
 
+    @Override
+    public void selectAll(HttpServletRequest request, HttpServletResponse response) {
+        log.info("selectAll()");
     }
 
     @Override
     public boolean insert(HttpServletRequest request, HttpServletResponse response) {
+        log.info("insert()");
         return false;
     }
 
     @Override
     public boolean delete(HttpServletRequest request, HttpServletResponse response) {
+        log.info("delete()");
         return false;
     }
 
     @Override
     public boolean update(HttpServletRequest request, HttpServletResponse response) {
+        log.info("update()");
         return false;
     }
 }
