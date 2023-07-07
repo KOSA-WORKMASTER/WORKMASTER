@@ -37,7 +37,7 @@ public class MemberController extends HttpServlet {
             case "/update" -> {
                 log.info("/update");
                 memberService.selectOne(request, response);
-                request.getRequestDispatcher(request.getContextPath() + VIEW_PATH + "member/update.jsp").forward(request, response);
+                request.getRequestDispatcher(request.getContextPath() + VIEW_PATH + "member/memberUpdate.jsp").forward(request, response);
             }
             default -> throw new IllegalStateException("Unexpected value: " + pathInfo);
         }
