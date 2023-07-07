@@ -11,13 +11,14 @@ import java.io.IOException;
 import java.io.Serial;
 
 @Slf4j
-@WebServlet(name = "HomeController", value = "/home")
+@WebServlet(name = "HomeController", urlPatterns = "/home")
 public class HomeController extends HttpServlet {
 
     @Serial
     private static final long serialVersionUID = 1586602244798946410L;
 
-    private static final String HOME_PATH = "/WEB-INF/views/home.jsp";
+    static final String HOME_PATH = "/WEB-INF/views/home.jsp";
+    static final String VIEW_PATH = "/WEB-INF/views/";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
