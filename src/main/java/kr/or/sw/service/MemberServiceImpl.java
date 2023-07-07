@@ -17,7 +17,7 @@ import java.util.Objects;
 
 @Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class MemberServiceImpl implements MemberService {
+public class MemberServiceImpl implements MemberService{
 
     private static MemberService instance;
 
@@ -31,8 +31,8 @@ public class MemberServiceImpl implements MemberService {
     private final MemberDAO memberDAO = MemberDAOImpl.getInstance();
 
     @Override
-    public void searchAll(HttpServletRequest request, HttpServletResponse response) {
-        log.info("searchAll()");
+    public void selectAll(HttpServletRequest request, HttpServletResponse response) {
+        log.info("selectAll()");
 
         List<MemberDTO> list;
         try (SqlSession sqlSession = MyBatisUtil.getSession()) {
@@ -73,8 +73,8 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public void selectOne(HttpServletRequest request, HttpServletResponse response) {
-        log.info("selectOne()");
+    public void select(HttpServletRequest request, HttpServletResponse response) {
+        log.info("select()");
 
         int memberID = Integer.parseInt(request.getParameter("memberID"));
         MemberDTO memberDTO;
@@ -83,6 +83,19 @@ public class MemberServiceImpl implements MemberService {
         }
         request.setAttribute("memberDTO", memberDTO);
         log.info("memberDTO: {}", memberDTO);
+    }
+
+    @Override
+    public boolean delete(HttpServletRequest request, HttpServletResponse response) {
+        log.info("delete()");
+
+        int memberID = Integer.parseInt(request.getParameter("memberID"));
+        int result;
+        try (SqlSession sqlSession = MyBatisUtil.getSession()) {
+            result = memberDAO.deleteMember(sqlSession, memberID);
+            sqlSession.commit();
+        }
+        return result == 1;
     }
 
     @Override
@@ -104,15 +117,9 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public boolean delete(HttpServletRequest request, HttpServletResponse response) {
-        log.info("delete()");
-
-        int memberID = Integer.parseInt(request.getParameter("memberID"));
-        int result;
-        try (SqlSession sqlSession = MyBatisUtil.getSession()) {
-            result = memberDAO.deleteMember(sqlSession, memberID);
-            sqlSession.commit();
-        }
-        return result == 1;
+    public boolean insert(HttpServletRequest request, HttpServletResponse response) {
+        log.info("insert()");
+        // 관리자가 사용자의 회원가입을 대리하는 경우
+        return false;
     }
 }

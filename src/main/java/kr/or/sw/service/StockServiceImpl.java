@@ -6,6 +6,9 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 @Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class StockServiceImpl implements StockService {
@@ -20,4 +23,29 @@ public class StockServiceImpl implements StockService {
     }
 
     private final StockDAO stockDao = StockDAOImpl.getInstance();
+
+    @Override
+    public void select(HttpServletRequest request, HttpServletResponse response) {
+
+    }
+
+    @Override
+    public void selectAll(HttpServletRequest request, HttpServletResponse response) {
+
+    }
+
+    @Override
+    public boolean insert(HttpServletRequest request, HttpServletResponse response) {
+        return false;
+    }
+
+    @Override
+    public boolean delete(HttpServletRequest request, HttpServletResponse response) {
+        return false;
+    }
+
+    @Override
+    public boolean update(HttpServletRequest request, HttpServletResponse response) {
+        return false;
+    }
 }

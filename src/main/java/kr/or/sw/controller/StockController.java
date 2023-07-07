@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Serial;
 
-import static kr.or.sw.controller.HomeController.HOME_PATH;
 import static kr.or.sw.controller.HomeController.VIEW_PATH;
+import static kr.or.sw.controller.HomeController.handleInvalidAccess;
 
 @Slf4j
 @WebServlet(name = "StockController", urlPatterns = "/stock/*")
@@ -25,12 +25,23 @@ public class StockController extends HttpServlet {
     private StockService stockService;
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         log.info("doGet()");
+
+        String pathInfo = request.getPathInfo();
+        switch (pathInfo) {
+            case "/list" -> {
+                log.info("/list");
+                // 모든 재고 목록을 불러오는 로직
+//                request.setAttribute("stockList", stockService.selectAll());
+                request.getRequestDispatcher(VIEW_PATH + "stock/stock.jsp").forward(request, response);
+            }
+            default -> handleInvalidAccess(request, response);
+        }
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         log.info("doPost()");
     }
 

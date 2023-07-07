@@ -12,8 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Serial;
 
-import static kr.or.sw.controller.HomeController.HOME_PATH;
-import static kr.or.sw.controller.HomeController.VIEW_PATH;
+import static kr.or.sw.controller.HomeController.*;
 
 @Slf4j
 @WebServlet(name = "MemberController", urlPatterns = "/member/*")
@@ -36,10 +35,10 @@ public class MemberController extends HttpServlet {
             }
             case "/update" -> {
                 log.info("/update");
-                memberService.selectOne(request, response);
-                request.getRequestDispatcher(request.getContextPath() + VIEW_PATH + "member/memberUpdate.jsp").forward(request, response);
+                memberService.select(request, response);
+                request.getRequestDispatcher(VIEW_PATH + "member/memberUpdate.jsp").forward(request, response);
             }
-            default -> throw new IllegalStateException("Unexpected value: " + pathInfo);
+            default -> handleInvalidAccess(request, response);
         }
         request.setAttribute("path", request.getRequestURI().substring(request.getContextPath().length()));
         request.getRequestDispatcher(request.getContextPath() + HOME_PATH).forward(request, response);
@@ -58,9 +57,9 @@ public class MemberController extends HttpServlet {
             case "/update" -> {
                 log.info("/update");
                 if (memberService.update(request, response)) log.info("회원정보 수정 성공");
-                response.sendRedirect(request.getContextPath() + "/member/search");
+                response.sendRedirect("member/search");
             }
-            default -> throw new IllegalStateException("Unexpected value: " + pathInfo);
+            default -> handleInvalidAccess(request, response);
         }
     }
 
@@ -85,9 +84,9 @@ public class MemberController extends HttpServlet {
 
         // searchOption이 0이면 전체 검색, 0이 아닌 다른 무언가면 그에 해당하는 검색을 진행
         switch (searchOption) {
-            case 0 -> memberService.searchAll(request, response);
+            case 0 -> memberService.selectAll(request, response);
             case 1, 2, 3, 4 -> memberService.searchBy(request, response);
-            default -> throw new IllegalStateException("Unexpected value: " + searchOption);
+            default -> handleInvalidAccess(request, response);
         }
     }
 }

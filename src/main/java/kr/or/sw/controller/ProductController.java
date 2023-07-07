@@ -12,9 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Serial;
 
-import static kr.or.sw.controller.HomeController.HOME_PATH;
-import static kr.or.sw.controller.HomeController.VIEW_PATH;
-
 @Slf4j
 @WebServlet(name = "ProductController", urlPatterns = "/product/*")
 public class ProductController extends HttpServlet {
