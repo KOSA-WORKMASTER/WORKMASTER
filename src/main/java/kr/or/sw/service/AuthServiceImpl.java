@@ -52,6 +52,7 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public void checkEmail(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        // 이메일 중복 여부 확인
         log.info("checkEmail()");
 
         String email = request.getParameter("email");
@@ -72,8 +73,9 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public boolean insertMember(HttpServletRequest request, HttpServletResponse response) {
-        log.info("insertMember()");
+    public boolean insert(HttpServletRequest request, HttpServletResponse response) {
+        log.info("insert()");
+        // 회원가입
 
         cipher = CipherUtil.getInstance();
         String name = request.getParameter("name"),
@@ -92,5 +94,25 @@ public class AuthServiceImpl implements AuthService {
             sqlSession.commit();
             return ret == 1;
         }
+    }
+
+    @Override
+    public void select(HttpServletRequest request, HttpServletResponse response) {
+        // 회원정보(본인) 보기
+        log.info("select()");
+    }
+
+    @Override
+    public boolean delete(HttpServletRequest request, HttpServletResponse response) {
+        // 회원탈퇴
+        log.info("delete()");
+        return false;
+    }
+
+    @Override
+    public boolean update(HttpServletRequest request, HttpServletResponse response) {
+        // 회원정보 수정
+        log.info("update()");
+        return false;
     }
 }

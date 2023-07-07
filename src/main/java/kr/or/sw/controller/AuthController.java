@@ -12,8 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Serial;
 
-import static kr.or.sw.controller.HomeController.HOME_PATH;
-import static kr.or.sw.controller.HomeController.VIEW_PATH;
+import static kr.or.sw.controller.HomeController.*;
 
 @Slf4j
 @WebServlet(name = "AuthController", urlPatterns = "/auth/*")
@@ -105,20 +104,11 @@ public class AuthController extends HttpServlet {
         log.info("handleRegister"); // 회원 등록
         request.setCharacterEncoding("UTF-8");
 
-        if (!authService.insertMember(request, response)) {
+        if (!authService.insert(request, response)) {
             log.error("register fail");
         } else {
             log.info("register success");
         }
         redirectToIndex(request, response);
-    }
-
-    private void handleInvalidAccess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        log.info("handleInvalidAccess()");  // 잘못된 접근 처리
-
-        log.error("잘못된 접근");
-        response.setStatus(HttpServletResponse.SC_FORBIDDEN);
-        response.setContentType("application/json");
-        response.getWriter().write("{ \"message\": \"FORBIDDEN\" }");
     }
 }

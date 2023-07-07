@@ -1,6 +1,6 @@
 package kr.or.sw.service;
 
-public interface ProductService {
+public interface ProductService extends Service {
 
 
 }

@@ -35,4 +35,13 @@ public class HomeController extends HttpServlet {
     public void destroy() {
         log.info("destroy()");
     }
+
+    static void handleInvalidAccess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        log.info("handleInvalidAccess()");  // 잘못된 접근 처리
+
+        log.error("잘못된 접근");
+        response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+        response.setContentType("application/json");
+        response.getWriter().write("{ \"message\": \"FORBIDDEN\" }");
+    }
 }
