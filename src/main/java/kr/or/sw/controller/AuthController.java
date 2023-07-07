@@ -101,7 +101,7 @@ public class AuthController extends HttpServlet {
     }
 
     private void handleRegister(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        log.info("handleRegister");
+        log.info("handleRegister"); // 회원 등록
         request.setCharacterEncoding("UTF-8");
 
         if (!authService.insertMember(request, response)) {

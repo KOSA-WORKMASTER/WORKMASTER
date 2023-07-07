@@ -2,6 +2,21 @@
 <%@ include file="/WEB-INF/views/layouts/header.jsp" %>
 <%@ include file="/WEB-INF/views/layouts/side.jsp" %>
 
+<nav>
+    <div class="nav-container">
+        <div class="nav-wrapper">
+            <div class="nav-menu">
+                <a href="/member/search?page=1">
+                    회원정보
+                </a>
+            </div>
+        </div>
+        <div class="nav-wrapper">
+            <div class="nav-menu">탈퇴회원</div>
+        </div>
+    </div>
+</nav>
+
 <main>
     <h1 class="mt-4">회원 정보 수정</h1>
     <form action="/member/update" method="post">
@@ -52,7 +67,7 @@
             </tr>
             <tr>
                 <th>
-                    <label for="remainTime">잔여시간</label></th>
+                    <label for="remainTime">잔여시간(분)</label></th>
                 <td>
                     <input type="text" id="remainTime" name="remainTime" value="${memberDTO.getRemainTime()}">
                 </td>
