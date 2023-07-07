@@ -12,15 +12,16 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Serial;
 
+import static kr.or.sw.controller.HomeController.HOME_PATH;
+import static kr.or.sw.controller.HomeController.VIEW_PATH;
+
 @Slf4j
-@WebServlet(name = "MemberController", value = "/member/*")
+@WebServlet(name = "MemberController", urlPatterns = "/member/*")
 public class MemberController extends HttpServlet {
 
     @Serial
     private static final long serialVersionUID = 5060263104786618675L;
     private MemberService memberService;
-    private static final String HOME_PATH = "/WEB-INF/views/home.jsp";
-    private static final String VIEW_PATH = "/WEB-INF/views/";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

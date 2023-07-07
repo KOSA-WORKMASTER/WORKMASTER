@@ -12,16 +12,16 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Serial;
 
+import static kr.or.sw.controller.HomeController.HOME_PATH;
+import static kr.or.sw.controller.HomeController.VIEW_PATH;
+
 @Slf4j
-@WebServlet(name = "AuthController", value = "/auth/*")
+@WebServlet(name = "AuthController", urlPatterns = "/auth/*")
 public class AuthController extends HttpServlet {
 
     @Serial
     private static final long serialVersionUID = -2930158301476609066L;
-
     private AuthService authService;
-
-    private static final String VIEW_PATH = "/WEB-INF/views/";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -96,7 +96,7 @@ public class AuthController extends HttpServlet {
             log.info("로그인 성공");
             request.getSession().setAttribute("email", email);  // 로그인 세션 저장
             request.setAttribute("redirect", "true");
-            request.getRequestDispatcher(VIEW_PATH + "home.jsp").forward(request, response);
+            request.getRequestDispatcher(HOME_PATH).forward(request, response);
         }
     }
 
