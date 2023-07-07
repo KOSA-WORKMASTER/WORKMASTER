@@ -21,6 +21,7 @@ public class AuthController extends HttpServlet {
 
     @Serial
     private static final long serialVersionUID = -2930158301476609066L;
+
     private AuthService authService;
 
     @Override

@@ -1,6 +1,7 @@
 package kr.or.sw.controller;
 
 import kr.or.sw.service.StockService;
+import kr.or.sw.service.StockServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.servlet.ServletException;
@@ -20,6 +21,7 @@ public class StockController extends HttpServlet {
 
     @Serial
     private static final long serialVersionUID = 4974481185726010330L;
+
     private StockService stockService;
 
     @Override
@@ -35,6 +37,7 @@ public class StockController extends HttpServlet {
     @Override
     public void init() throws ServletException {
         log.info("/stock/*");
+        stockService = StockServiceImpl.getInstance();
     }
 
     @Override

@@ -1,6 +1,7 @@
 package kr.or.sw.controller;
 
 import kr.or.sw.service.ProductService;
+import kr.or.sw.service.ProductServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.servlet.ServletException;
@@ -20,6 +21,7 @@ public class ProductController extends HttpServlet {
 
     @Serial
     private static final long serialVersionUID = 5019171277715891863L;
+
     private ProductService productService;
 
     @Override
@@ -35,6 +37,7 @@ public class ProductController extends HttpServlet {
     @Override
     public void init() throws ServletException {
         log.info("/product/*");
+        productService = ProductServiceImpl.getInstance();
     }
 
     @Override

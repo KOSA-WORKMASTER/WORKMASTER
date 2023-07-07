@@ -21,6 +21,7 @@ public class MemberController extends HttpServlet {
 
     @Serial
     private static final long serialVersionUID = 5060263104786618675L;
+
     private MemberService memberService;
 
     @Override
