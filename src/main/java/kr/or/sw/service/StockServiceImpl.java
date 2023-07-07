@@ -1,5 +1,7 @@
 package kr.or.sw.service;
 
+import kr.or.sw.mapper.StockDAO;
+import kr.or.sw.mapper.StockDAOImpl;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,4 +18,6 @@ public class StockServiceImpl implements StockService {
         }
         return instance;
     }
+
+    private final StockDAO stockDao = StockDAOImpl.getInstance();
 }
