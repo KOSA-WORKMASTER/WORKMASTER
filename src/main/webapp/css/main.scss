@@ -126,6 +126,7 @@ nav {
 
     $nav-menu-basis: 33%;
     flex-basis: $nav-menu-basis;
+
     .nav-menu {
       border: 1px solid black;
       border-bottom: none;
@@ -165,7 +166,7 @@ main {
 .main-container {
   height: 100%;
   width: 100%;
-  
+
 }
 
 .main-box {
@@ -176,7 +177,7 @@ main {
   margin: 20px;
   margin-left: auto;
   margin-right: auto;
-  display:inline-block;
+  display: inline-block;
 }
 
 .box-font {
@@ -184,27 +185,27 @@ main {
 }
 
 .modal-dialog {
-	max-width: 100%;
-	position: absolute;
+  max-width: 100%;
+  position: absolute;
 }
 
 .modal-header {
-	height: 100%;
-	width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 .modal-title {
-    height: 100px;
-    width: 200px;
-    background: white;
-    border: 1px solid #bbb;
-    border-radius: 10px;
-    margin: 20px;
+  height: 100px;
+  width: 200px;
+  background: white;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  margin: 20px;
 }
 
 .title-font {
-	text-align: center;
-	margin: revert;
+  text-align: center;
+  margin: revert;
 }
 
 .search {
@@ -222,7 +223,7 @@ main {
 }
 
 .search-img {
-  position : absolute;
+  position: absolute;
   width: 17px;
   top: 55px;
   right: -30px;
@@ -234,29 +235,29 @@ main {
 }
 
 .modal-box {
-	height: 330px;
-    width: 300px;
-    background-color: white;
-    border: 1px solid black;
-    margin: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    display: inline-block;
+  height: 330px;
+  width: 300px;
+  background-color: white;
+  border: 1px solid black;
+  margin: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
 }
 
 .modal-img {
-	height: 200px;
-    width: 200px;
-    margin: auto;
-    display: block;
+  height: 200px;
+  width: 200px;
+  margin: auto;
+  display: block;
 }
 
 .modal-line {
-    background-color: black;
+  background-color: black;
 }
 
 .modal-text {
-	text-align: center;
+  text-align: center;
 }
 
 footer {

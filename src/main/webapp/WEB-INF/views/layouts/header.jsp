@@ -15,8 +15,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="JSP Project for Attendance Management System">
-    <meta name="author" content="WorkMaster">
+    <meta name="description" content="JSP Project for Internet Cafe Management System">
+    <meta name="author" content="PC Master">
     <title>PC Master</title>
     <link rel="icon" href="${pageContext.request.contextPath}/favicon.ico">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css">

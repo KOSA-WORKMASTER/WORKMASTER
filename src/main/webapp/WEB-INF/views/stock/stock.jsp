@@ -3,7 +3,7 @@
 <%@ include file="/WEB-INF/views/layouts/side.jsp" %>
 
 <link href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet" type="text/css">
-<link href="${pageContext.request.contextPath}/css/stockManage.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/css/stock.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/main.js" defer></script>
 
 <side>
@@ -73,11 +73,9 @@
                         data-toggle="modal">재고 추가
                 </button>
 
-
                 <button class="btn btn-outline-primary"
                         data-target="#layerpopUpdate" data-toggle="modal">재고 수정
                 </button>
-
 
                 <!--    <button class="btn btn-outline-info" data-target="#" data-toggle="">재고 삭제</button> -->
 
@@ -146,10 +144,7 @@
                                             data-dismiss="modal">닫기
                                     </button>
                                 </div>
-
-
                             </form>
-
                         </div>
                     </div>
                 </div>
@@ -359,6 +354,3 @@
 </main>
 
 <%@ include file="/WEB-INF/views/layouts/footer.jsp" %>
-
-
-
