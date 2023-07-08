@@ -15,10 +15,12 @@ main {
 
       .search-input-wrapper {
         width: 60%;
+
         .custom-select {
           max-width: 20%;
         }
       }
+
       .search-select-type-wrapper {
         width: 40%;
         margin-top: 1vh;
@@ -28,11 +30,14 @@ main {
         margin-top: 0.5vh;
       }
     }
+
     .search-result-container {
       flex-basis: 77%;
     }
+
     .search-page-container {
       flex-basis: 5%;
+
       .search-page-wrapper {
         display: flex;
         justify-content: center;
@@ -42,6 +47,7 @@ main {
           background-color: white;
           color: black;
         }
+
         .pagination > li > a.current-page {
           color: black;
           background-color: #eee;
