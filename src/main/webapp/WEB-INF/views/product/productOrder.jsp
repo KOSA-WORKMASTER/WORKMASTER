@@ -1,6 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ include file="/WEB-INF/views/layouts/header.jsp" %>
-<%@ include file="/WEB-INF/views/layouts/side.jsp" %>
 
 <link href="${pageContext.request.contextPath}/css/order.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/main.js" defer></script>
@@ -61,5 +59,3 @@
         </div>
     </c:forEach>
 </main>
-
-<%@ include file="/WEB-INF/views/layouts/footer.jsp" %>

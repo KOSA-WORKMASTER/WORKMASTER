@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Serial;
 
-import static kr.or.sw.controller.HomeController.VIEW_PATH;
+import static kr.or.sw.controller.HomeController.HOME_PATH;
 import static kr.or.sw.controller.HomeController.handleInvalidAccess;
 
 @Slf4j
@@ -32,15 +32,17 @@ public class ProductController extends HttpServlet {
         switch (pathInfo) {
             case "/order" -> {
                 log.info("/order");
-                request.getRequestDispatcher(VIEW_PATH + "/product/productOrder.jsp").forward(request, response);
+//                request.getRequestDispatcher(VIEW_PATH + "/product/productOrder.jsp").forward(request, response);
             }
             case "/insert" -> {
                 log.info("/insert");
                 // 상품 추가 페이지 불러오기
-                request.getRequestDispatcher(VIEW_PATH + "/product/productInsert.jsp").forward(request, response);
+//                request.getRequestDispatcher(VIEW_PATH + "/product/productInsert.jsp").forward(request, response);
             }
             default -> handleInvalidAccess(request, response);
         }
+        request.setAttribute("path", request.getRequestURI().substring(request.getContextPath().length()));
+        request.getRequestDispatcher(request.getContextPath() + HOME_PATH).forward(request, response);
     }
 
     @Override

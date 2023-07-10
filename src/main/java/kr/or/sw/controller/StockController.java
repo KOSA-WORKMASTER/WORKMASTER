@@ -12,8 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Serial;
 
-import static kr.or.sw.controller.HomeController.VIEW_PATH;
-import static kr.or.sw.controller.HomeController.handleInvalidAccess;
+import static kr.or.sw.controller.HomeController.*;
 
 @Slf4j
 @WebServlet(name = "StockController", urlPatterns = "/stock/*")
@@ -34,10 +33,12 @@ public class StockController extends HttpServlet {
                 log.info("/list");
                 // 모든 재고 목록을 불러오는 로직
 //                request.setAttribute("stockList", stockService.selectAll());
-                request.getRequestDispatcher(VIEW_PATH + "stock/stock.jsp").forward(request, response);
+//                request.getRequestDispatcher(VIEW_PATH + "stock/stock.jsp").forward(request, response);
             }
             default -> handleInvalidAccess(request, response);
         }
+        request.setAttribute("path", request.getRequestURI().substring(request.getContextPath().length()));
+        request.getRequestDispatcher(request.getContextPath() + HOME_PATH).forward(request, response);
     }
 
     @Override

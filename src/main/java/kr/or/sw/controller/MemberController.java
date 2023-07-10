@@ -28,6 +28,7 @@ public class MemberController extends HttpServlet {
         log.info("doGet()");
 
         String pathInfo = request.getPathInfo();
+        String viewPath = "";
         switch (pathInfo) {
             case "/search" -> {
                 log.info("/search");
@@ -36,7 +37,7 @@ public class MemberController extends HttpServlet {
             case "/update" -> {
                 log.info("/update");
                 memberService.select(request, response);
-                request.getRequestDispatcher(VIEW_PATH + "member/memberUpdate.jsp").forward(request, response);
+//                request.getRequestDispatcher(VIEW_PATH + "member/memberUpdate.jsp").forward(request, response);
             }
             default -> handleInvalidAccess(request, response);
         }
