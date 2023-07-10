@@ -16,7 +16,7 @@ import static kr.or.sw.controller.HomeController.VIEW_PATH;
 import static kr.or.sw.controller.HomeController.handleInvalidAccess;
 
 @Slf4j
-@WebServlet(name = "AuthController", urlPatterns = "/auth/*")
+@WebServlet(name = "AuthController", urlPatterns = {"/auth/*"})
 public class AuthController extends HttpServlet {
 
     @Serial

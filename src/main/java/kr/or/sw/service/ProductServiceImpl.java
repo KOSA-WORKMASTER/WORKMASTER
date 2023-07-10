@@ -34,6 +34,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void selectAll(HttpServletRequest request, HttpServletResponse response) {
         log.info("selectAll()");
+        // 모든 상품 목록 불러오기
     }
 
     @Override

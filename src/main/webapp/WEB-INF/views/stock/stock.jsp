@@ -4,8 +4,6 @@
       rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath}/css/stock.css"
       rel="stylesheet" type="text/css">
-<script type="text/javascript"
-        src="${pageContext.request.contextPath}/js/main.js" defer></script>
 
 <nav>
     <div class="nav-container">
