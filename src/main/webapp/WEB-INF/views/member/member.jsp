@@ -87,7 +87,7 @@
                                 <td>${memberList.get(i).getName()}</td>
                                 <td>${memberList.get(i).getEmail()}</td>
                                 <td>${memberList.get(i).getContact()}</td>
-                                <td>-</td>
+                                <td>${memberList.get(i).getBirthDate()}</td>
                                 <td>${memberList.get(i).getRegDate()}</td>
                                 <td>${memberList.get(i).getRemainTime()}</td>
                                 <td>-</td>

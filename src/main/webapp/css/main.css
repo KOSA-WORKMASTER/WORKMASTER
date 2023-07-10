@@ -7,6 +7,14 @@ body {
   grid-template-rows: 0.25fr 1.75fr 0.75fr 1fr;
   gap: 1.8vw;
 }
+body a {
+  text-underline: none;
+  color: black;
+}
+body a:hover {
+  text-underline: none;
+  color: black;
+}
 
 header {
   grid-area: header;
@@ -55,22 +63,28 @@ side .side-container .side-wrapper:nth-last-child(2) .side-menu {
 side .side-container .side-wrapper:nth-child(even) {
   display: none;
 }
+side .side-container .side-wrapper:nth-child(even):has(.side-menu:first-child:nth-last-child(1)) {
+  flex-basis: 14%;
+}
+side .side-container .side-wrapper:nth-child(even):has(.side-menu:first-child:nth-last-child(2)) {
+  flex-basis: 28%;
+}
 side .side-container .side-wrapper:nth-child(even):has(.side-menu:first-child:nth-last-child(3)) {
   flex-basis: 42%;
-}
-side .side-container .side-wrapper:nth-child(even):has(.side-menu:first-child:nth-last-child(4)) {
-  flex-basis: 56%;
 }
 side .side-container .side-wrapper:nth-child(even) .side-menu {
   background-color: white;
   color: black;
   font-size: 1.5rem;
 }
+side .side-container .side-wrapper:nth-child(even) .side-menu:first-child:nth-last-child(1), side .side-container .side-wrapper:nth-child(even) .side-menu:first-child:nth-last-child(1) ~ .side-menu {
+  flex-basis: 100%;
+}
+side .side-container .side-wrapper:nth-child(even) .side-menu:first-child:nth-last-child(2), side .side-container .side-wrapper:nth-child(even) .side-menu:first-child:nth-last-child(2) ~ .side-menu {
+  flex-basis: 50%;
+}
 side .side-container .side-wrapper:nth-child(even) .side-menu:first-child:nth-last-child(3), side .side-container .side-wrapper:nth-child(even) .side-menu:first-child:nth-last-child(3) ~ .side-menu {
   flex-basis: 33.3333333333%;
-}
-side .side-container .side-wrapper:nth-child(even) .side-menu:first-child:nth-last-child(4), side .side-container .side-wrapper:nth-child(even) .side-menu:first-child:nth-last-child(4) ~ .side-menu {
-  flex-basis: 25%;
 }
 side .side-container .side-wrapper:nth-child(even) .side-menu:hover {
   background-color: #eee;

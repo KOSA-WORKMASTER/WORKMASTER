@@ -32,9 +32,7 @@
   }
 }
 
-.register-container {
-
-
+.login-container {
   flex-basis: 50%;
   display: flex;
   flex-direction: row;
@@ -42,68 +40,53 @@
   justify-content: center;
   height: 100%;
 
-  .register-wrapper {
+  .login-wrapper {
     position: relative;
-    width: 60%;
+    width: 100%;
     height: 80%;
 
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
 
+    .login-main {
+      border: 1px solid #ccc;
+      border-radius: 2%;
+      padding: 1.5vw;
+      width: 80%;
+      height: 54%;
 
-    form {
-      width: 100%;
-      height: 100%;
+      .login-type-select-wrapper {
+        width: 100%;
+      }
 
-      .register-stage-container {
+      .login-help-wrapper {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        flex-direction: row;
+        justify-content: space-around;
+        height: 7%;
 
+        a {
+          font-size: 0.9rem;
+          text-underline: none;
+          &:hover {
+            text-underline: none;
+            color: black;
+          }
+        }
+      }
+
+      form {
         width: 100%;
         height: 100%;
-        overflow: hidden;
 
-        .register-stage-wrapper {
+        .btn-container {
           display: flex;
           flex-direction: row;
-          width: 200%;
-          height: 100%;
-
-          transition: 0.3s;
-          transform: translateX(0);
-
-          .register-stage {
+          justify-content: space-around;
+          .btn {
             width: 100%;
-            height: 100%;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-            .input-container {
-              width: 80%;
-              padding: 2vh;
-
-              .help {
-                font-size: 0.5rem;
-              }
-
-              .form-control:focus.err {
-                border-color: red;
-                box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, .25);
-              }
-            }
-
-            .btn-container {
-              width: 40%;
-              display: flex;
-              flex-direction: row;
-              justify-content: center; /* 버튼들을 가운데 정렬 */
-              align-items: center;
-            }
           }
         }
       }

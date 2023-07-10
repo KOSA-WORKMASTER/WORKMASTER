@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .main {
   display: flex;
   flex-direction: row;
@@ -29,7 +28,7 @@
   bottom: 25%;
 }
 
-.register-container {
+.login-container {
   flex-basis: 50%;
   display: flex;
   flex-direction: row;
@@ -37,59 +36,50 @@
   justify-content: center;
   height: 100%;
 }
-.register-container .register-wrapper {
+.login-container .login-wrapper {
   position: relative;
-  width: 60%;
+  width: 100%;
   height: 80%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login-container .login-wrapper .login-main {
+  border: 1px solid #ccc;
+  border-radius: 2%;
+  padding: 1.5vw;
+  width: 80%;
+  height: 54%;
+}
+.login-container .login-wrapper .login-main .login-type-select-wrapper {
+  width: 100%;
+}
+.login-container .login-wrapper .login-main .login-help-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 7%;
+}
+.login-container .login-wrapper .login-main .login-help-wrapper a {
+  font-size: 0.9rem;
+  text-underline: none;
+}
+.login-container .login-wrapper .login-main .login-help-wrapper a:hover {
+  text-underline: none;
+  color: black;
+}
+.login-container .login-wrapper .login-main form {
+  width: 100%;
+  height: 100%;
+}
+.login-container .login-wrapper .login-main form .btn-container {
+  display: flex;
+  flex-direction: row;
   justify-content: space-around;
 }
-.register-container .register-wrapper form {
+.login-container .login-wrapper .login-main form .btn-container .btn {
   width: 100%;
-  height: 100%;
-}
-.register-container .register-wrapper form .register-stage-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-.register-container .register-wrapper form .register-stage-container .register-stage-wrapper {
-  display: flex;
-  flex-direction: row;
-  width: 200%;
-  height: 100%;
-  transition: 0.3s;
-  transform: translateX(0);
-}
-.register-container .register-wrapper form .register-stage-container .register-stage-wrapper .register-stage {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.register-container .register-wrapper form .register-stage-container .register-stage-wrapper .register-stage .input-container {
-  width: 80%;
-  padding: 2vh;
-}
-.register-container .register-wrapper form .register-stage-container .register-stage-wrapper .register-stage .input-container .help {
-  font-size: 0.5rem;
-}
-.register-container .register-wrapper form .register-stage-container .register-stage-wrapper .register-stage .input-container .form-control:focus.err {
-  border-color: red;
-  box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.25);
-}
-.register-container .register-wrapper form .register-stage-container .register-stage-wrapper .register-stage .btn-container {
-  width: 40%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center; /* 버튼들을 가운데 정렬 */
-  align-items: center;
 }
 
 /*# sourceMappingURL=index.css.map */

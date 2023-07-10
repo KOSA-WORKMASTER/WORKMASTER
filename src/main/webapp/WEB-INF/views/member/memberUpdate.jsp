@@ -1,16 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <nav>
     <div class="nav-container">
-        <div class="nav-wrapper">
-            <div class="nav-menu">
-                <a href="/member/search?page=1">
-                    회원정보
-                </a>
-            </div>
-        </div>
-        <div class="nav-wrapper">
-            <div class="nav-menu">탈퇴회원</div>
-        </div>
     </div>
 </nav>
 
@@ -22,51 +12,79 @@
                 <th>
                     <label for="memberID">ID</label></th>
                 <td>
-                    <input type="text" id="memberID" name="memberID" value="${memberDTO.getMemberID()}"
-                           readonly>
+                    <div class="input-container">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="memberID" name="memberID" value="${memberDTO.getMemberID()}"
+                                   readonly>
+                        </div>
+                    </div>
                 </td>
             </tr>
             <tr>
                 <th>
                     <label for="name">이름</label></th>
                 <td>
-                    <input type="text" id="name" name="name" value="${memberDTO.getName()}" readonly>
+                    <div class="input-container">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="name" name="name" value="${memberDTO.getName()}" readonly>
+                        </div>
+                    </div>
                 </td>
             </tr>
             <tr>
                 <th>
                     <label for="email">계정(이메일)</label></th>
                 <td>
-                    <input type="text" id="email" name="email" value="${memberDTO.getEmail()}">
+                    <div class="input-container">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="email" name="email" value="${memberDTO.getEmail()}">
+                        </div>
+                    </div>
                 </td>
             </tr>
             <tr>
                 <th>
                     <label for="contact">연락처</label></th>
                 <td>
-                    <input type="text" id="contact" name="contact" value="${memberDTO.getContact()}">
+                    <div class="input-container">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="contact" name="contact" value="${memberDTO.getContact()}">
+                        </div>
+                    </div>
                 </td>
             </tr>
             <tr>
                 <th>
-                    <label for="birthday">생일</label></th>
+                    <label for="birthDate">생일</label></th>
                 <td>
-                    <input type="text" id="birthday" name="birthday" value="${memberDTO.getBirthday()}"
-                           readonly>
+                    <div class="input-container">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="birthDate" name="birthDate" value="${memberDTO.getBirthDate()}"
+                                   readonly>
+                        </div>
+                    </div>
                 </td>
             </tr>
             <tr>
                 <th>
                     <label for="regDate">등록일</label></th>
                 <td>
-                    <input type="text" id="regDate" name="regDate" value="${memberDTO.getRegDate()}" readonly>
+                    <div class="input-container">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="regDate" name="regDate" value="${memberDTO.getRegDate()}" readonly>
+                        </div>
+                    </div>
                 </td>
             </tr>
             <tr>
                 <th>
                     <label for="remainTime">잔여시간(분)</label></th>
                 <td>
-                    <input type="text" id="remainTime" name="remainTime" value="${memberDTO.getRemainTime()}">
+                    <div class="input-container">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="remainTime" name="remainTime" value="${memberDTO.getRemainTime()}">
+                        </div>
+                    </div>
                 </td>
             </tr>
             <tr>

@@ -43,6 +43,10 @@ public class AuthController extends HttpServlet {
                 log.info("/register");
                 request.getRequestDispatcher(VIEW_PATH + "auth/register.html").forward(request, response);
             }
+            case "/password" -> {
+                log.info("/register");
+                request.getRequestDispatcher(VIEW_PATH + "auth/findPassword.html").forward(request, response);
+            }
             default -> handleInvalidAccess(request, response);
         }
     }
