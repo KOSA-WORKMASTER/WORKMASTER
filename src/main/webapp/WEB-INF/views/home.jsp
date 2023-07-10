@@ -32,6 +32,12 @@
         <%@ include file="/WEB-INF/views/product/productList.jsp" %>
     </c:if>
 </c:if>
-v
+
+<c:if test="${paths[0] eq 'home'}">
+	<%-- <c:if test="${paths[1] eq 'main'}"> --%>
+		<%@ include file="/WEB-INF/views/main.jsp" %>
+	<%-- </c:if> --%>
+</c:if>
+
 
 <%@ include file="/WEB-INF/views/layouts/footer.jsp" %>
