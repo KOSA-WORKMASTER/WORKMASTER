@@ -17,7 +17,7 @@ public class MemberDTO {    // 회원 테이블
     private String contact; // 연락처
     private String question;   // 본인확인질문
     private String answer;    // 본인확인정답
-    private java.sql.Date birthday; // 생일
+    private java.sql.Date birthDate; // 생년월일
     private java.sql.Date regDate;  // 등록일
     private int remainTime; // 잔여시간
 
@@ -28,7 +28,7 @@ public class MemberDTO {    // 회원 테이블
         this.remainTime = remainTime;
     }
 
-    public MemberDTO(String name, String email, String password, String salt, String contact, String question, String answer, String birthday) {
+    public MemberDTO(String name, String email, String password, String salt, String contact, String question, String answer, String birthDate) {
         this.name = name;
         this.email = email;
         this.password = password;
@@ -39,7 +39,7 @@ public class MemberDTO {    // 회원 테이블
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         try {
-            this.birthday = new Date(sdf.parse(birthday).getTime());
+            this.birthDate = new Date(sdf.parse(birthDate).getTime());
         } catch (Exception e) {
             e.printStackTrace();
         }

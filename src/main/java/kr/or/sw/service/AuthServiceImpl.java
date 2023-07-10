@@ -85,9 +85,9 @@ public class AuthServiceImpl implements AuthService {
                 contact = request.getParameter("contact"),
                 question = request.getParameter("question"),
                 answer = request.getParameter("answer"),
-                birthday = request.getParameter("birthday");
+                birthDate = request.getParameter("birthDate");
 
-        MemberDTO memberDTO = new MemberDTO(name, email, password, salt, contact, question, answer, birthday);
+        MemberDTO memberDTO = new MemberDTO(name, email, password, salt, contact, question, answer, birthDate);
 
         try (SqlSession sqlSession = MyBatisUtil.getSession()) {
             int ret = authDAO.insertMember(sqlSession, memberDTO);
