@@ -12,6 +12,23 @@
     <c:if test="${paths[1] eq 'search'}">
         <%@ include file="/WEB-INF/views/member/member.jsp" %>
     </c:if>
+    <c:if test="${paths[1] eq 'update'}">
+        <%@ include file="/WEB-INF/views/member/memberUpdate.jsp" %>
+    </c:if>
 </c:if>
+<c:if test="${paths[0] eq 'stock'}">
+    <c:if test="${paths[1] eq 'list'}">
+        <%@ include file="/WEB-INF/views/stock/stock.jsp" %>
+    </c:if>
+</c:if>
+<c:if test="${paths[0] eq 'product'}">
+    <c:if test="${paths[1] eq 'order'}">
+        <%@ include file="/WEB-INF/views/product/productOrder.jsp" %>
+    </c:if>
+    <c:if test="${paths[1] eq 'insert'}">
+        <%@ include file="/WEB-INF/views/product/productInsert.jsp" %>
+    </c:if>
+</c:if>
+v
 
 <%@ include file="/WEB-INF/views/layouts/footer.jsp" %>
