@@ -34,9 +34,22 @@ public class AuthDAOImpl implements AuthDAO {
     }
 
     @Override
+    public MemberDTO getQuestion(SqlSession sqlSession, String email) {
+        // 입력한 이메일의 비밀번호 찾기 질문과 답을 반환
+        log.info("getQustion(): {}", email);
+        return sqlSession.selectOne("getQuestion", email);
+    }
+
+    @Override
     public int insertMember(SqlSession sqlSession, MemberDTO memberDTO) {
         // 회원 가입
         log.info("insertMember(): {}", memberDTO);
         return sqlSession.insert("insertMember", memberDTO);
+    }
+
+    @Override
+    public int resetPassword(SqlSession sqlSession, MemberDTO memberDTO) {
+        log.info("resetPassword(): {}", memberDTO);
+        return sqlSession.insert("resetPassword", memberDTO);
     }
 }

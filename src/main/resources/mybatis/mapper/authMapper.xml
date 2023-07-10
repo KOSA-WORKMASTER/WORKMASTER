@@ -14,9 +14,22 @@
         WHERE EMAIL = #{email}
     </select>
 
+    <select id="getQuestion" parameterType="String" resultType="kr.or.sw.model.MemberDTO">
+        SELECT QUESTION, ANSWER
+        FROM MEMBER
+        WHERE EMAIL = #{email}
+    </select>
+
     <insert id="insertMember" parameterType="kr.or.sw.model.MemberDTO">
         INSERT INTO MEMBER
         VALUES (PCMASTER.MEMBERID_SEQ.NEXTVAL, #{name}, #{email}, #{password}, #{salt}, #{contact}, #{question},
                 #{answer}, #{birthDate}, SYSDATE, 0)
     </insert>
+
+    <update id="resetPassword" parameterType="kr.or.sw.model.MemberDTO">
+        UPDATE MEMBER
+        SET SALT = #{salt},
+            PASSWORD = #{password}
+        WHERE EMAIL = #{email}
+    </update>
 </mapper>
