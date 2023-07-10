@@ -7,6 +7,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import static kr.or.sw.controller.HomeController.HOME_PATH;
+
 import java.io.IOException;
 import java.io.Serial;
 
@@ -23,6 +26,7 @@ public class HomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         log.info("doGet()");
+        request.setAttribute("path", request.getRequestURI().substring(request.getContextPath().length()));
         request.getRequestDispatcher(request.getContextPath() + HOME_PATH).forward(request, response);
     }
 
