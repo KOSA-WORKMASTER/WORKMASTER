@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Serial;
 
+import static kr.or.sw.controller.HomeController.VIEW_PATH;
+import static kr.or.sw.controller.HomeController.handleInvalidAccess;
+
 @Slf4j
 @WebServlet(name = "ProductController", urlPatterns = "/product/*")
 public class ProductController extends HttpServlet {
@@ -22,12 +25,26 @@ public class ProductController extends HttpServlet {
     private ProductService productService;
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         log.info("doGet()");
+
+        String pathInfo = request.getPathInfo();
+        switch (pathInfo) {
+            case "/order" -> {
+                log.info("/order");
+                request.getRequestDispatcher(VIEW_PATH + "/product/productOrder.jsp").forward(request, response);
+            }
+            case "/insert" -> {
+                log.info("/insert");
+                // 상품 추가 페이지 불러오기
+                request.getRequestDispatcher(VIEW_PATH + "/product/productInsert.jsp").forward(request, response);
+            }
+            default -> handleInvalidAccess(request, response);
+        }
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         log.info("doPost()");
     }
 
