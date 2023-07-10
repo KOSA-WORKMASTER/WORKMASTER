@@ -1,11 +1,13 @@
+@charset "UTF-8";
+
 .info-menu {
-    height: 100%;
-    width: 75%;
-    background-color: white;
-    border: 1px solid;
-    float: left;
-    display: flex;
-    flex-direction: column;
+  height: 100%;
+  width: 75%;
+  background-color: white;
+  border: 1px solid;
+  float: left;
+  display: flex;
+  flex-direction: column;
 }
 
 .info-main {
@@ -17,18 +19,18 @@
 }
 
 .menu-header {
-    display: flex;
-    background-color: #015F23;
-    flex-basis: 10%;
+  display: flex;
+  background-color: #015F23;
+  flex-basis: 10%;
 }
 
 .menu-title {
-    height: 10vh;
-    width: 17vh;
-    background: white;
-    border: 1px solid;
-    border-radius: 5px;
-    margin: 15px;
+  height: 10vh;
+  width: 17vh;
+  background: white;
+  border: 1px solid;
+  border-radius: 5px;
+  margin: 15px;
 }
 
 .title-font {
@@ -42,19 +44,19 @@
 }
 
 .search-input {
-    width: 80%;
-    border: 1px solid #bbb;
-    border-radius: 10px;
-    padding: 12px 12px;
-    font-size: 14px;
-    transform: translate(20px, 45px);
+  width: 80%;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  padding: 12px 12px;
+  font-size: 14px;
+  transform: translate(20px, 45px);
 }
 
 .search-img {
-    position: absolute;
-    width: 20px;
-    top: 55px;
-    right: 45px;
+  position: absolute;
+  width: 20px;
+  top: 55px;
+  right: 45px;
 }
 
 .menu-body {
@@ -64,20 +66,20 @@
 }
 
 .menu-box {
-    height: 24vh;
-    width: 22vh;
-    background-color: white;
-    border: 1px solid;
-    border-radius: 5px;
-    margin: 19px;
-    display: inline-block;
+  height: 24vh;
+  width: 22vh;
+  background-color: white;
+  border: 1px solid;
+  border-radius: 5px;
+  margin: 19px;
+  display: inline-block;
 }
 
 .menu-img {
-    height: 13vh;
-    width: 13vh;
-    margin: auto;
-    display: block;
+  height: 13vh;
+  width: 13vh;
+  margin: auto;
+  display: block;
 }
 
 .menu-line {

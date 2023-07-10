@@ -1,3 +1,5 @@
+'use strict'
+
 let stage = 0;
 let stageLength = $(".find-password-stage").length;
 let emailChk = false;
@@ -43,10 +45,9 @@ $("#email-chk").click(() => {
                     answer = res.answer;
                     emailChk = true;
                     alert("이메일 확인이 완료되었습니다");
-                }
-                else {
-                     alert("없는 이메일 입니다");
-                     return;
+                } else {
+                    alert("없는 이메일 입니다");
+                    return;
                 }
             },
         });
@@ -65,8 +66,7 @@ $(".nextstage").each((i, e) => {
                 alert("이메일 확인을 해주세요");
                 return;
             }
-        }
-        else if (i == 1) {
+        } else if (i == 1) {
             if (!answerChk) {
                 alert("정답 확인을 해주세요");
                 return;
@@ -116,8 +116,7 @@ $("#answer-chk").click(() => {
         $("#answer-chk").toggleClass("btn-success");
         $("#answer-chk").off("click");
         alert("확인이 완료되었습니다");
-    }
-    else {
+    } else {
         alert("정답이 아닙니다");
     }
 });

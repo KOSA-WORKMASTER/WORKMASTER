@@ -9,6 +9,8 @@ import lombok.extern.slf4j.Slf4j;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import static kr.or.sw.controller.ProductController.uploadPath;
+
 @Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ProductServiceImpl implements ProductService {
@@ -37,7 +39,9 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public boolean insert(HttpServletRequest request, HttpServletResponse response) {
         log.info("insert()");
-        return false;
+        log.info("uploadPath: {}", uploadPath);
+
+        return true;
     }
 
     @Override
