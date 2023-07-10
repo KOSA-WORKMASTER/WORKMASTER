@@ -10,7 +10,6 @@
     <title>PC Master</title>
     <link rel="icon" href="./favicon.ico">
     <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" type="text/css" href="./css/register.css"> -->
     <link rel="stylesheet" type="text/css" href="./css/index.css">
     <script type="text/javascript" src="./js/jquery.min.js"></script>
     <script type="text/javascript" src="./js/bootstrap.min.js" defer></script>
@@ -24,81 +23,72 @@
         <p class="logo-title">PC Master</p>
     </div>
 
-    <div class="register-container">
-        <div class="register-wrapper">
-            <div class="register-stage-container">
-                <div class="register-stage-wrapper">
-                    <div class="register-stage">
-                        <div class="search-select-type-wrapper btn-group btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-outline-primary active"> <input type="radio" name="select-type"
-                                                                                  id="client_login" value="member"
-                                                                                  onchange="switchForm('member')"
-                                                                                  checked> 회원 로그인 </label>
-                            <label class="btn btn-outline-info"> <input type="radio" name="select-type"
-                                                                        id="manager_login" value="login"
-                                                                        onchange="switchForm('admin')"> 관리자 로그인 </label>
-                        </div>
-                        <br/>
-                        <br/>
-                        <form action="/auth/login" method="post" id="client-login">
-                            <div class="input-container">
-                                <h5>ID</h5>
-                                <div class="input-group">
-                                    <input type="email" class="form-control" placeholder="계정" id="email"
-                                           name="email">
-                                </div>
-                            </div>
-                            <br>
-                            <div class="input-container">
-                                <h5>비밀번호</h5>
-                                <div class="input-group">
-                                    <input type="password" class="form-control" placeholder="비밀번호" name="password"
-                                           id="password">
-                                </div>
-                            </div>
-                            <br>
-                            <div class="btn-container text-center">
-                                <input type="submit" class="btn btn-outline-success" value="확인">
-                                <input type="reset" class="btn btn-outline-success" value="취소">
-                            </div>
-                            <br>
-                            <div class="btn-container text-center">
-                                <input type="button" class="btn btn-outline-success btn-lg" value="회원가입"
-                                       onclick="location.href='/auth/register'">
-                                <button type="button" class="btn btn-outline-success btn-lg"
-                                        onclick="location.href='./docs/passwordSearch1.html'">비밀번호 찾기
-                                </button>
-                            </div>
-                            <br/>
-                        </form>
-
-                        <form action="" method="post" id="manager-login" style="display: none;">
-                            <div class="register-stage">
-                                <div class="input-container">
-                                    <h5>관리자</h5>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="관리자 ID" id="adminId"
-                                               name="adminId">
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="input-container">
-                                    <h5>비밀번호</h5>
-                                    <div class="input-group">
-                                        <input type="password" class="form-control" placeholder="비밀번호" name="adminPw"
-                                               id="adminPw">
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="btn-container text-center">
-                                    <input type="submit" class="btn btn-outline-success" value="확인">
-                                    <input type="reset" class="btn btn-outline-success" value="취소">
-                                </div>
-                                <br>
-                            </div>
-                        </form>
-                    </div>
+    <div class="login-container">
+        <div class="login-wrapper">
+            <div class="login-main">
+                <div class="login-type-select-wrapper btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-outline-success active"> <input type="radio" name="select-type"
+                                                                          id="client_login" value="member"
+                                                                          onchange="switchForm('member')"
+                                                                          checked> 회원 로그인 </label>
+                    <label class="btn btn-outline-success"> <input type="radio" name="select-type"
+                                                                id="manager_login" value="login"
+                                                                onchange="switchForm('admin')"> 관리자 로그인 </label>
                 </div>
+                <br><br>
+                <form action="/auth/login" method="post" id="client-login">
+                    <div class="input-container">
+                        <h5>이메일</h5>
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="이메일" id="email"
+                                   name="email">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="input-container">
+                        <h5>비밀번호</h5>
+                        <div class="input-group">
+                            <input type="password" class="form-control" placeholder="비밀번호" name="password"
+                                   id="password">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="login-help-wrapper">
+                        <a href="/auth/register">회원가입</a>
+                        <a href="/auth/password">비밀번호 찾기</a>
+                    </div>
+                    <br>
+                    <div class="btn-container">
+                        <input type="submit" class="btn btn-outline-success" value="확인">
+<!--                        <input type="reset" class="btn btn-outline-success" value="취소">-->
+                    </div>
+                </form>
+
+                <form action="/auth/" method="post" id="manager-login" style="display: none;">
+                    <div class="input-container">
+                        <h5>관리자</h5>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="관리자 ID" id="adminId"
+                                   name="adminId">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="input-container">
+                        <h5>비밀번호</h5>
+                        <div class="input-group">
+                            <input type="password" class="form-control" placeholder="비밀번호" name="adminPw"
+                                   id="adminPw">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="login-help-wrapper">
+                    </div>
+                    <br>
+                    <div class="btn-container text-center">
+                        <input type="submit" class="btn btn-outline-success" value="확인">
+                    </div>
+                    <br>
+                </form>
             </div>
         </div>
     </div>

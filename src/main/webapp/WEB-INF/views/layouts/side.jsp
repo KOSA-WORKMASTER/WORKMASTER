@@ -6,26 +6,21 @@
             <dlv class="side-menu">회원관리</dlv>
         </div>
         <div class="side-wrapper">
-            <dlv class="side-menu"><a href="/member/search">회원정보</a></dlv>
-            <dlv class="side-menu">2</dlv>
-            <dlv class="side-menu">3</dlv>
+            <dlv class="side-menu"><a href="/member/search">회원목록</a></dlv>
         </div>
         <div class="side-wrapper">
-            <dlv class="side-menu">메뉴2</dlv>
+            <dlv class="side-menu">재고관리</dlv>
         </div>
         <div class="side-wrapper">
-            <dlv class="side-menu">1</dlv>
-            <dlv class="side-menu">2</dlv>
-            <dlv class="side-menu">3</dlv>
+            <dlv class="side-menu"><a href="/stock/list">재고목록</a></dlv>
         </div>
         <div class="side-wrapper">
-            <dlv class="side-menu">메뉴3</dlv>
+            <dlv class="side-menu">상품관리</dlv>
         </div>
         <div class="side-wrapper">
-            <dlv class="side-menu">1</dlv>
-            <dlv class="side-menu">2</dlv>
-            <dlv class="side-menu">3</dlv>
-            <dlv class="side-menu">4</dlv>
+            <dlv class="side-menu"><a href="/product/order">주문현황</a></dlv>
+            <dlv class="side-menu"><a href="/product/list">상품목록</a></dlv>
+            <dlv class="side-menu"><a href="/product/insert">상품등록</a></dlv>
         </div>
     </div>
 </side>
