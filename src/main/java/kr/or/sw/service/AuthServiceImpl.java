@@ -71,6 +71,47 @@ public class AuthServiceImpl implements AuthService {
             log.info("check email done");
         }
     }
+    @Override
+    public void getQuestion(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        // 입력한 이메일로 비밀번호 찾기 질문 가져옴
+        log.info("getQuestion()");
+
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        String email = request.getParameter("email");
+        try (SqlSession sqlSession = MyBatisUtil.getSession();
+             PrintWriter out = response.getWriter()) {
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+
+            MemberDTO ret = authDAO.getQuestion(sqlSession, email);
+            log.info("ret: " + ret);
+
+            ObjectMapper objectMapper = new ObjectMapper();
+            out.write(objectMapper.writeValueAsString(ret));
+            out.flush();
+            log.info("get question done");
+        }
+    }
+    @Override
+    public boolean resetPassword(HttpServletRequest request, HttpServletResponse response) {
+        log.info("resetPassword()");
+
+        cipher = CipherUtil.getInstance();
+        MemberDTO memberDTO = new MemberDTO();
+        memberDTO.setEmail(request.getParameter("email"));
+        String salt = cipher.generateSalt(),
+                password = cipher.hashPassword(request.getParameter("password"), salt);
+        memberDTO.setSalt(salt);
+        memberDTO.setPassword(password);
+
+        String email = request.getParameter("email");
+        try (SqlSession sqlSession = MyBatisUtil.getSession()) {
+            int ret = authDAO.resetPassword(sqlSession, memberDTO);
+             sqlSession.commit();
+            return ret == 1;
+        }
+    }
 
     @Override
     public boolean insert(HttpServletRequest request, HttpServletResponse response) {

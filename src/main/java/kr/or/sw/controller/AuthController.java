@@ -56,6 +56,7 @@ public class AuthController extends HttpServlet {
         log.info("doPost()");
 
         String pathInfo = request.getPathInfo();
+        log.info("pathInfo: {}", pathInfo);
         switch (pathInfo) {
             case "/login" -> {
                 log.info("/login"); // 로그인
@@ -68,6 +69,14 @@ public class AuthController extends HttpServlet {
             case "/checkEmail" -> {
                 log.info("/checkEmail");
                 authService.checkEmail(request, response);
+            }
+            case "/getQuestion" -> {
+                log.info("/getQuestion");
+                authService.getQuestion(request, response);
+            }
+            case "/resetPassword" -> {
+                log.info("/resetPassword");
+                handleResetPassword(request, response);
             }
             default -> handleInvalidAccess(request, response);
         }
@@ -110,6 +119,17 @@ public class AuthController extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
 
         if (!authService.insert(request, response)) {
+            log.error("register fail");
+        } else {
+            log.info("register success");
+        }
+        redirectToIndex(request, response);
+    }
+
+    private void handleResetPassword(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        log.info("handleRegister"); // 회원 등록
+
+        if (!authService.resetPassword(request, response)) {
             log.error("register fail");
         } else {
             log.info("register success");
