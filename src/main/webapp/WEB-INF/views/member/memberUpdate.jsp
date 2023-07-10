@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
+
 <nav>
     <div class="nav-container">
     </div>
@@ -14,7 +15,8 @@
                 <td>
                     <div class="input-container">
                         <div class="input-group">
-                            <input type="text" class="form-control" id="memberID" name="memberID" value="${memberDTO.getMemberID()}"
+                            <input type="text" class="form-control" id="memberID" name="memberID"
+                                   value="${memberDTO.getMemberID()}"
                                    readonly>
                         </div>
                     </div>
@@ -26,7 +28,8 @@
                 <td>
                     <div class="input-container">
                         <div class="input-group">
-                            <input type="text" class="form-control" id="name" name="name" value="${memberDTO.getName()}" readonly>
+                            <input type="text" class="form-control" id="name" name="name" value="${memberDTO.getName()}"
+                                   readonly>
                         </div>
                     </div>
                 </td>
@@ -37,7 +40,8 @@
                 <td>
                     <div class="input-container">
                         <div class="input-group">
-                            <input type="text" class="form-control" id="email" name="email" value="${memberDTO.getEmail()}">
+                            <input type="text" class="form-control" id="email" name="email"
+                                   value="${memberDTO.getEmail()}">
                         </div>
                     </div>
                 </td>
@@ -48,7 +52,8 @@
                 <td>
                     <div class="input-container">
                         <div class="input-group">
-                            <input type="text" class="form-control" id="contact" name="contact" value="${memberDTO.getContact()}">
+                            <input type="text" class="form-control" id="contact" name="contact"
+                                   value="${memberDTO.getContact()}">
                         </div>
                     </div>
                 </td>
@@ -59,7 +64,8 @@
                 <td>
                     <div class="input-container">
                         <div class="input-group">
-                            <input type="text" class="form-control" id="birthDate" name="birthDate" value="${memberDTO.getBirthDate()}"
+                            <input type="text" class="form-control" id="birthDate" name="birthDate"
+                                   value="${memberDTO.getBirthDate()}"
                                    readonly>
                         </div>
                     </div>
@@ -71,7 +77,8 @@
                 <td>
                     <div class="input-container">
                         <div class="input-group">
-                            <input type="text" class="form-control" id="regDate" name="regDate" value="${memberDTO.getRegDate()}" readonly>
+                            <input type="text" class="form-control" id="regDate" name="regDate"
+                                   value="${memberDTO.getRegDate()}" readonly>
                         </div>
                     </div>
                 </td>
@@ -82,7 +89,8 @@
                 <td>
                     <div class="input-container">
                         <div class="input-group">
-                            <input type="text" class="form-control" id="remainTime" name="remainTime" value="${memberDTO.getRemainTime()}">
+                            <input type="text" class="form-control" id="remainTime" name="remainTime"
+                                   value="${memberDTO.getRemainTime()}">
                         </div>
                     </div>
                 </td>

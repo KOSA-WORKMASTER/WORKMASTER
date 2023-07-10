@@ -1,4 +1,4 @@
-@CHARSET "UTF-8";
+@charset "UTF-8";
 
 body {
   max-width: 100%;
@@ -17,6 +17,7 @@ body {
   a {
     text-underline: none;
     color: black;
+
     &:hover {
       text-underline: none;
       color: black;

@@ -1,3 +1,5 @@
+'use strict'
+
 function switchForm(selectedForm) {
     var memberForm = document.getElementById('client-login');
     var adminForm = document.getElementById('manager-login');

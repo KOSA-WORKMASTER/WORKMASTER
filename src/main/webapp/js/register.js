@@ -1,3 +1,5 @@
+'use strict'
+
 let stage = 0;
 let stageLength = $(".register-stage").length;
 let emailChk = false;

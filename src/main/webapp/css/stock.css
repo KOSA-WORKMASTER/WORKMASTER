@@ -78,18 +78,16 @@ main .stock-container .stock-page-container .stock-page-wrapper .pagination > .a
 }
 
 .modal-dialog {
-
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
+  max-width: 100%;
+  position: absolute;
+  left: 25%;
 }
 
 .modal-dialog .modal-content {
-
-    margin: 2vw;
-    width: 200%;
-    left: 190%;
-    height: 750px;
+  margin: 2vw;
+  width: 100%;
+  left: 50%;
+  height: 850px;
 }
 
 .modal-header {
@@ -113,7 +111,7 @@ main .stock-container .stock-page-container .stock-page-wrapper .pagination > .a
 
 .stock {
   position: relative;
-  width: 200%;
+  width: 300px;
 }
 
 .stock-input {
@@ -133,10 +131,8 @@ main .stock-container .stock-page-container .stock-page-wrapper .pagination > .a
 }
 
 .modal-body {
-  left: -15%;
-  display: flex;
-  justify-content: center;
-  
+  height: 600px;
+  width: 100%;
 }
 
 .modal-img {
@@ -159,27 +155,4 @@ footer {
   padding: 1vw;
 }
 
-.modal-footer {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -ms-flex-align: center;
-    align-items: center;
-    -ms-flex-pack: end;
-    justify-content: center;
-    padding: 0.75rem;
-    border-top: 1px solid #dee2e6;
-    border-bottom-right-radius: calc(0.3rem - 1px);
-    border-bottom-left-radius: calc(0.3rem - 1px);
-    transform: translate(45%, 10%);
-}
-
-.stockAdd {
-    display: inline-block;
-    margin-bottom: 0.5rem;
-    font-size: x-large;
-    font-weight: bolder;
-}
-    
 /*# sourceMappingURL=stock.css.map */
