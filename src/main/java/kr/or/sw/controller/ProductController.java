@@ -17,7 +17,7 @@ import static kr.or.sw.controller.HomeController.HOME_PATH;
 import static kr.or.sw.controller.HomeController.handleInvalidAccess;
 
 @Slf4j
-@WebServlet(name = "ProductController", urlPatterns = "/product/*")
+@WebServlet(name = "ProductController", urlPatterns = {"/product/*"})
 public class ProductController extends HttpServlet {
 
     @Serial
@@ -36,13 +36,11 @@ public class ProductController extends HttpServlet {
                 // 주문 목록 페이지
                 log.info("/order");
             }
-            case "/insert" -> {
-                // 상품 추가 페이지
-                log.info("/insert");
-            }
+            case "/insert" -> log.info("/insert");    // 상품 추가 페이지
             case "/list" -> {
                 // 상품 목록 페이지
                 log.info("/list");
+                productService.selectAll(request, response);
             }
             default -> handleInvalidAccess(request, response);
         }

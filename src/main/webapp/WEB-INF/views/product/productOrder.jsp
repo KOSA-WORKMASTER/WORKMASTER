@@ -1,7 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 
 <link href="${pageContext.request.contextPath}/css/order.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/main.js" defer></script>
 
 <nav>nav</nav>
 

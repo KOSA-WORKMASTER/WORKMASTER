@@ -3,7 +3,6 @@
 <%@ include file="/WEB-INF/views/layouts/side.jsp" %>
 
 <link href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/main.js" defer></script>
 
 <side>
     <div class="side-container">

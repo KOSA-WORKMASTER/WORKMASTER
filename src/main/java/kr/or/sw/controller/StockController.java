@@ -16,7 +16,7 @@ import static kr.or.sw.controller.HomeController.HOME_PATH;
 import static kr.or.sw.controller.HomeController.handleInvalidAccess;
 
 @Slf4j
-@WebServlet(name = "StockController", urlPatterns = "/stock/*")
+@WebServlet(name = "StockController", urlPatterns = {"/stock/*"})
 public class StockController extends HttpServlet {
 
     @Serial

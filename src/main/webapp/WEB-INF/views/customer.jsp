@@ -3,7 +3,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <link href="${pageContext.request.contextPath}/css/info.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/main.js" defer></script>
 
 <!-- menu -->
 <div class="info-menu">

@@ -16,7 +16,7 @@ import static kr.or.sw.controller.HomeController.HOME_PATH;
 import static kr.or.sw.controller.HomeController.handleInvalidAccess;
 
 @Slf4j
-@WebServlet(name = "MemberController", urlPatterns = "/member/*")
+@WebServlet(name = "MemberController", urlPatterns = {"/member/*"})
 public class MemberController extends HttpServlet {
 
     @Serial
