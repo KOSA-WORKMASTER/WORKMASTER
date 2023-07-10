@@ -38,6 +38,11 @@ public class ProductController extends HttpServlet {
                 // 상품 추가 페이지 불러오기
                 log.info("/insert");
             }
+            case "/list" -> {
+                // 상품 추가 페이지 불러오기
+                log.info("/list");
+            }
+            
             default -> handleInvalidAccess(request, response);
         }
         request.setAttribute("path", request.getRequestURI().substring(request.getContextPath().length()));

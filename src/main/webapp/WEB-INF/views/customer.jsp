@@ -21,7 +21,6 @@
                  src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
         </div>
     </div>
-    <hr>
     <!-- body -->
     <div class="menu-body">
         <c:forEach var="number" begin="1" end="12">

@@ -28,6 +28,9 @@
     <c:if test="${paths[1] eq 'insert'}">
         <%@ include file="/WEB-INF/views/product/productInsert.jsp" %>
     </c:if>
+     <c:if test="${paths[1] eq 'list'}">
+        <%@ include file="/WEB-INF/views/product/productList.jsp" %>
+    </c:if>
 </c:if>
 v
 
