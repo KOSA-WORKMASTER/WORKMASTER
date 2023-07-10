@@ -12,7 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Serial;
 
-import static kr.or.sw.controller.HomeController.*;
+import static kr.or.sw.controller.HomeController.HOME_PATH;
+import static kr.or.sw.controller.HomeController.handleInvalidAccess;
 
 @Slf4j
 @WebServlet(name = "MemberController", urlPatterns = "/member/*")
@@ -28,7 +29,6 @@ public class MemberController extends HttpServlet {
         log.info("doGet()");
 
         String pathInfo = request.getPathInfo();
-        String viewPath = "";
         switch (pathInfo) {
             case "/search" -> {
                 log.info("/search");

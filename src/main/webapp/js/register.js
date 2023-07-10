@@ -38,7 +38,7 @@ $("#email-chk").click(() => {
             dataType: "json",
             success: (res) => {
                 if (!res) {
-                    $("#email").attr("disabled", "disabled");
+                    $("#email").attr("readonly", "readonly");
                     $("#email-chk").toggleClass("btn-outline-secondary");
                     $("#email-chk").toggleClass("btn-success");
                     emailChk = true;
@@ -50,7 +50,7 @@ $("#email-chk").click(() => {
             },
         });
     } else {
-        $("#email").removeAttr("disabled");
+        $("#email").removeAttr("readonly");
         $("#email-chk").toggleClass("btn-outline-secondary");
         $("#email-chk").toggleClass("btn-success");
         $("#email").focus();
@@ -115,7 +115,7 @@ $("#register-form").submit((e) => {
         alert("비밀번호 찾기 답을 입력해주세요");
         return false;
     }
-    $("#email").removeAttr("disabled");
+    // $("#email").removeAttr("readonly");
     return true;
 })
 $("#register-form").on("keydown", (e) => {

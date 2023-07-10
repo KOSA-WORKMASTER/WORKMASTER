@@ -12,7 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Serial;
 
-import static kr.or.sw.controller.HomeController.*;
+import static kr.or.sw.controller.HomeController.VIEW_PATH;
+import static kr.or.sw.controller.HomeController.handleInvalidAccess;
 
 @Slf4j
 @WebServlet(name = "AuthController", urlPatterns = "/auth/*")
@@ -96,7 +97,7 @@ public class AuthController extends HttpServlet {
             log.info("로그인 성공");
             request.getSession().setAttribute("email", email);  // 로그인 세션 저장
             request.setAttribute("redirect", "true");
-            request.getRequestDispatcher(HOME_PATH).forward(request, response);
+            request.getRequestDispatcher(VIEW_PATH + "customer.jsp").forward(request, response);
         }
     }
 

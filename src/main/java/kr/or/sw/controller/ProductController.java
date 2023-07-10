@@ -31,13 +31,12 @@ public class ProductController extends HttpServlet {
         String pathInfo = request.getPathInfo();
         switch (pathInfo) {
             case "/order" -> {
+                // 주문 목록 페이지 불러오기
                 log.info("/order");
-//                request.getRequestDispatcher(VIEW_PATH + "/product/productOrder.jsp").forward(request, response);
             }
             case "/insert" -> {
-                log.info("/insert");
                 // 상품 추가 페이지 불러오기
-//                request.getRequestDispatcher(VIEW_PATH + "/product/productInsert.jsp").forward(request, response);
+                log.info("/insert");
             }
             default -> handleInvalidAccess(request, response);
         }

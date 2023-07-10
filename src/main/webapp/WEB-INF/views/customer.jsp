@@ -26,7 +26,7 @@
     <div class="menu-body">
         <c:forEach var="number" begin="1" end="12">
             <div class="menu-box">
-                <img class="menu-img" alt="상품" src="./images/${number}.jpg">
+                <img class="menu-img" alt="상품" src="${pageContext.request.contextPath}/images/${number}.jpg">
                 <hr class="menu-line">
                 <h5 class="menu-text">
                     신라면<br>

@@ -17,6 +17,6 @@
     <insert id="insertMember" parameterType="kr.or.sw.model.MemberDTO">
         INSERT INTO MEMBER
         VALUES (PCMASTER.MEMBERID_SEQ.NEXTVAL, #{name}, #{email}, #{password}, #{salt}, #{contact}, #{question},
-                #{answer}, SYSDATE, 0)
+                #{answer}, #{birthDate}, SYSDATE, 0)
     </insert>
 </mapper>
