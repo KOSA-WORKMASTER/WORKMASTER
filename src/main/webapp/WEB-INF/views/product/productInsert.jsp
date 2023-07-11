@@ -59,15 +59,15 @@
                     </div>
                     <div class="input-group">
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="image-upload" aria-describedby="inputGroupFileAddon04">
-                            <label class="custom-file-label" for="image-upload">상품 이미지 선택</label>
+                            <input type="file" class="custom-file-input" id="image-upload">
+                            <label class="custom-file-label" for="image-upload" id="image-upload-label">상품 이미지 선택</label>
                         </div>
                     </div>
                     <br><br>
                     <!-- 등록 버튼 -->
                     <div class="insert-button">
                         <div class="input-button">
-                            <input type="submit" class="btn btn-secondary btn-lg btn-block">등록</input>
+                            <input type="submit" class="btn btn-secondary btn-lg btn-block" value="등록">
                         </div>
                     </div>
                 </form>
