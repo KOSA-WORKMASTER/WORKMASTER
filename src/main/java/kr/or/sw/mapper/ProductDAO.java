@@ -1,14 +1,12 @@
 package kr.or.sw.mapper;
 
-import java.util.List;
-
-import org.apache.ibatis.session.SqlSession;
-
 import kr.or.sw.model.ProductDTO;
 
+import java.util.List;
+
 public interface ProductDAO {
-	
-	List<ProductDTO> selectAllProduct(SqlSession sqlSession);
+
+    List<ProductDTO> selectAllProduct();
 
 
 }
