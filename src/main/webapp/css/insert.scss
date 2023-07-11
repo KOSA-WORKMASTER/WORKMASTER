@@ -29,6 +29,7 @@
     flex-direction: row;
 
     border-top: 1px solid #ccc;
+
     .insert-image-preview-wrapper {
       flex-basis: 47.9%;
 
@@ -44,6 +45,7 @@
         max-height: 100%;
       }
     }
+
     .vertical-line {
       height: 100%;
       flex-basis: 0.2%;
@@ -51,6 +53,7 @@
       margin-left: 2%;
       border-right: 1px solid #ccc;
     }
+
     .insert-wrapper {
       flex-basis: 47.9%;
 

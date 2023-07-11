@@ -71,6 +71,7 @@ public class AuthServiceImpl implements AuthService {
             log.info("check email done");
         }
     }
+
     @Override
     public void getQuestion(HttpServletRequest request, HttpServletResponse response) throws IOException {
         // 입력한 이메일로 비밀번호 찾기 질문 가져옴
@@ -93,6 +94,7 @@ public class AuthServiceImpl implements AuthService {
             log.info("get question done");
         }
     }
+
     @Override
     public boolean resetPassword(HttpServletRequest request, HttpServletResponse response) {
         log.info("resetPassword()");
@@ -105,10 +107,9 @@ public class AuthServiceImpl implements AuthService {
         memberDTO.setSalt(salt);
         memberDTO.setPassword(password);
 
-        String email = request.getParameter("email");
         try (SqlSession sqlSession = MyBatisUtil.getSession()) {
             int ret = authDAO.resetPassword(sqlSession, memberDTO);
-             sqlSession.commit();
+            sqlSession.commit();
             return ret == 1;
         }
     }

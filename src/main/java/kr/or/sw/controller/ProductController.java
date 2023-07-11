@@ -74,7 +74,6 @@ public class ProductController extends HttpServlet {
         if (!uploadDirectory.exists()) {    // 업로드 디렉토리가 없을 경우 생성
             log.info("mkdir: {}", uploadDirectory.mkdirs());
         }
-        log.info("uploadPath: {}", uploadPath);
     }
 
     @Override
