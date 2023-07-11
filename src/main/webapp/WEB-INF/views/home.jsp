@@ -20,6 +20,12 @@
     <c:if test="${paths[1] eq 'list'}">
         <%@ include file="/WEB-INF/views/stock/stock.jsp" %>
     </c:if>
+    <c:if test="${paths[1] eq 'insert'}">
+        <%@ include file="/WEB-INF/views/stock/stockInsert.jsp" %>
+    </c:if>
+    <c:if test="${paths[1] eq 'update'}">
+        <%@ include file="/WEB-INF/views/stock/stockUpdate.jsp" %>
+    </c:if>
 </c:if>
 <c:if test="${paths[0] eq 'product'}">
     <c:if test="${paths[1] eq 'order'}">
