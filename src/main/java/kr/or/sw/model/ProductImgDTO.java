@@ -12,4 +12,10 @@ public class ProductImgDTO {
     private String uploadPath;
     private String fileName;
     private int productID;  // 상품 ID, FK
+
+    public ProductImgDTO(String uuid, String uploadPath, String fileName) {
+        this.uuid = uuid;
+        this.uploadPath = uploadPath;
+        this.fileName = fileName;
+    }
 }

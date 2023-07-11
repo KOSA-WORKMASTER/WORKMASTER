@@ -52,6 +52,7 @@ public class ProductController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         log.info("doPost()");
 
+        request.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
         String pathInfo = request.getPathInfo();
         switch (pathInfo) {
@@ -59,10 +60,11 @@ public class ProductController extends HttpServlet {
                 // 상품 추가
                 log.info("/insert");
                 if (productService.insert(request, response)) log.info("상품 추가 성공");
-                response.sendRedirect("product/list");
             }
             default -> handleInvalidAccess(request, response);
         }
+        request.setAttribute("path", request.getRequestURI().substring(request.getContextPath().length()));
+        request.getRequestDispatcher(request.getContextPath() + HOME_PATH).forward(request, response);
     }
 
     @Override
@@ -75,7 +77,7 @@ public class ProductController extends HttpServlet {
     public void destroy() {
         log.info("destroy()");
     }
-    
+
     private void handleSearch(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
 
