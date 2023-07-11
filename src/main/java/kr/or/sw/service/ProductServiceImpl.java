@@ -1,5 +1,16 @@
 package kr.or.sw.service;
 
+import static kr.or.sw.controller.ProductController.uploadPath;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.ibatis.session.SqlSession;
+
 import kr.or.sw.mapper.ProductDAO;
 import kr.or.sw.mapper.ProductDAOImpl;
 import kr.or.sw.model.ProductDTO;
@@ -7,6 +18,7 @@ import kr.or.sw.util.MyBatisUtil;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+<<<<<<< Updated upstream
 import org.apache.ibatis.session.SqlSession;
 
 import javax.servlet.ServletException;
@@ -18,6 +30,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+=======
+>>>>>>> Stashed changes
 
 @Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -47,8 +61,41 @@ public class ProductServiceImpl implements ProductService {
         List<ProductDTO> list = new ArrayList<>(productDao.selectAllProduct());
         log.info("selectAll: {}", list);
 
+<<<<<<< Updated upstream
         request.setAttribute("productList", list);
         request.setAttribute("page", Objects.requireNonNullElse(request.getParameter("page"), 1));
+=======
+		request.setAttribute("productList", list);
+		request.setAttribute("page", Objects.requireNonNullElse(request.getParameter("page"), 1));
+	}
+	
+	@Override
+    public void searchBy(HttpServletRequest request, HttpServletResponse response) {
+        log.info("searchBy()");
+
+        List<ProductDTO> result;
+        String keyword = request.getParameter("keyword");
+        int searchOption = Integer.parseInt(request.getParameter("searchOption"));
+        if (searchOption >= 2) keyword = "%" + keyword + "%";
+        // searchOption이 1이면 id(숫자) 검색이므로 불필요
+        // 나머지는 문자열 포함 여부 검색이므로 like 연산을 위해 앞뒤에 % 추가
+
+        try (SqlSession sqlSession = MyBatisUtil.getSession()) {
+            result = switch (searchOption) {
+                case 1 -> productDao.selectProductById(sqlSession, Integer.parseInt(keyword));
+                case 2 -> productDao.selectProductByCategory(sqlSession, keyword);
+                case 3 -> productDao.selectProductByName(sqlSession, keyword);
+                default -> throw new IllegalStateException("Unexpected value: " + searchOption);
+            };
+        }
+        List<ProductDTO> list = new ArrayList<>(result);
+        log.info("size: {}", list.size());
+
+        request.setAttribute("productList", list);
+        request.setAttribute("page", Objects.requireNonNullElse(request.getParameter("page"), 1));
+        request.setAttribute("searchOption", searchOption);
+        request.setAttribute("keyword", keyword);
+>>>>>>> Stashed changes
     }
 
     @Override

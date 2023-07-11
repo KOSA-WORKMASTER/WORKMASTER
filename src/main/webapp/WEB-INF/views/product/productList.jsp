@@ -40,7 +40,6 @@
                         <option value="1">번호</option>
                         <option value="2">카테고리</option>
                         <option value="3">상품명</option>
-                        <option value="4">상품가격</option>
                     </select>
                     <input type="text" class="form-control" placeholder="검색어 입력" id="keyword"
                            name="keyword">
