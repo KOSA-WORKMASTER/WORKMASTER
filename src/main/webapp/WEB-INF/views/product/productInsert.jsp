@@ -19,7 +19,7 @@
             </div>
             <div class="vertical-line"></div>
             <div class="insert-wrapper">
-                <form action="#" method="post">
+                <form action="/product/insert" method="post" enctype="multipart/form-data">
                     <br>
                     <!-- 상품등록 카테고리 -->
                     <div class="insert-category">
@@ -59,8 +59,8 @@
                     </div>
                     <div class="input-group">
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="image-upload">
-                            <label class="custom-file-label" for="image-upload" id="image-upload-label">상품 이미지 선택</label>
+                            <input type="file" class="custom-file-input" id="image-upload" name="productImage">
+                            <label class="custom-file-label" for="image-upload">상품 이미지 선택</label>
                         </div>
                     </div>
                     <br><br>
