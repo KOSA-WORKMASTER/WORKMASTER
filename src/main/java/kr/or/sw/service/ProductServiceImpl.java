@@ -1,13 +1,15 @@
 package kr.or.sw.service;
 
-import static kr.or.sw.controller.ProductController.uploadPath;
-
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -18,20 +20,6 @@ import kr.or.sw.util.MyBatisUtil;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-<<<<<<< Updated upstream
-import org.apache.ibatis.session.SqlSession;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-=======
->>>>>>> Stashed changes
 
 @Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -46,7 +34,7 @@ public class ProductServiceImpl implements ProductService {
         return instance;
     }
 
-    private final ProductDAO productDao = ProductDAOImpl.getInstance();
+    private final ProductDAO productDAO = ProductDAOImpl.getInstance();
 
     @Override
     public void select(HttpServletRequest request, HttpServletResponse response) {
@@ -58,13 +46,9 @@ public class ProductServiceImpl implements ProductService {
         log.info("selectAll()");
         // 모든 상품 목록 불러오기
 
-        List<ProductDTO> list = new ArrayList<>(productDao.selectAllProduct());
+        List<ProductDTO> list = new ArrayList<>(productDAO.selectAllProduct());
         log.info("selectAll: {}", list);
 
-<<<<<<< Updated upstream
-        request.setAttribute("productList", list);
-        request.setAttribute("page", Objects.requireNonNullElse(request.getParameter("page"), 1));
-=======
 		request.setAttribute("productList", list);
 		request.setAttribute("page", Objects.requireNonNullElse(request.getParameter("page"), 1));
 	}
@@ -80,14 +64,13 @@ public class ProductServiceImpl implements ProductService {
         // searchOption이 1이면 id(숫자) 검색이므로 불필요
         // 나머지는 문자열 포함 여부 검색이므로 like 연산을 위해 앞뒤에 % 추가
 
-        try (SqlSession sqlSession = MyBatisUtil.getSession()) {
             result = switch (searchOption) {
-                case 1 -> productDao.selectProductById(sqlSession, Integer.parseInt(keyword));
-                case 2 -> productDao.selectProductByCategory(sqlSession, keyword);
-                case 3 -> productDao.selectProductByName(sqlSession, keyword);
+                case 1 -> productDAO.selectProductById(Integer.parseInt(keyword));
+                case 2 -> productDAO.selectProductByCategory(keyword);
+                case 3 -> productDAO.selectProductByName(keyword);
                 default -> throw new IllegalStateException("Unexpected value: " + searchOption);
             };
-        }
+        
         List<ProductDTO> list = new ArrayList<>(result);
         log.info("size: {}", list.size());
 
@@ -95,7 +78,7 @@ public class ProductServiceImpl implements ProductService {
         request.setAttribute("page", Objects.requireNonNullElse(request.getParameter("page"), 1));
         request.setAttribute("searchOption", searchOption);
         request.setAttribute("keyword", keyword);
->>>>>>> Stashed changes
+
     }
 
     @Override

@@ -4,20 +4,16 @@ import kr.or.sw.model.ProductDTO;
 
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
+
 public interface ProductDAO {
-<<<<<<< Updated upstream
-
-    List<ProductDTO> selectAllProduct();
-=======
 	
-	List<ProductDTO> selectAllProduct(SqlSession sqlSession);
+	List<ProductDTO> selectAllProduct();
 	
-	List<ProductDTO> selectProductById(SqlSession sqlSession, int ProductID);
+	List<ProductDTO> selectProductById(int productID);
 	
-	List<ProductDTO> selectProductByCategory(SqlSession sqlSession, String name);
+	List<ProductDTO> selectProductByCategory(String category);
 	
-	List<ProductDTO> selectProductByName(SqlSession sqlSession, String name);
->>>>>>> Stashed changes
-
+	List<ProductDTO> selectProductByName(String productName);
 
 }
