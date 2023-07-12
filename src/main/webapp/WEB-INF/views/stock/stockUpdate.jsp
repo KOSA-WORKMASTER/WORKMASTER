@@ -25,8 +25,6 @@
 
 <nav>nav</nav>
 
-
-
 <main>
 	<!-- 상품등록창 -->
 	<div class="insert-container">
@@ -83,8 +81,6 @@
 		</div>
 	</div>
 </main>
-
-
 
 
 

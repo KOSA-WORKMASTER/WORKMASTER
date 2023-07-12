@@ -32,7 +32,7 @@
 					<div class="insert-price">
 						<h3>재고수량</h3>
 						<div class="input-group mb-3">
-							<input type="text" class="form-control"
+							<input type="number" class="form-control"
 								placeholder="재고수량을 입력해주세요" aria-label="Username" name="amount">
 						</div>
 					</div>
@@ -40,7 +40,7 @@
 					<div class="insert-price">
 						<h3>재고 단가</h3>
 						<div class="input-group mb-3">
-							<input type="text" class="form-control"
+							<input type="number" class="form-control"
 								placeholder="재고수량을 입력해주세요" aria-label="Username" name="unitPrice">
 						</div>
 					</div>
@@ -48,8 +48,8 @@
 					<div class="insert-price">
 						<h3>재고 입고일</h3>
 						<div class="input-group mb-3">
-							<input type="text" class="form-control"
-								placeholder="재고수량을 입력해주세요" aria-label="Username" name="stockDate">
+							<input type="date" class="form-control"
+								placeholder="재고 입고일을 입력해주세요" aria-label="Username" name="stockDate">
 						</div>
 					</div>
 					<br> <br>

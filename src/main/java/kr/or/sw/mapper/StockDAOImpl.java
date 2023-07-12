@@ -1,5 +1,11 @@
 package kr.or.sw.mapper;
 
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+
+import kr.or.sw.model.StockDTO;
+import kr.or.sw.util.MyBatisUtil;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,4 +22,87 @@ public class StockDAOImpl implements StockDAO {
         }
         return instance;
     }
+
+	@Override
+	public List<StockDTO> selectAllStocks() {
+		log.info("selectAllStocks()");
+		List<StockDTO> stockList;
+		try(SqlSession sqlSession = MyBatisUtil.getSession()){
+			stockList = sqlSession.selectList("selectAllStocks");
+		}
+		return stockList;
+	}
+
+	@Override
+	public StockDTO selectStock(int stockID) {
+		log.info("selectStock(): {}", stockID);
+		StockDTO stockDTO;
+		try(SqlSession sqlSession = MyBatisUtil.getSession()){
+			
+			stockDTO = sqlSession.selectOne("selectStock", stockID);
+		}
+		return stockDTO;
+	}
+
+	@Override
+	public List<StockDTO> selectStockById(int stockID) {
+		log.info("selectStockById: {}", stockID);
+		
+		List<StockDTO> stockList;
+		try(SqlSession sqlSession = MyBatisUtil.getSession()){
+			
+			stockList = sqlSession.selectList("selectStockById", stockID);
+		}
+		return stockList;
+	}
+
+	
+	@Override
+	public List<StockDTO> selectStockByProductID(int productID) {
+		log.info("selectStockByProductID: {}", productID);
+		
+		List<StockDTO> stockList;
+		try(SqlSession sqlSession = MyBatisUtil.getSession()){
+			
+			stockList = sqlSession.selectList("selectStockByProductID", productID);
+		}
+		return stockList;
+	}
+	
+	@Override
+	public List<StockDTO> selectStockByName(String stockName) {
+		log.info("selectStockByName():{}", stockName);
+		
+		List<StockDTO> stockList;
+		try(SqlSession sqlSession = MyBatisUtil.getSession()){
+			
+			stockList = sqlSession.selectList("selectStockByName", stockName);
+		}
+		return stockList;
+	}
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
