@@ -16,7 +16,6 @@ $('#search-form').submit((e) => {
 $('.member-data').each((index, element) => {
     $(element).click(() => {
         // 클릭한 데이터의 인덱스
-        // let elementIdx = parseInt(element.getAttribute("id").substring(10));
         let memberID = $('#' + element.id + ' td:first-child').text()
         console.log('memberID:', memberID)
 
@@ -24,9 +23,7 @@ $('.member-data').each((index, element) => {
         // 1:수정 2:삭제
         let type = $('input[name=select-type]:checked').val()
         console.log('type:', type)
-        /*
-           두 변수를 적절히 사용하여 수정 혹은 삭제를 진행하는 코드를 작성할 것
-         */
+
         switch (type) {
             case '1':
                 location.href = '/member/update?memberID=' + memberID
@@ -42,7 +39,7 @@ $('.member-data').each((index, element) => {
 
 const deleteMember = memberID => {
     console.log('deleteMember')
-    if (confirm('정말로 ' + memberID + '번 회원을 삭제하시겠습니까?')) { // 관리자에게 확인 대화상자를 표시
+    if (confirm('정말로 ' + memberID + '번 회원정보를 삭제하시겠습니까?')) { // 관리자에게 확인 대화상자를 표시
         $.ajax({
             url: '/member/delete',
             type: 'POST',
@@ -51,10 +48,12 @@ const deleteMember = memberID => {
             },
             success: response => {
                 console.log(response)
+                alert(memberID + '번 회원정보 삭제 완료')
                 location.reload()
             },
             error: error => {
                 console.log(error)
+                alert(memberID + '번 회원정보 삭제 실패')
             }
         })
     }

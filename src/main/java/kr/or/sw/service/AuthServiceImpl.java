@@ -38,7 +38,6 @@ public class AuthServiceImpl implements AuthService {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-
         // 입력한 이메일에 해당하는 DB의 비밀번호와 솔트를 가져옴
         MemberDTO memberDTO = authDAO.selectCredentials(email);
 

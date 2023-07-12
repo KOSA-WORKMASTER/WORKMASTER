@@ -11,5 +11,3 @@ $('#search-form').submit((e) => {
     }
     return true
 })
-
-
