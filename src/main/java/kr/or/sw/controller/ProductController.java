@@ -60,11 +60,10 @@ public class ProductController extends HttpServlet {
                 // 상품 추가
                 log.info("/insert");
                 if (productService.insert(request, response)) log.info("상품 추가 성공");
+                response.sendRedirect("/product/list");
             }
             default -> handleInvalidAccess(request, response);
         }
-        request.setAttribute("path", request.getRequestURI().substring(request.getContextPath().length()));
-        request.getRequestDispatcher(request.getContextPath() + HOME_PATH).forward(request, response);
     }
 
     @Override
