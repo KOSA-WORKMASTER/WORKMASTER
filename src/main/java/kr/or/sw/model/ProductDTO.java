@@ -1,10 +1,6 @@
 package kr.or.sw.model;
 
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import java.util.List;
+import lombok.*;
 
 @Data
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
@@ -23,5 +19,12 @@ public class ProductDTO {   // 상품 테이블
         this.price = price;
         this.stock = stock;
         this.image = image;
+    }
+    
+    public ProductDTO(int productID, int price, int stock) {
+        this.productID = productID;
+        this.price = price;
+        this.stock = stock;
+       
     }
 }

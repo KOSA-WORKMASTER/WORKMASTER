@@ -42,6 +42,10 @@ public class ProductController extends HttpServlet {
                 log.info("/list");
                 handleSearch(request, response);
             }
+            case "/update" -> {
+                log.info("/update");
+                productService.select(request, response);
+            }
             default -> handleInvalidAccess(request, response);
         }
         request.setAttribute("path", request.getRequestURI().substring(request.getContextPath().length()));
@@ -60,6 +64,15 @@ public class ProductController extends HttpServlet {
                 // 상품 추가
                 log.info("/insert");
                 if (productService.insert(request, response)) log.info("상품 추가 성공");
+                response.sendRedirect("/product/list");
+            }
+            case "/delete" -> {
+                log.info("/delete");
+                if (productService.delete(request, response)) log.info("상품 삭제 성공");
+            }
+            case "/update" -> {
+                log.info("/update");
+                if (productService.update(request, response)) log.info("상품 수정 성공");
                 response.sendRedirect("/product/list");
             }
             default -> handleInvalidAccess(request, response);

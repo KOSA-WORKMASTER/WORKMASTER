@@ -1,5 +1,6 @@
 package kr.or.sw.mapper;
 
+import kr.or.sw.model.MemberDTO;
 import kr.or.sw.model.ProductDTO;
 import kr.or.sw.util.MyBatisUtil;
 import lombok.AccessLevel;
@@ -77,4 +78,37 @@ public class ProductDAOImpl implements ProductDAO {
         }
         return result;
     }
+
+	@Override
+	public int deleteProduct(int productID) {
+		log.info("deleteProduct(): {}", productID);
+        int result;
+        try (SqlSession sqlSession = MyBatisUtil.getSession()) {
+            result = sqlSession.delete("deleteProduct", productID);
+            if (result > 0) sqlSession.commit();
+        }
+        return result;
+	}
+
+	@Override
+	public int updateProduct(ProductDTO productDTO) {
+		 log.info("updateProduct(): {}", productDTO);
+	        int result;
+	        try (SqlSession sqlSession = MyBatisUtil.getSession()) {
+	            result = sqlSession.update("updateProduct", productDTO);
+	            if (result > 0) sqlSession.commit();
+	        }
+	        return result;
+	    }
+
+	@Override
+	public ProductDTO selectProduct(int productID) {
+		log.info("selectProduct(): {}", productID);
+
+		ProductDTO productDTO;
+        try (SqlSession sqlSession = MyBatisUtil.getSession()) {
+        	productDTO = sqlSession.selectOne("selectProduct", productID);
+        }
+        return productDTO;
+	}
 }
