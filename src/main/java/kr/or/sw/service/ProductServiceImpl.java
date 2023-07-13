@@ -98,7 +98,7 @@ public class ProductServiceImpl implements ProductService {
             log.info("filePath: {}", filePath);
             part.write(filePath);
 
-            ProductImgDTO productImgDTO = new ProductImgDTO(uuid.toString(), filePath, originalFileName);
+            ProductImgDTO productImgDTO = new ProductImgDTO(uuid.toString(), "upload" + File.separator + fileName, originalFileName);
             log.info("productImgDTO: {}", productImgDTO);
 
             ProductDTO productDTO = new ProductDTO(

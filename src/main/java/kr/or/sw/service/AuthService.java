@@ -12,6 +12,7 @@ public interface AuthService extends Service {
 
     void getQuestion(HttpServletRequest request, HttpServletResponse response) throws IOException;
 
+    void setMemberInfo(HttpServletRequest request, HttpServletResponse response) throws IOException;
     boolean resetPassword(HttpServletRequest request, HttpServletResponse response);
 
 //    boolean findAccount(HttpServletRequest request, HttpServletResponse response);

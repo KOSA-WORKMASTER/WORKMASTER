@@ -68,7 +68,7 @@ side {
         .side-menu {
           flex-basis: 100%;
           background-color: #015F23;
-          font-size: 2rem;
+          font-size: 1.6em;
         }
       }
 
@@ -81,7 +81,7 @@ side {
       &:nth-child(even) {
         display: none;
 
-        @for $i from 1 to 4 {
+        @for $i from 1 to 6 {
           &:has(.side-menu:first-child:nth-last-child(#{$i})) {
             flex-basis: $side-menu-basis*$i;
           }
@@ -90,7 +90,7 @@ side {
         .side-menu {
           background-color: white;
           color: black;
-          font-size: 1.5rem;
+          font-size: 1.3em;
 
           @for $i from 1 to 4 {
             &:first-child:nth-last-child(#{$i}),

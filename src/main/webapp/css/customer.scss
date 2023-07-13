@@ -36,6 +36,13 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        font-size: .9em;
+        font-weight: bold;
+
+        &.selected-category {
+          background-color: #e2e6ea;
+          border: #e2e6ea;
+        }
       }
 
       .customer-menu-header-search {
@@ -222,6 +229,9 @@
 
           .quit-button {
             width: 87.5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
         }
       }

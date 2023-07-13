@@ -90,6 +90,18 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
+    public void setMemberInfo(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        log.info("getMemberInfo()");
+
+        request.setCharacterEncoding("UTF-8");
+        String email = request.getParameter("email");
+        MemberDTO ret = authDAO.getMemberInfo(email);
+        log.info("ret: " + ret);
+
+        request.getSession().setAttribute("info", ret);
+    }
+
+    @Override
     public boolean resetPassword(HttpServletRequest request, HttpServletResponse response) {
         log.info("resetPassword()");
 
