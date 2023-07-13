@@ -41,7 +41,7 @@
 			   STOCKDATE,
 			   PRODUCTID 
 		FROM STOCK 
-		WHERE STOCKNAME = #{stockName}
+		WHERE STOCKNAME LIKE #{stockName}
 		ORDER BY STOCKID ASC
 	</select>
 
