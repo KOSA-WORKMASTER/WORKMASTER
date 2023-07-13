@@ -81,6 +81,28 @@ public class StockDAOImpl implements StockDAO {
 		return stockList;
 	}
 
+	@Override
+	public int deleteStock(int stockID) {
+		log.info("deleteStock(): {}", stockID);
+		int result;
+		try(SqlSession sqlSession = MyBatisUtil.getSession()){
+			result =  sqlSession.delete("deleteStock", stockID);
+			if(result>0) sqlSession.commit();
+		}
+		return result;
+	}
+
+	@Override
+	public int updateStock(StockDTO stockDTO) {
+		log.info("updateStock(): {}", stockDTO);
+		int result;
+		try(SqlSession sqlSession = MyBatisUtil.getSession()){
+			result = sqlSession.update("updateStock", stockDTO);
+			if(result > 0) sqlSession.commit();
+		}
+		return result;
+	}
+
 
 }
 

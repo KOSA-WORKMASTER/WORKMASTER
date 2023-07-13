@@ -4,10 +4,6 @@
 	rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath}/css/stock.css"
 	rel="stylesheet" type="text/css">
-<%-- <script src="${pageContext.request.contextPath}/js/member.js" type="text/javascript" defer></script> --%>
-
-
-<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/css/member.css"> --%>
 <script src="${pageContext.request.contextPath}/js/stock.js" type="text/javascript" defer></script>
 
 

@@ -57,4 +57,24 @@
 		ORDER BY STOCKID ASC
 	</select>
 	
+	
+	<update id="updateStock" parameterType="kr.or.sw.model.StockDTO">
+		UPDATE STOCK
+		SET AMOUNT = #{amount},
+			UNITPRICE = #{unitPrice}
+		WHERE STOCKID = #{stockID}	
+	</update>
+
+
+	<delete id="deleteStock" parameterType="_int">
+		DELETE
+		FROM STOCK
+		WHERE STOCKID = #{STOCKID}
+	</delete>
 </mapper>
+
+
+
+
+
+
