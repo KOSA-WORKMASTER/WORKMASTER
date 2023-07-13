@@ -2,23 +2,16 @@ package kr.or.sw.service;
 
 import kr.or.sw.mapper.StockDAO;
 import kr.or.sw.mapper.StockDAOImpl;
-import kr.or.sw.model.MemberDTO;
 import kr.or.sw.model.StockDTO;
-import kr.or.sw.util.MyBatisUtil;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.ibatis.session.SqlSession;
 
 @Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -38,21 +31,21 @@ public class StockServiceImpl implements StockService {
     @Override
     public void select(HttpServletRequest request, HttpServletResponse response) {
         log.info("select()");
-        
+
         int stockID = Integer.parseInt(request.getParameter("stockID"));
         StockDTO stockDTO = stockDAO.selectStock(stockID);
         request.setAttribute("stockDTO", stockDTO);
-        log.info("stockDTO:{}", stockDTO); 
+        log.info("stockDTO:{}", stockDTO);
     }
 
     @Override
     public void selectAll(HttpServletRequest request, HttpServletResponse response) {
         log.info("selectAll()");
-        
+
         List<StockDTO> list = new ArrayList<>(stockDAO.selectAllStocks());
 
         request.setAttribute("stockList", list);
-        request.setAttribute("page", Objects.requireNonNullElse(request.getParameter("page"), 1));	
+        request.setAttribute("page", Objects.requireNonNullElse(request.getParameter("page"), 1));
     }
 
     @Override
@@ -73,20 +66,20 @@ public class StockServiceImpl implements StockService {
         return false;
     }
 
-	@Override
-	public void searchBy(HttpServletRequest request, HttpServletResponse response) {
+    @Override
+    public void searchBy(HttpServletRequest request, HttpServletResponse response) {
 
-		log.info("searchBy()");
-		
-		List<StockDTO> result;
+        log.info("searchBy()");
 
-		String keyword = request.getParameter("keyword");
-		
-		int searchOption = Integer.parseInt(request.getParameter("searchOption"));
+        List<StockDTO> result;
+
+        String keyword = request.getParameter("keyword");
+
+        int searchOption = Integer.parseInt(request.getParameter("searchOption"));
 //        if (searchOption == 2) keyword = "%" + keyword + "%";
-        
+
         if (searchOption >= 3) keyword = "%" + keyword + "%";
-        
+
         // searchOption이 1이면 id(숫자) 검색이므로 불필요
         // 나머지는 문자열 포함 여부 검색이므로 like 연산을 위해 앞뒤에 % 추가
 
@@ -103,6 +96,5 @@ public class StockServiceImpl implements StockService {
         request.setAttribute("page", Objects.requireNonNullElse(request.getParameter("page"), 1));
         request.setAttribute("searchOption", searchOption);
         request.setAttribute("keyword", keyword);
-
-	}
+    }
 }

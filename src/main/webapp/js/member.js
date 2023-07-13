@@ -52,7 +52,7 @@ const deleteMember = memberID => {
                 location.reload()
             },
             error: error => {
-                console.log(error)
+                console.error(error)
                 alert(memberID + '번 회원정보 삭제 실패')
             }
         })

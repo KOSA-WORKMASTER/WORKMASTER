@@ -83,7 +83,7 @@ public class ProductServiceImpl implements ProductService {
     public boolean insert(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         log.info("insert()");
 
-        String uploadPath = request.getServletContext().getRealPath("/upload");
+        String uploadPath = request.getServletContext().getRealPath(File.separator + "upload");
         File uploadDirectory = new File(uploadPath);
         if (!uploadDirectory.exists()) {    // 업로드 디렉토리가 없을 경우 생성
             log.info("mkdir: {}", uploadDirectory.mkdirs());
@@ -105,7 +105,6 @@ public class ProductServiceImpl implements ProductService {
                     request.getParameter("productName"),
                     request.getParameter("category"),
                     Integer.parseInt(request.getParameter("price")),
-//                    Integer.parseInt(request.getParameter("stock")),
                     0,
                     productImgDTO
             );
