@@ -40,7 +40,7 @@
 </c:if>
 
 <c:if test="${paths[0] eq 'home'}">
-	<%@ include file="/WEB-INF/views/main.jsp" %>
+    <%@ include file="/WEB-INF/views/main.jsp" %>
 </c:if>
 
 <%@ include file="/WEB-INF/views/layouts/footer.jsp" %>

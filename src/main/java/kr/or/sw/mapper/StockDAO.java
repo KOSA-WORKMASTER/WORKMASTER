@@ -16,7 +16,10 @@ public interface StockDAO {
 	
 	List<StockDTO> selectStockByName(String stockName);
 	
+	
+	int updateStock(StockDTO stockDTO);
 
+	int deleteStock(int stockID);
 	
 	StockDTO selectStock(int stockID);
 	
