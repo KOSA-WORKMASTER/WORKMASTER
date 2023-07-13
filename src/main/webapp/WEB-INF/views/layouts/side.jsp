@@ -13,7 +13,7 @@
         </div>
         <div class="side-wrapper">
             <dlv class="side-menu"><a href="/stock/list">재고목록</a></dlv>
-            <dlv class="side-menu"><a href="/stock/insert">재고추가</a></dlv>
+            <dlv class="side-menu"><a href="/stock/insert">재고등록</a></dlv>
         </div>
         <div class="side-wrapper">
             <dlv class="side-menu">상품관리</dlv>

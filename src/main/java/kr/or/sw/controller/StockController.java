@@ -54,21 +54,25 @@ public class StockController extends HttpServlet {
        response.setContentType("application/json");
        String pathInfo = request.getPathInfo();
        switch(pathInfo) {
+       
+	       case "/delete" -> {
+	           log.info("/delete");
+	           if (stockService.delete(request, response)) log.info("재고정보 삭제 성공");
+	           request.getRequestDispatcher(request.getContextPath() + HOME_PATH).forward(request, response);
+	       }
        		case "/insert" -> {
        			log.info("/insert");
        			if(stockService.insert(request, response)) log.info("재고 추가 성공");
        			request.setAttribute("path", "/stock/list");
-       			
        		}
        		case "/update" -> {
        			log.info("/update");
        			if(stockService.update(request, response)) log.info("재고 수정 성공");
-       			response.sendRedirect("/stock/list");
-       			
+       			response.sendRedirect("/stock/list"); // stock/list
        		}
        		default -> handleInvalidAccess(request, response);
        }
-       request.getRequestDispatcher(request.getContextPath() + HOME_PATH).forward(request, response);
+//       request.getRequestDispatcher(request.getContextPath() + HOME_PATH).forward(request, response);
     }
 
     @Override
