@@ -42,9 +42,7 @@ public class StockServiceImpl implements StockService {
         int stockID = Integer.parseInt(request.getParameter("stockID"));
         StockDTO stockDTO = stockDAO.selectStock(stockID);
         request.setAttribute("stockDTO", stockDTO);
-        log.info("stockDTO:{}", stockDTO);
-        
-        
+        log.info("stockDTO:{}", stockDTO); 
     }
 
     @Override
@@ -108,32 +106,3 @@ public class StockServiceImpl implements StockService {
 
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
