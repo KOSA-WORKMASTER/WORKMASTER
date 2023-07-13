@@ -54,7 +54,7 @@ side .side-container .side-wrapper:nth-child(odd) {
 side .side-container .side-wrapper:nth-child(odd) .side-menu {
   flex-basis: 100%;
   background-color: #015F23;
-  font-size: 2rem;
+  font-size: 1.6em;
 }
 side .side-container .side-wrapper:nth-last-child(2) .side-menu {
   border-bottom: 1px solid black;
@@ -71,10 +71,16 @@ side .side-container .side-wrapper:nth-child(even):has(.side-menu:first-child:nt
 side .side-container .side-wrapper:nth-child(even):has(.side-menu:first-child:nth-last-child(3)) {
   flex-basis: 42%;
 }
+side .side-container .side-wrapper:nth-child(even):has(.side-menu:first-child:nth-last-child(4)) {
+  flex-basis: 56%;
+}
+side .side-container .side-wrapper:nth-child(even):has(.side-menu:first-child:nth-last-child(5)) {
+  flex-basis: 70%;
+}
 side .side-container .side-wrapper:nth-child(even) .side-menu {
   background-color: white;
   color: black;
-  font-size: 1.5rem;
+  font-size: 1.3em;
 }
 side .side-container .side-wrapper:nth-child(even) .side-menu:first-child:nth-last-child(1), side .side-container .side-wrapper:nth-child(even) .side-menu:first-child:nth-last-child(1) ~ .side-menu {
   flex-basis: 100%;

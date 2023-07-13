@@ -23,5 +23,12 @@
             <dlv class="side-menu"><a href="/product/list">상품목록</a></dlv>
             <dlv class="side-menu"><a href="/product/insert">상품등록</a></dlv>
         </div>
+        <div class="side-wrapper">
+            <dlv class="side-menu">재료관리</dlv>
+        </div>
+        <div class="side-wrapper">
+            <dlv class="side-menu"><a href="/ingredient/list">재료등록</a></dlv>
+            <dlv class="side-menu"><a href="/ingredient/list">재료수정</a></dlv>
+        </div>
     </div>
 </side>

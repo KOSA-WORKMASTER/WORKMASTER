@@ -30,7 +30,6 @@
                             <option value="음료수">음료</option>
                             <option value="패스트푸드">패스트푸드</option>
                             <option value="간식">간식</option>
-                            <option value="스낵">스낵</option>
                             <option value="기타">기타</option>
                         </select>
                     </div>
