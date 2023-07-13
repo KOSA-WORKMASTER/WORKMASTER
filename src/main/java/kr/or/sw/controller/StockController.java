@@ -63,7 +63,7 @@ public class StockController extends HttpServlet {
        		case "/update" -> {
        			log.info("/update");
        			if(stockService.update(request, response)) log.info("재고 수정 성공");
-       			response.sendRedirect("stock/list");
+       			response.sendRedirect("/stock/list");
        			
        		}
        		default -> handleInvalidAccess(request, response);

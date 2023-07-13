@@ -58,7 +58,7 @@ public class MemberController extends HttpServlet {
             case "/update" -> {
                 log.info("/update");
                 if (memberService.update(request, response)) log.info("회원정보 수정 성공");
-                response.sendRedirect("member/search");
+                response.sendRedirect("/member/search");
             }
             default -> handleInvalidAccess(request, response);
         }
