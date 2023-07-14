@@ -55,4 +55,9 @@
         FROM STOCK
         WHERE STOCKID = #{STOCKID}
     </delete>
+    
+    <insert id="stockInsert" parameterType="kr.or.sw.model.StockDTO">
+    	INSERT INTO STOCK(STOCKID, STOCKNAME, AMOUNT, UNITPRICE, STOCKDATE, PRODUCTID)
+    	VALUES (STOCKID_SEQ.NEXTVAL, #{stockName}, #{amount}, #{unitPrice}, #{stockDate}, #{productID})
+    </insert>
 </mapper>

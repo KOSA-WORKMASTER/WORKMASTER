@@ -1,5 +1,8 @@
 package kr.or.sw.model;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,4 +23,27 @@ public class StockDTO { // 재고 테이블
         this.amount = amount;
         this.unitPrice = unitPrice;
     }
+    
+	public StockDTO(int stockID, String stockName, int amount, int unitPrice) {
+		this.stockID = stockID;
+		this.stockName = stockName;
+		this.amount = amount;
+		this.unitPrice = unitPrice;
+
+	}
+
+	public StockDTO(String stockName, int amount, int unitPrice, String stockDate, int productID) { // insert
+
+		this.stockName = stockName;
+		this.amount = amount;
+		this.unitPrice = unitPrice;
+		this.productID = productID;
+
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			this.stockDate = new Date(sdf.parse(stockDate).getTime());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
