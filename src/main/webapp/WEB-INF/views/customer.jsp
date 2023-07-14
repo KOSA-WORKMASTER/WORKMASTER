@@ -60,15 +60,18 @@
             </div>
         </div>
         <div class="customer-menu-body-container">
-            <%--                <c:forEach var="number" begin="1" end="30">--%>
-            <%--                    <div class="customer-menu">--%>
-            <%--                        <img class="menu-img" alt="상품" src="${pageContext.request.contextPath}/images/${number}.jpg">--%>
-            <%--                        <div class="menu-info-container">--%>
-            <%--                            <div class="menu-name">신라면</div>--%>
-            <%--                            <div class="menu-price">5000원</div>--%>
-            <%--                        </div>--%>
-            <%--                    </div>--%>
-            <%--                </c:forEach>--%>
+<%--            <c:forEach var="number" begin="1" end="30">--%>
+<%--                <div class="customer-menu">--%>
+<%--                    <img class="menu-img" alt="상품" src="${pageContext.request.contextPath}/images/${number}.jpg">--%>
+<%--                    <div class="menu-info-container">--%>
+<%--                        <div class="menu-name">신라면</div>--%>
+<%--                        <div class="menu-price">5000원</div>--%>
+<%--                    </div>--%>
+<%--                    <div class="menu-shop-btn-wrapper hide">--%>
+<%--                        <button class="shopping-btn btn btn-warning">담기</button>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </c:forEach>--%>
         </div>
     </div>
     <div class="customer-info-container">
@@ -105,12 +108,20 @@
             </div>
             <div class="customer-info-button-container">
                 <div class="customer-info-button-row-wrapper">
-                    <button class="btn btn-secondary user-button">회원정보</button>
+                    <!-- Button modal -->
+                    <button type="button" class="btn btn-secondary user-button"
+                            data-toggle="modal" data-target="#info">회원정보</button>
                     <button class="btn btn-secondary user-button">메세지</button>
                 </div>
+
                 <div class="customer-info-button-row-wrapper">
-                    <button class="btn btn-secondary user-button">장바구니</button>
-                    <button class="btn btn-secondary user-button">시간충전</button>
+                    <button type="button" class="btn btn-secondary user-button"
+                            data-toggle="modal" data-target="#shopping">장바구니</button>
+                    <div class="customer-info-shopping-count-wrapper hide">
+                        <div class="customer-info-shopping-count-text">0</div>
+                    </div>
+                    <button type="button" class="btn btn-secondary user-button"
+                            data-toggle="modal" data-target="#time">시간충전</button>
                 </div>
                 <div class="customer-info-button-row-wrapper">
                     <a href="/auth/logout" class="btn btn-danger quit-button">사용종료</a>
@@ -119,6 +130,88 @@
         </div>
     </div>
 </div>
+
+<!-- 회원정보 Modal -->
+<div class="modal fade" id="info" data-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">회원정보</h3>
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label>이름</label> <input type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>이메일</label> <input type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>생년월일</label> <input type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>연락처</label> <input type="text" class="form-control">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"
+                        data-dismiss="modal">닫기</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 장바구니 Modal -->
+<div class="modal fade" id="shopping" data-backdrop="static"
+     data-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">...</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"
+                        data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Understood</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 시간충전 Modal -->
+<div class="modal fade" id="time" data-backdrop="static"
+     data-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">...</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"
+                        data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Understood</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 
 </html>

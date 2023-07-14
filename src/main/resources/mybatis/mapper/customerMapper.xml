@@ -13,7 +13,7 @@
 
     <select id="selectAllImgList" resultType="kr.or.sw.model.ProductImgDTO">
         SELECT UUID,
-               UPLOADPATH,
+               RELPATH,
                FILENAME,
                PRODUCTID
         FROM PRODUCTIMG
