@@ -1,6 +1,7 @@
 package kr.or.sw.mapper;
 
 import kr.or.sw.model.ProductDTO;
+import kr.or.sw.model.ProductImgDTO;
 import kr.or.sw.util.MyBatisUtil;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -63,6 +64,26 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
+    public ProductDTO selectProduct(int productID) {
+        log.info("selectProduct(): {}", productID);
+        ProductDTO productDTO;
+        try (SqlSession sqlSession = MyBatisUtil.getSession()) {
+            productDTO = sqlSession.selectOne("selectProduct", productID);
+        }
+        return productDTO;
+    }
+
+    @Override
+    public ProductImgDTO selectProductImg(int productID) {
+        log.info("selectProduct(): {}", productID);
+        ProductImgDTO ProductImgDTO;
+        try (SqlSession sqlSession = MyBatisUtil.getSession()) {
+            ProductImgDTO = sqlSession.selectOne("selectProductImg", productID);
+        }
+        return ProductImgDTO;
+    }
+
+    @Override
     public int insertProduct(ProductDTO productDTO) {
         log.info("insertProduct(): {}", productDTO);
 
@@ -76,5 +97,22 @@ public class ProductDAOImpl implements ProductDAO {
             else sqlSession.rollback();
         }
         return result;
+    }
+
+    @Override
+    public int deleteProduct(int productID) {
+        log.info("deleteProduct(): {}", productID);
+
+        int result;
+        int imgResult;
+        try (SqlSession sqlSession = MyBatisUtil.getSession()) {
+            imgResult = sqlSession.delete("deleteProductImg", productID);
+            result = sqlSession.delete("deleteProduct", productID);
+            log.info("result: {}, imgResult: {}", result, imgResult);
+            if (result > 0 && imgResult > 0) {
+                sqlSession.commit();
+            } else sqlSession.rollback();
+        }
+        return result + imgResult;
     }
 }
