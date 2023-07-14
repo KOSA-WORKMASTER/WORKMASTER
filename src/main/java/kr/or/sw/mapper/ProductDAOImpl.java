@@ -106,12 +106,33 @@ public class ProductDAOImpl implements ProductDAO {
         int result;
         int imgResult;
         try (SqlSession sqlSession = MyBatisUtil.getSession()) {
-            imgResult = sqlSession.delete("deleteProductImg", productID);
+            imgResult = deleteProductImg(sqlSession, productID);
             result = sqlSession.delete("deleteProduct", productID);
-            log.info("result: {}, imgResult: {}", result, imgResult);
+            log.info("result: {}", result);
             if (result > 0 && imgResult > 0) {
                 sqlSession.commit();
             } else sqlSession.rollback();
+        }
+        return result + imgResult;
+    }
+
+    private int deleteProductImg(SqlSession sqlSession, int productID) {
+        log.info("deleteProductImg(): {}", productID);
+
+        return sqlSession.delete("deleteProductImg", productID);
+    }
+
+    @Override
+    public int updateProduct(ProductDTO productDTO) {
+        log.info("updateProduct(): {}", productDTO);
+
+        int result;
+        int imgResult = 0;
+        try (SqlSession sqlSession = MyBatisUtil.getSession()) {
+            if (productDTO.getImage() != null) imgResult = sqlSession.update("updateProductImg", productDTO.getImage());
+            result = sqlSession.update("updateProduct", productDTO);
+            if (result > 0) sqlSession.commit();
+            else sqlSession.rollback();
         }
         return result + imgResult;
     }

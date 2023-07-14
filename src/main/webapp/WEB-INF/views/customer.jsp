@@ -60,18 +60,18 @@
             </div>
         </div>
         <div class="customer-menu-body-container">
-<%--            <c:forEach var="number" begin="1" end="30">--%>
-<%--                <div class="customer-menu">--%>
-<%--                    <img class="menu-img" alt="상품" src="${pageContext.request.contextPath}/images/${number}.jpg">--%>
-<%--                    <div class="menu-info-container">--%>
-<%--                        <div class="menu-name">신라면</div>--%>
-<%--                        <div class="menu-price">5000원</div>--%>
-<%--                    </div>--%>
-<%--                    <div class="menu-shop-btn-wrapper hide">--%>
-<%--                        <button class="shopping-btn btn btn-warning">담기</button>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--            </c:forEach>--%>
+            <%--            <c:forEach var="number" begin="1" end="30">--%>
+            <%--                <div class="customer-menu">--%>
+            <%--                    <img class="menu-img" alt="상품" src="${pageContext.request.contextPath}/images/${number}.jpg">--%>
+            <%--                    <div class="menu-info-container">--%>
+            <%--                        <div class="menu-name">신라면</div>--%>
+            <%--                        <div class="menu-price">5000원</div>--%>
+            <%--                    </div>--%>
+            <%--                    <div class="menu-shop-btn-wrapper hide">--%>
+            <%--                        <button class="shopping-btn btn btn-warning">담기</button>--%>
+            <%--                    </div>--%>
+            <%--                </div>--%>
+            <%--            </c:forEach>--%>
         </div>
     </div>
     <div class="customer-info-container">
@@ -110,18 +110,21 @@
                 <div class="customer-info-button-row-wrapper">
                     <!-- Button modal -->
                     <button type="button" class="btn btn-secondary user-button"
-                            data-toggle="modal" data-target="#info">회원정보</button>
+                            data-toggle="modal" data-target="#info">회원정보
+                    </button>
                     <button class="btn btn-secondary user-button">메세지</button>
                 </div>
 
                 <div class="customer-info-button-row-wrapper">
                     <button type="button" class="btn btn-secondary user-button"
-                            data-toggle="modal" data-target="#shopping">장바구니</button>
+                            data-toggle="modal" data-target="#shopping">장바구니
+                    </button>
                     <div class="customer-info-shopping-count-wrapper hide">
                         <div class="customer-info-shopping-count-text">0</div>
                     </div>
                     <button type="button" class="btn btn-secondary user-button"
-                            data-toggle="modal" data-target="#time">시간충전</button>
+                            data-toggle="modal" data-target="#time">시간충전
+                    </button>
                 </div>
                 <div class="customer-info-button-row-wrapper">
                     <a href="/auth/logout" class="btn btn-danger quit-button">사용종료</a>
@@ -161,7 +164,8 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary"
-                        data-dismiss="modal">닫기</button>
+                        data-dismiss="modal">닫기
+                </button>
             </div>
         </div>
     </div>
@@ -182,7 +186,8 @@
             <div class="modal-body">...</div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary"
-                        data-dismiss="modal">Close</button>
+                        data-dismiss="modal">Close
+                </button>
                 <button type="button" class="btn btn-primary">Understood</button>
             </div>
         </div>
@@ -205,13 +210,13 @@
             <div class="modal-body">...</div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary"
-                        data-dismiss="modal">Close</button>
+                        data-dismiss="modal">Close
+                </button>
                 <button type="button" class="btn btn-primary">Understood</button>
             </div>
         </div>
     </div>
 </div>
-
 </body>
 
 </html>

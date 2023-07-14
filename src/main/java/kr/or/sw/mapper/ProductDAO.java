@@ -15,11 +15,13 @@ public interface ProductDAO {
 
     List<ProductDTO> selectProductByName(String productName);
 
+    ProductDTO selectProduct(int productID);
+
+    ProductImgDTO selectProductImg(int productID);
+
     int insertProduct(ProductDTO productDTO);
 
     int deleteProduct(int productId);
 
-    ProductDTO selectProduct(int productID);
-
-    ProductImgDTO selectProductImg(int productID);
+    int updateProduct(ProductDTO productDTO);
 }

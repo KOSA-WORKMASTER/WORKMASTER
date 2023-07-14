@@ -1,3 +1,5 @@
+'use strict'
+
 var menu;
 var menuMaps = new Map();
 var menuOrderMaps = new Map();
@@ -58,29 +60,30 @@ class Queue {
     }
 }
 
-
 function Trie() {
     this.output = new Set();
     this.fail = null;
     this.next = new Map();
 }
+
 Trie.prototype.insert = (self, key, stringIdx, menuIdx) => {
     if (key.length == stringIdx) {
         self.output.add(menuIdx);
-    }
-    else {
+    } else {
         let curr = key.charAt(stringIdx);
         self.output.add(menuIdx);
         if (!self.next.has(curr)) self.next.set(curr, new Trie());
         self.next.get(curr).insert(self.next.get(curr), key, stringIdx + 1, menuIdx);
     }
 }
+
 Trie.prototype.find = (self, key, stringIdx) => {
     if (key.length == stringIdx) return self.output;
     let curr = key.charAt(stringIdx);
     if (!self.next.has(curr)) return [];
     return self.next.get(curr).find(self.next.get(curr), key, stringIdx + 1);
 }
+
 // const makeFailure = (root) => {
 //     let q = new Queue();
 //     root.fail = root;
@@ -117,6 +120,7 @@ Trie.prototype.find = (self, key, stringIdx) => {
 // }
 // 일대다 매칭이라 작성했다가
 // 다시 생각해보니 Trie만으로도 가능해서 사용안함
+
 const addEventListenerOnMenu = () => {
     $(".customer-menu").each((idx, element) => {
         $(element).mouseenter(() => {
@@ -129,6 +133,7 @@ const addEventListenerOnMenu = () => {
         });
     });
 }
+
 const addEventListenerOnShoppingButton = (list) => {
     console.log(list);
     $(".shopping-btn").each((idx, element) => {
@@ -138,7 +143,7 @@ const addEventListenerOnShoppingButton = (list) => {
                 $(".customer-info-shopping-count-wrapper").addClass("show");
             }
             shoppingCount++;
-            if(!shoppingList.has(list[idx])) shoppingList.set(list[idx], 0);
+            if (!shoppingList.has(list[idx])) shoppingList.set(list[idx], 0);
             shoppingList.set(list[idx], shoppingList.get(list[idx]) + 1);
             $(".customer-info-shopping-count-text").text(shoppingCount);
 
@@ -165,6 +170,7 @@ const showAllMenu = () => {
     addEventListenerOnMenu();
     addEventListenerOnShoppingButton(Array.from(Array(menu.length).keys()));
 }
+
 const showCategoryMenu = (category) => {
     let htmls = "";
     if (menuMaps.has(category)) {
@@ -208,6 +214,7 @@ const showListMenu = (list) => {
 $('.customer-menu-header-category').each((i, e) => {
     menuOrderMaps.set($(e).text().trim(), i);
 })
+
 $(".customer-menu-header-category-wrapper").each((i, e) => {
     $(e).click(() => {
         if (!$(e).hasClass('selected-category')) {
@@ -218,13 +225,13 @@ $(".customer-menu-header-category-wrapper").each((i, e) => {
             if (i > 0) {
                 let value = $(`.customer-menu-header-category:eq(${i})`).text();
                 showCategoryMenu(value.trim());
-            }
-            else {
+            } else {
                 showAllMenu();
             }
         }
     });
 });
+
 $("#search-input").keyup(throttle(() => {
     $(".customer-menu-header-category-wrapper").each((i, e) => {
         $(e).removeClass("selected-category");
@@ -260,5 +267,3 @@ window.onload = () => {
         },
     });
 }
-
-
