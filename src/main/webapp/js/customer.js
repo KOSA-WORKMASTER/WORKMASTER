@@ -256,7 +256,6 @@ window.onload = () => {
             });
 
             // makeFailure(root);
-            // console.log(root)
             showAllMenu();
         },
     });
