@@ -2,6 +2,7 @@ var menu;
 var menuMaps = new Map();
 var menuOrderMaps = new Map();
 var shoppingList = new Map();
+// (menu상의 index, 갯수) 쌍으로 데이터를 이루고 있음
 var shoppingCount = 0;
 var root = new Trie();
 
@@ -129,6 +130,7 @@ const addEventListenerOnMenu = () => {
     });
 }
 const addEventListenerOnShoppingButton = (list) => {
+    console.log(list);
     $(".shopping-btn").each((idx, element) => {
         $(element).click(() => {
             if (!shoppingCount) {
@@ -161,7 +163,7 @@ const showAllMenu = () => {
     });
     $(".customer-menu-body-container").html(htmls);
     addEventListenerOnMenu();
-    addEventListenerOnShoppingButton(menu);
+    addEventListenerOnShoppingButton(Array.from(Array(menu.length).keys()));
 }
 const showCategoryMenu = (category) => {
     let htmls = "";
@@ -200,7 +202,7 @@ const showListMenu = (list) => {
     });
     $(".customer-menu-body-container").html(htmls);
     addEventListenerOnMenu();
-    addEventListenerOnShoppingButton(list);
+    addEventListenerOnShoppingButton(Array.from(list));
 }
 
 $('.customer-menu-header-category').each((i, e) => {
