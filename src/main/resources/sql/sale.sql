@@ -4,11 +4,11 @@ CREATE TABLE SALE
 (
     SALEID     INT
         CONSTRAINT PK_SALE PRIMARY KEY,
-    QUANTITY   INT               NOT NULL,
-    TOTALPRICE INT               NOT NULL,
+    QUANTITY   INT                  NOT NULL,
+    TOTALPRICE INT                  NOT NULL,
     SALEDATE   DATE DEFAULT SYSDATE NOT NULL,
-    PRODUCTID  INT               NOT NULL,
-    MEMBERID   INT               NOT NULL
+    PRODUCTID  INT                  NOT NULL,
+    MEMBERID   INT                  NOT NULL
 );
 
 ALTER TABLE SALE

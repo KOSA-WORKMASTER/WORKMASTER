@@ -12,7 +12,6 @@ $('#search-form').submit((e) => {
     return true
 })
 
-
 $('.stock-data').each((index, element) => {
     $(element).click(() => {
         // 클릭한 데이터의 인덱스
@@ -36,7 +35,6 @@ $('.stock-data').each((index, element) => {
         }
     })
 })
-
 
 const deleteStock = stockID => {
     console.log('deleteStock')

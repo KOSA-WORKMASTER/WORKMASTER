@@ -32,14 +32,14 @@ public class StockController extends HttpServlet {
         switch (pathInfo) {
             case "/list" -> {
                 log.info("/list");
-                  handleSearch(request, response);
+                handleSearch(request, response);
             }
             case "/insert" -> {
-       			log.info("/insert");
-       		}
-       		case "/update" -> {
-       			log.info("/update");
-       			stockService.select(request, response);
+                log.info("/insert");
+            }
+            case "/update" -> {
+                log.info("/update");
+                stockService.select(request, response);
             }
             default -> handleInvalidAccess(request, response);
         }
@@ -50,29 +50,28 @@ public class StockController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         log.info("doPost()");
-        
-       response.setContentType("application/json");
-       String pathInfo = request.getPathInfo();
-       switch(pathInfo) {
-       
-	       case "/delete" -> {
-	           log.info("/delete");
-	           if (stockService.delete(request, response)) log.info("재고정보 삭제 성공");
-	           request.getRequestDispatcher(request.getContextPath() + HOME_PATH).forward(request, response);
-	       }
-       		case "/insert" -> {
-       			log.info("/insert");
-       			if(stockService.insert(request, response)) log.info("재고 추가 성공");
-       			request.setAttribute("path", "/stock/list");
-       		}
-       		case "/update" -> {
-       			log.info("/update");
-       			if(stockService.update(request, response)) log.info("재고 수정 성공");
-       			response.sendRedirect("/stock/list"); // stock/list
-       		}
-       		default -> handleInvalidAccess(request, response);
-       }
-//       request.getRequestDispatcher(request.getContextPath() + HOME_PATH).forward(request, response);
+
+        response.setContentType("application/json");
+        String pathInfo = request.getPathInfo();
+        switch (pathInfo) {
+
+            case "/delete" -> {
+                log.info("/delete");
+                if (stockService.delete(request, response)) log.info("재고정보 삭제 성공");
+                request.getRequestDispatcher(request.getContextPath() + HOME_PATH).forward(request, response);
+            }
+            case "/insert" -> {
+                log.info("/insert");
+                if (stockService.insert(request, response)) log.info("재고 추가 성공");
+                request.setAttribute("path", "/stock/list");
+            }
+            case "/update" -> {
+                log.info("/update");
+                if (stockService.update(request, response)) log.info("재고 수정 성공");
+                response.sendRedirect("/stock/list"); // stock/list
+            }
+            default -> handleInvalidAccess(request, response);
+        }
     }
 
     @Override
@@ -85,7 +84,7 @@ public class StockController extends HttpServlet {
     public void destroy() {
         log.info("destroy()");
     }
-    
+
     private void handleSearch(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
 
@@ -95,7 +94,7 @@ public class StockController extends HttpServlet {
         }
         // searchOption이 0이면 전체 검색, 0이 아닌 다른 무언가면 그에 해당하는 검색을 진행
         switch (searchOption) {
-        
+
             case 0 -> stockService.selectAll(request, response);
             case 1, 2, 3 -> stockService.searchBy(request, response);
             default -> handleInvalidAccess(request, response);

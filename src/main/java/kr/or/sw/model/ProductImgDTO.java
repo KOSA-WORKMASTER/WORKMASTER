@@ -9,13 +9,15 @@ import lombok.NoArgsConstructor;
 public class ProductImgDTO {
 
     private String uuid;    // 중복이름 방지를 위한 랜덤 UUID, PK
-    private String uploadPath;
+    private String absPath; // 업로드 절대경로
+    private String relPath; // 업로드 상대경로
     private String fileName;
     private int productID;  // 상품 ID, FK
 
-    public ProductImgDTO(String uuid, String uploadPath, String fileName) {
+    public ProductImgDTO(String uuid, String absPath, String relPath, String fileName) {
         this.uuid = uuid;
-        this.uploadPath = uploadPath;
+        this.absPath = absPath;
+        this.relPath = relPath;
         this.fileName = fileName;
     }
 }

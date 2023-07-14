@@ -58,13 +58,13 @@
     </select>
 
     <insert id="insertProduct" parameterType="kr.or.sw.model.ProductDTO">
-        INSERT INTO PRODUCT
-        VALUES (PRODUCTID_SEQ.NEXTVAL, #{productName}, #{category}, #{price}, #{stock})
+        INSERT INTO PRODUCT(PRODUCTID, PRODUCTNAME, CATEGORY, PRICE)
+        VALUES (PRODUCTID_SEQ.NEXTVAL, #{productName}, #{category}, #{price})
     </insert>
 
     <insert id="insertProductImg" parameterType="kr.or.sw.model.ProductImgDTO">
         INSERT INTO PRODUCTIMG
-        VALUES (#{uuid}, #{uploadPath}, #{fileName}, PRODUCTID_SEQ.CURRVAL)
+        VALUES (#{uuid}, #{absPath}, #{relPath}, #{fileName}, PRODUCTID_SEQ.CURRVAL)
     </insert>
 
     <delete id="deleteProduct" parameterType="_int">

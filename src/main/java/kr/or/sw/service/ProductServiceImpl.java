@@ -94,31 +94,31 @@ public class ProductServiceImpl implements ProductService {
             log.info("mkdir: {}", uploadDirectory.mkdirs());
         }
 
-        try {
-            Part part = request.getPart("productImage");
-            UUID uuid = UUID.randomUUID();
-            String originalFileName = part.getSubmittedFileName();
-            String fileName = uuid + "_" + originalFileName;
-            String filePath = uploadPath + File.separator + fileName;
-            log.info("filePath: {}", filePath);
-            part.write(filePath);
+//        try {
+        Part part = request.getPart("productImage");
+        UUID uuid = UUID.randomUUID();
+        String originalFileName = part.getSubmittedFileName();
+        String fileName = uuid + "_" + originalFileName;
+        String absPath = uploadPath + File.separator + fileName;
+        String relPath = File.separator + "upload" + File.separator + fileName;
+        log.info("filePath: {}", absPath);
+        part.write(absPath);
 
-            ProductImgDTO productImgDTO = new ProductImgDTO(uuid.toString(), uploadPath + File.separator + fileName, originalFileName);
-//            ProductImgDTO productImgDTO = new ProductImgDTO(uuid.toString(), "/upload" + File.separator + fileName, originalFileName);
-            log.info("productImgDTO: {}", productImgDTO);
+        ProductImgDTO productImgDTO = new ProductImgDTO(uuid.toString(), absPath, relPath, originalFileName);
+        log.info("productImgDTO: {}", productImgDTO);
 
-            ProductDTO productDTO = new ProductDTO(
-                    request.getParameter("productName"),
-                    request.getParameter("category"),
-                    Integer.parseInt(request.getParameter("price")),
-                    productImgDTO
-            );
-            int result = productDAO.insertProduct(productDTO);
-            if (result > 0) return true;
-        } catch (Exception e) {
-            log.error(e.getMessage());
-            e.printStackTrace();
-        }
+        ProductDTO productDTO = new ProductDTO(
+                request.getParameter("productName"),
+                request.getParameter("category"),
+                Integer.parseInt(request.getParameter("price")),
+                productImgDTO
+        );
+        int result = productDAO.insertProduct(productDTO);
+        if (result > 0) return true;
+//        } catch (Exception e) {
+//            log.error(e.getMessage());
+//            e.printStackTrace();
+//        }
         return false;
     }
 
@@ -128,7 +128,7 @@ public class ProductServiceImpl implements ProductService {
         int productID = Integer.parseInt(request.getParameter("productID"));
         ProductImgDTO productImgDTO = productDAO.selectProductImg(productID);
         log.info("productImgDTO: {}", productImgDTO);
-        String filePath = productImgDTO.getUploadPath();
+        String filePath = productImgDTO.getAbsPath();
         log.info("filePath: {}", filePath);
 
         File file = new File(filePath);
