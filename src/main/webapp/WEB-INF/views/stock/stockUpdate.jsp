@@ -1,28 +1,9 @@
-<%-- <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>--%>
-
-<!-- <nav> -->
-<!--     <div class="nav-container"> -->
-<!--         <div class="nav-wrapper"> -->
-<!--             <div class="nav-menu"> -->
-<!--                 <a href="/member/search?page=1"> -->
-<!--                     회원정보 -->
-<!--                 </a> -->
-<!--             </div> -->
-<!--         </div> -->
-<!--         <div class="nav-wrapper"> -->
-<!--             <div class="nav-menu">탈퇴회원</div> -->
-<!--         </div> -->
-<!--     </div> -->
-<!-- </nav> -->
-
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 
 <link href="${pageContext.request.contextPath}/css/stockInsert.css"
       rel="stylesheet" type="text/css">
 <script type="text/javascript"
         src="${pageContext.request.contextPath}/js/productInsert.js" defer></script>
-
-<nav>nav</nav>
 
 <main>
     <h1 class="mt-4">재고 정보 수정</h1>

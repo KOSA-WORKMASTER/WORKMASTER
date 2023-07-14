@@ -149,16 +149,20 @@
             <div class="modal-body">
                 <form>
                     <div class="form-group">
-                        <label>이름</label> <input type="text" class="form-control">
+                        <label>이름</label>
+                        <input type="text" class="form-control" readonly value="${info.getName()}">
                     </div>
                     <div class="form-group">
-                        <label>이메일</label> <input type="text" class="form-control">
+                        <label>이메일</label>
+                        <input type="text" class="form-control" readonly value="${info.getEmail()}">
                     </div>
                     <div class="form-group">
-                        <label>생년월일</label> <input type="text" class="form-control">
+                        <label>생년월일</label>
+                        <input type="text" class="form-control" readonly value="${info.getBirthDate()}">
                     </div>
                     <div class="form-group">
-                        <label>연락처</label> <input type="text" class="form-control">
+                        <label>연락처</label>
+                        <input type="text" class="form-control" readonly value="${info.getContact()}">
                     </div>
                 </form>
             </div>
