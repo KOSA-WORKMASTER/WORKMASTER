@@ -27,7 +27,7 @@
                         <select class="custom-select" name="category">
                             <option value="-1" selected>선택</option>
                             <option value="라면">라면</option>
-                            <option value="음료수">음료</option>
+                            <option value="음료">음료</option>
                             <option value="패스트푸드">패스트푸드</option>
                             <option value="간식">간식</option>
                             <option value="기타">기타</option>
