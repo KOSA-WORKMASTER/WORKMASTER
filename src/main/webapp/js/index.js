@@ -43,34 +43,3 @@ managerLoginForm.addEventListener("submit", function(e) {
         e.preventDefault(); // 폼 제출 막기
     }
 });
-
-// 밑에 스크립트는 index 에 적용되게 수정해야됨 
-
-$("#member-login-confirm").click((e) => {
-
-
-	
-    if (!emailChk) {
-        $.ajax({
-            url: "/auth/checkEmail",
-            type: "post",
-            data: {
-                email: $("#email").val()
-            },
-            dataType: "json",
-            success: (res) => {
-                if (!res) {
-
-                    emailChk = true;
-//                    alert("아이디 또는 비밀번호가 틀렸습니다.");
-                } else {
-                    alert("아이디 또는 비밀번호가 틀렸습니다.");
-                    return;
-                }
-            }
-        });
-    } 
-   
-});
-
-

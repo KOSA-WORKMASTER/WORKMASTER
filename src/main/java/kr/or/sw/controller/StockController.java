@@ -52,7 +52,8 @@ public class StockController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		log.info("doPost()");
-
+		
+		request.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json");
 		String pathInfo = request.getPathInfo();
 		switch (pathInfo) {
