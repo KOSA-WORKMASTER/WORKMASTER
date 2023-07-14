@@ -19,19 +19,6 @@
     </c:if>
 </c:if>
 
-<nav>
-    <div class="nav-container">
-        <div class="nav-wrapper">
-            <div class="nav-menu">
-                <a href="/member/stock?page=1"> 회원정보 </a>
-            </div>
-        </div>
-        <div class="nav-wrapper">
-            <div class="nav-menu">탈퇴회원</div>
-        </div>
-    </div>
-</nav>
-
 <main>
     <div class="stock-container">
         <div class="stock-input-container">

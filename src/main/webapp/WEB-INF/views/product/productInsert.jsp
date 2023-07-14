@@ -3,8 +3,6 @@
 <link href="${pageContext.request.contextPath}/css/insert.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/productInsert.js" defer></script>
 
-<nav>nav</nav>
-
 <main>
     <!-- 상품등록창 -->
     <div class="insert-container">

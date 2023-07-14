@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="/WEB-INF/views/layouts/header.jsp" %>
 <%@ include file="/WEB-INF/views/layouts/side.jsp" %>
+<%@ include file="/WEB-INF/views/layouts/nav.jsp" %>
 
 <c:set var="paths" value="${fn:split(path, '/')}"/>
 <c:if test='${pageContext.request.getParameter("redirect") eq "true"}'>
