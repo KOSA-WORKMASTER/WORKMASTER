@@ -37,6 +37,11 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void select(HttpServletRequest request, HttpServletResponse response) {
         log.info("select()");
+
+        int productID = Integer.parseInt(request.getParameter("productID"));
+        ProductDTO productDTO = productDAO.selectProduct(productID);
+        request.setAttribute("productDTO", productDTO);
+        log.info("productDTO: {}", productDTO);
     }
 
     @Override
@@ -98,19 +103,18 @@ public class ProductServiceImpl implements ProductService {
             log.info("filePath: {}", filePath);
             part.write(filePath);
 
-            ProductImgDTO productImgDTO = new ProductImgDTO(uuid.toString(), "upload" + File.separator + fileName, originalFileName);
+            ProductImgDTO productImgDTO = new ProductImgDTO(uuid.toString(), uploadPath + File.separator + fileName, originalFileName);
+//            ProductImgDTO productImgDTO = new ProductImgDTO(uuid.toString(), "/upload" + File.separator + fileName, originalFileName);
             log.info("productImgDTO: {}", productImgDTO);
 
             ProductDTO productDTO = new ProductDTO(
                     request.getParameter("productName"),
                     request.getParameter("category"),
                     Integer.parseInt(request.getParameter("price")),
-                    0,
                     productImgDTO
             );
             int result = productDAO.insertProduct(productDTO);
             if (result > 0) return true;
-
         } catch (Exception e) {
             log.error(e.getMessage());
             e.printStackTrace();
@@ -121,7 +125,16 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public boolean delete(HttpServletRequest request, HttpServletResponse response) {
         log.info("delete()");
-        return false;
+        int productID = Integer.parseInt(request.getParameter("productID"));
+        ProductImgDTO productImgDTO = productDAO.selectProductImg(productID);
+        log.info("productImgDTO: {}", productImgDTO);
+        String filePath = productImgDTO.getUploadPath();
+        log.info("filePath: {}", filePath);
+
+        File file = new File(filePath);
+        if (file.exists()) {
+            return file.delete() && productDAO.deleteProduct(productID) == 2;
+        } else return false;
     }
 
     @Override

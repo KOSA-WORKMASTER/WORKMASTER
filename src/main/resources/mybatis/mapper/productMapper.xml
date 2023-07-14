@@ -45,6 +45,18 @@
         ORDER BY PRODUCTID ASC
     </select>
 
+    <select id="selectProduct" parameterType="_int" resultType="kr.or.sw.model.ProductDTO">
+        SELECT *
+        FROM PRODUCT
+        WHERE PRODUCTID = #{productID}
+    </select>
+
+    <select id="selectProductImg" parameterType="_int" resultType="kr.or.sw.model.ProductImgDTO">
+        SELECT *
+        FROM PRODUCTIMG
+        WHERE PRODUCTID = #{productID}
+    </select>
+
     <insert id="insertProduct" parameterType="kr.or.sw.model.ProductDTO">
         INSERT INTO PRODUCT
         VALUES (PRODUCTID_SEQ.NEXTVAL, #{productName}, #{category}, #{price}, #{stock})
@@ -54,4 +66,16 @@
         INSERT INTO PRODUCTIMG
         VALUES (#{uuid}, #{uploadPath}, #{fileName}, PRODUCTID_SEQ.CURRVAL)
     </insert>
+
+    <delete id="deleteProduct" parameterType="_int">
+        DELETE
+        FROM PRODUCT
+        WHERE PRODUCTID = #{productID}
+    </delete>
+
+    <delete id="deleteProductImg" parameterType="_int">
+        DELETE
+        FROM PRODUCTIMG
+        WHERE PRODUCTID = #{productID}
+    </delete>
 </mapper>
