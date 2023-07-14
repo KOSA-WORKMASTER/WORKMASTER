@@ -58,7 +58,7 @@
                     </div>
                     <div class="input-group">
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="image-upload" name="productImage">
+                            <input type="file" class="custom-file-input" id="image-upload" name="productImg">
                             <label class="custom-file-label" id="image-upload-label" for="image-upload">상품 이미지
                                 선택</label>
                         </div>

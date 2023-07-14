@@ -70,6 +70,14 @@ public class ProductController extends HttpServlet {
                     response.sendRedirect("/product/list");
                 }
             }
+            case "/update" -> {
+                // 상품 수정
+                log.info("/update");
+                if (productService.update(request, response)) {
+                    log.info("상품 수정 성공");
+                    response.sendRedirect("/product/list");
+                }
+            }
             default -> handleInvalidAccess(request, response);
         }
     }

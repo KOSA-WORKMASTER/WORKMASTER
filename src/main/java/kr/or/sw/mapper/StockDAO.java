@@ -19,6 +19,6 @@ public interface StockDAO {
     int deleteStock(int stockID);
 
     StockDTO selectStock(int stockID);
-    
+
     int stockInsert(StockDTO stockDTO);
 }
