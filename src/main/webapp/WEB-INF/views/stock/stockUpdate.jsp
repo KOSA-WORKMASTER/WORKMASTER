@@ -1,4 +1,4 @@
-<%-- <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %> --%>
+<%-- <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>--%>
 
 <!-- <nav> -->
 <!--     <div class="nav-container"> -->
@@ -15,16 +15,14 @@
 <!--     </div> -->
 <!-- </nav> -->
 
-
-<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 
 <link href="${pageContext.request.contextPath}/css/stockInsert.css"
-	rel="stylesheet" type="text/css">
+      rel="stylesheet" type="text/css">
 <script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/productInsert.js" defer></script>
+        src="${pageContext.request.contextPath}/js/productInsert.js" defer></script>
 
 <nav>nav</nav>
-
 
 <main>
     <h1 class="mt-4">재고 정보 수정</h1>
@@ -49,7 +47,8 @@
                 <td>
                     <div class="input-container">
                         <div class="input-group">
-                            <input type="text" class="form-control" id="stockName" name="stockName" value="${stockDTO.getStockName()}"
+                            <input type="text" class="form-control" id="stockName" name="stockName"
+                                   value="${stockDTO.getStockName()}"
                                    readonly>
                         </div>
                     </div>

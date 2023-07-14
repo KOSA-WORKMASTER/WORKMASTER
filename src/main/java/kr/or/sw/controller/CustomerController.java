@@ -1,7 +1,5 @@
 package kr.or.sw.controller;
 
-import kr.or.sw.service.AuthService;
-import kr.or.sw.service.AuthServiceImpl;
 import kr.or.sw.service.CustomerService;
 import kr.or.sw.service.CustomerServiceImpl;
 import lombok.extern.slf4j.Slf4j;
@@ -36,10 +34,8 @@ public class CustomerController extends HttpServlet {
                 log.info("/home");
                 request.getRequestDispatcher(VIEW_PATH + "customer.jsp").forward(request, response);
             }
-
             default -> handleInvalidAccess(request, response);
         }
-
     }
 
     @Override

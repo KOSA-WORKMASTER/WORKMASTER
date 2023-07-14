@@ -9,8 +9,6 @@ import lombok.extern.slf4j.Slf4j;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -59,7 +57,7 @@ public class StockServiceImpl implements StockService {
     @Override
     public boolean delete(HttpServletRequest request, HttpServletResponse response) {
         log.info("delete()");
-        
+
         int stockID = Integer.parseInt(request.getParameter("stockID"));
         return stockDAO.deleteStock(stockID) == 1;
     }
@@ -67,12 +65,12 @@ public class StockServiceImpl implements StockService {
     @Override
     public boolean update(HttpServletRequest request, HttpServletResponse response) {
         log.info("update()");
-        
+
         int stockID = Integer.parseInt(request.getParameter("stockID"));
         int amount = Integer.parseInt(request.getParameter("amount"));
         int unitPrice = Integer.parseInt(request.getParameter("unitPrice"));
-        
-        
+
+
         StockDTO stockDTO = new StockDTO(stockID, amount, unitPrice);
         return stockDAO.updateStock(stockDTO) == 1;
     }

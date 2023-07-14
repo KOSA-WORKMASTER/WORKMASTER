@@ -1,6 +1,5 @@
 package kr.or.sw.controller;
 
-import kr.or.sw.mapper.AuthDAO;
 import kr.or.sw.service.AuthService;
 import kr.or.sw.service.AuthServiceImpl;
 import lombok.extern.slf4j.Slf4j;
@@ -107,7 +106,6 @@ public class AuthController extends HttpServlet {
     private void handleLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         log.info("handleLogin()");  // 로그인
 
-        String email = request.getParameter("email");
         if (!authService.login(request, response)) {
             log.error("로그인 실패");
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
@@ -118,9 +116,6 @@ public class AuthController extends HttpServlet {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
             request.getSession().setAttribute("startDate", sdf.format(new Date(System.currentTimeMillis())));// 로그인 세션 저장
             response.sendRedirect("/customer/home");
-//            request.setAttribute("redirect", "true");
-//            request.getRequestDispatcher(VIEW_PATH + "customer.jsp").forward(request, response);
-
         }
     }
 }

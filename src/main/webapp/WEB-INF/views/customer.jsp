@@ -3,6 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <title>PC Master</title>
@@ -13,6 +14,7 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js" defer></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/customer.js" defer></script>
 </head>
+
 <body>
 <c:if test="${info eq null}">
     <c:redirect url="/"/>
@@ -118,4 +120,5 @@
     </div>
 </div>
 </body>
+
 </html>
