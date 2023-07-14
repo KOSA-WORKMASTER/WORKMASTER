@@ -52,7 +52,7 @@
                 </div>
             </div>
             <div class="customer-menu-header-search">
-                <input class="search-input form-control" type="text" placeholder="상품명 검색">
+                <input class="search-input form-control" id="search-input" type="text" placeholder="상품명 검색">
                 <img class="search-img"
                      src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
             </div>
