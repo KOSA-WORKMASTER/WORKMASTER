@@ -117,6 +117,26 @@
 
           border-top: 1px solid #ccc;
         }
+
+        .menu-shop-btn-wrapper {
+          position: absolute;
+          background-color: rgba(100, 100, 100, .5);
+
+          height: 24vh;
+          width: 15.20vw;
+          border-radius: 0.2vw;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          &.hide {
+            display: none;
+          }
+          &.show {
+            display: flex;
+          }
+        }
       }
     }
   }
@@ -222,6 +242,31 @@
           justify-content: space-evenly;
 
           margin-bottom: 1vh;
+
+          .customer-info-shopping-count-wrapper {
+            position: fixed;
+            border: 2px solid black;
+            border-radius: 50%;
+            background-color: yellow;
+
+            width: 2vw;
+            height: 2vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1em;
+            font-weight: bold;
+
+            right: 12.25vw;
+            bottom: 15vh;
+
+            &.hide {
+              display: none;
+            }
+            &.show {
+              display: flex;
+            }
+          }
 
           .user-button {
             width: 40%;

@@ -1,6 +1,9 @@
 var menu;
 var menuMaps = new Map();
 var menuOrderMaps = new Map();
+var shoppingList = new Map();
+// (menu상의 index, 갯수) 쌍으로 데이터를 이루고 있음
+var shoppingCount = 0;
 var root = new Trie();
 
 function throttle(callback, delay) {
@@ -114,49 +117,92 @@ Trie.prototype.find = (self, key, stringIdx) => {
 // }
 // 일대다 매칭이라 작성했다가
 // 다시 생각해보니 Trie만으로도 가능해서 사용안함
+const addEventListenerOnMenu = () => {
+    $(".customer-menu").each((idx, element) => {
+        $(element).mouseenter(() => {
+            $(`.menu-shop-btn-wrapper:eq(${idx})`).removeClass("hide");
+            $(`.menu-shop-btn-wrapper:eq(${idx})`).addClass("show");
+        });
+        $(element).mouseleave(() => {
+            $(`.menu-shop-btn-wrapper:eq(${idx})`).removeClass("show");
+            $(`.menu-shop-btn-wrapper:eq(${idx})`).addClass("hide");
+        });
+    });
+}
+const addEventListenerOnShoppingButton = (list) => {
+    console.log(list);
+    $(".shopping-btn").each((idx, element) => {
+        $(element).click(() => {
+            if (!shoppingCount) {
+                $(".customer-info-shopping-count-wrapper").removeClass("hide");
+                $(".customer-info-shopping-count-wrapper").addClass("show");
+            }
+            shoppingCount++;
+            if(!shoppingList.has(list[idx])) shoppingList.set(list[idx], 0);
+            shoppingList.set(list[idx], shoppingList.get(list[idx]) + 1);
+            $(".customer-info-shopping-count-text").text(shoppingCount);
+
+            console.log(shoppingList);
+        });
+    });
+}
+
 const showAllMenu = () => {
     let htmls = "";
     menu.forEach((m) => {
         htmls += '<div class="customer-menu">';
         htmls += `<img class="menu-img" alt="상품" src="${m.image.relPath}">`;
         htmls += '<div class="menu-info-container">';
-        htmls += `<div class="menu-name">${m.productName}</div>\n`;
-        htmls += `<div class="menu-price">${m.price}원</div>\n`;
-        htmls += '</div>\n';
-        htmls += '</div>\n';
+        htmls += `<div class="menu-name">${m.productName}</div>`;
+        htmls += `<div class="menu-price">${m.price}원</div>`;
+        htmls += '</div>';
+        htmls += '<div class="menu-shop-btn-wrapper hide">';
+        htmls += '<button class="shopping-btn btn btn-warning">담기</button>';
+        htmls += '</div>';
+        htmls += '</div>';
     });
     $(".customer-menu-body-container").html(htmls);
-
-
+    addEventListenerOnMenu();
+    addEventListenerOnShoppingButton(Array.from(Array(menu.length).keys()));
 }
 const showCategoryMenu = (category) => {
     let htmls = "";
     if (menuMaps.has(category)) {
         menuMaps.get(category).forEach(idx => {
             htmls += '<div class="customer-menu">';
-            htmls += `<img class="menu-img" alt="상품" src="\\${menu[idx].image.uploadPath}">`;
+            htmls += `<img class="menu-img" alt="상품" src="${menu[idx].image.relPath}">`;
             htmls += '<div class="menu-info-container">';
-            htmls += `<div class="menu-name">${menu[idx].productName}</div>\n`;
-            htmls += `<div class="menu-price">${menu[idx].price}원</div>\n`;
-            htmls += '</div>\n';
-            htmls += '</div>\n';
+            htmls += `<div class="menu-name">${menu[idx].productName}</div>`;
+            htmls += `<div class="menu-price">${menu[idx].price}원</div>`;
+            htmls += '</div>';
+            htmls += '<div class="menu-shop-btn-wrapper hide">';
+            htmls += '<button class="shopping-btn btn btn-warning">담기</button>';
+            htmls += '</div>';
+            htmls += '</div>';
         });
     }
     $(".customer-menu-body-container").html(htmls);
+    addEventListenerOnMenu();
+    addEventListenerOnShoppingButton(menuMaps.get(category));
 }
 
 const showListMenu = (list) => {
     let htmls = "";
     list.forEach(idx => {
         htmls += '<div class="customer-menu">';
-        htmls += `<img class="menu-img" alt="상품" src="\\${menu[idx].image.uploadPath}">`;
+        htmls += `<img class="menu-img" alt="상품" src="${menu[idx].image.relPath}">`;
         htmls += '<div class="menu-info-container">';
-        htmls += `<div class="menu-name">${menu[idx].productName}</div>\n`;
-        htmls += `<div class="menu-price">${menu[idx].price}원</div>\n`;
-        htmls += '</div>\n';
-        htmls += '</div>\n';
+        htmls += `<div class="menu-name">${menu[idx].productName}</div>`;
+        htmls += `<div class="menu-price">${menu[idx].price}원</div>`;
+        htmls += '</div>';
+        htmls += '<div class="menu-shop-btn-wrapper hide">';
+        htmls += '<button class="shopping-btn btn btn-warning">담기</button>';
+        htmls += '</div>';
+        htmls += '</div>';
     });
     $(".customer-menu-body-container").html(htmls);
+    addEventListenerOnMenu();
+    addEventListenerOnShoppingButton(Array.from(list));
 }
 
 $('.customer-menu-header-category').each((i, e) => {
@@ -200,6 +246,7 @@ window.onload = () => {
             })
 
             menu = res;
+            console.log(res);
             res.forEach((m, idx) => {
                 if (!menuMaps.has(m.category)) menuMaps.set(m.category, []);
                 menuMaps.get(m.category).push(idx);
@@ -209,9 +256,9 @@ window.onload = () => {
             });
 
             // makeFailure(root);
-            // console.log(root)
             showAllMenu();
         },
     });
 }
+
 
